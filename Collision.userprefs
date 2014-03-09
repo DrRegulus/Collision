@@ -1,16 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameOver.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ExampleScripts\BackgroundParallax.cs">
     <Files>
-      <File FileName="Assets\Scripts\KillZone.cs" Line="10" Column="16" />
-      <File FileName="Assets\Scripts\PowerSwitch.cs" Line="26" Column="3" />
-      <File FileName="Assets\Scripts\MainMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AliverController.cs" Line="30" Column="1" />
-      <File FileName="Assets\Scripts\GameOver.cs" Line="24" Column="27" />
+      <File FileName="Assets\Scripts\ExampleScripts\BackgroundParallax.cs" Line="19" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="..\..\Collision\Assets\Scripts\AliverController.cs" line="32" offsetX="805" offsetY="527" expression="whatIsGround" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>
