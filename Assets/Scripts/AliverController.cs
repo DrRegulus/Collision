@@ -28,8 +28,8 @@ public class AliverController : MonoBehaviour {
 
 		if (grounded && Input.GetButtonDown ("Jump"))
 		{
-			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			transform.parent = null;
+			rigidbody2D.AddForce(new Vector2(0, jumpForce));
 		}
 	}
 
