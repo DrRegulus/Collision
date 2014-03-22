@@ -224,6 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: -.5
+  checkRotationSpeed: 0
+  checkPosition: {x: 0, y: 0, z: 0}
+  checkRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!61 &62281700
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -497,8 +500,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 81abecc8b24b83e428fd0091d842ea6c, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 2.4000001, y: 1}
-  m_Center: {x: 0, y: .100000001}
+  m_Size: {x: 2.4000001, y: .400000006}
+  m_Center: {x: 0, y: .5}
 --- !u!114 &158232410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a17aedfe02b0e4f9d31c307d62fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &158232411
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1169,6 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a17aedfe02b0e4f9d31c307d62fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &348786597
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1527,6 +1532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a17aedfe02b0e4f9d31c307d62fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &454552736
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1613,6 +1619,10 @@ Prefab:
     - target: {fileID: 400002, guid: 318c8d2800ccc694d941f6cb797ef59e, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 318c8d2800ccc694d941f6cb797ef59e, type: 2}
+      propertyPath: m_Name
+      value: Aliver1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 318c8d2800ccc694d941f6cb797ef59e, type: 2}
@@ -2059,6 +2069,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  checkState: 0
+  elapsed: 0
+  checkElapsed: 0
 --- !u!50 &680310643
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2812,6 +2825,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsDelayed: 2
+  delayElapsed: 0
+  checkDelayElapsed: 0
+  deactivateElapsed: 0
+  checkDeactivateElapsed: 0
+  doneDelay: 0
+  checkState: 0
+  checkDoneDelay: 0
   anim: {fileID: 0}
 --- !u!50 &757272691
 Rigidbody2D:
@@ -3656,8 +3676,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 81abecc8b24b83e428fd0091d842ea6c, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 2.4000001, y: 1}
-  m_Center: {x: 0, y: .100000001}
+  m_Size: {x: 2.4000001, y: .400000006}
+  m_Center: {x: 0, y: .5}
 --- !u!114 &1093984942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3670,6 +3690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a17aedfe02b0e4f9d31c307d62fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &1093984943
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3766,6 +3787,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  checkState: 0
+  elapsed: 0
+  checkElapsed: 0
 --- !u!50 &1106924116
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -4058,8 +4082,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
+  checkPowered: 0
   moveDir: 1
+  checkMovDir: 1
   moveSpeed: .100000001
+  checkMoveSpeed: .100000001
   leftBorder: {fileID: 225575287}
   rightBorder: {fileID: 1035832977}
   leftEdge: {fileID: 351855500}
@@ -4604,6 +4631,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: .5
+  checkRotationSpeed: 0
+  checkPosition: {x: 0, y: 0, z: 0}
+  checkRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!61 &1399168194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4900,6 +4930,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: -.5
+  checkRotationSpeed: 0
+  checkPosition: {x: 0, y: 0, z: 0}
+  checkRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!61 &1472998889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5148,6 +5181,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  checkState: 0
+  elapsed: 0
+  checkElapsed: 0
 --- !u!50 &1484461745
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -5247,6 +5283,10 @@ MonoBehaviour:
   powered: 0
   moveDir: 1
   moveSpeed: .0500000007
+  checkPowered: 0
+  checkMoveDir: -1
+  checkMoveSpeed: .0500000007
+  CheckPointPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &1520784816
 Prefab:
   m_ObjectHideFlags: 0
@@ -5359,6 +5399,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsDelayed: 2
+  delayElapsed: 0
+  checkDelayElapsed: 0
+  deactivateElapsed: 0
+  checkDeactivateElapsed: 0
+  doneDelay: 0
+  checkState: 0
+  checkDoneDelay: 0
   anim: {fileID: 0}
 --- !u!50 &1528718491
 Rigidbody2D:
@@ -5756,6 +5803,10 @@ MonoBehaviour:
   powered: 0
   moveDir: -1
   moveSpeed: .0500000007
+  checkPowered: 0
+  checkMoveDir: -1
+  checkMoveSpeed: .0500000007
+  CheckPointPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1677575615
 GameObject:
   m_ObjectHideFlags: 0
@@ -5920,6 +5971,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  checkState: 0
+  elapsed: 0
+  checkElapsed: 0
 --- !u!50 &1690545197
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -6130,7 +6184,7 @@ GameObject:
   - 114: {fileID: 1758577745}
   - 95: {fileID: 1758577744}
   m_Layer: 9
-  m_Name: Aliver2
+  m_Name: Aliver1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6172,6 +6226,10 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294966783
+  CheckPointPosition: {x: 0, y: 0, z: 0}
+  checkVelocity: {x: 0, y: 0}
+  checkDirection: 0
+  checkGrounded: 0
 --- !u!50 &1758577746
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -6625,8 +6683,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
+  checkPowered: 0
   moveDir: 1
+  checkMovDir: 1
   moveSpeed: .100000001
+  checkMoveSpeed: .100000001
   leftBorder: {fileID: 430385499}
   rightBorder: {fileID: 621346215}
   leftEdge: {fileID: 36473766}
@@ -6818,6 +6879,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsDelayed: 2
+  delayElapsed: 0
+  checkDelayElapsed: 0
+  deactivateElapsed: 0
+  checkDeactivateElapsed: 0
+  doneDelay: 0
+  checkState: 0
+  checkDoneDelay: 0
   anim: {fileID: 0}
 --- !u!50 &1904452051
 Rigidbody2D:
@@ -6932,8 +7000,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
+  checkPowered: 0
   moveDir: 1
+  checkMovDir: 1
   moveSpeed: .100000001
+  checkMoveSpeed: .100000001
   leftBorder: {fileID: 822601335}
   rightBorder: {fileID: 1788736552}
   leftEdge: {fileID: 1949978531}
@@ -7322,6 +7393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a17aedfe02b0e4f9d31c307d62fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkPosition: {x: 0, y: 0, z: 0}
 --- !u!50 &2077454162
 Rigidbody2D:
   m_ObjectHideFlags: 0
