@@ -74,7 +74,7 @@ public class Elevator : MonoBehaviour {
 		checkMoveDir = moveDir;
 		checkMoveSpeed = moveSpeed;
 		
-		CheckPointPosition = new Vector3(elevator.position.x, elevator.position.y, elevator.position.z);
+		CheckPointPosition = elevator.position;
 	}
 	
 	public void ResetToCheckPoint(){

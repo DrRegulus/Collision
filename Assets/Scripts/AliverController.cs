@@ -7,6 +7,7 @@ public class AliverController : MonoBehaviour {
 	public Animator anim;
 	private Transform background;
 
+	public int lives = 3;
 	public float ParallaxFactor = 1f;
 	public float maxSpeed = 10f;
 
@@ -43,19 +44,20 @@ public class AliverController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 		lastPos = transform.position;
 		background = transform.FindChild ("Background");
 
 		CheckPoint += new CheckPointEventHandler(CheckPointReached);
 		Reset += new ResetEventHandler(ResetToCheckPoint);
+
+		CheckPoint (this, EventArgs.Empty);
 	}
 
 
 	public void CheckPointReached(object sender, EventArgs e){
 
-		CheckPointPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-		checkVelocity = new Vector3(rigidbody2D.velocity.x, rigidbody2D.velocity.y);
+		CheckPointPosition = transform.position;
+		checkVelocity = rigidbody2D.velocity;
 
 		checkGrounded = grounded;
 		checkDirection = rigidbody2D.velocity.x;

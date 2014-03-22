@@ -37,8 +37,8 @@ public class Rotator : MonoBehaviour {
 		
 		checkRotationSpeed = rotationSpeed;
 
-		checkPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-		checkRotation = new Quaternion(transform.rotation.x, transform.rotation.y, transform.rotation.z, transform.rotation.w);
+		checkPosition = transform.position;
+		checkRotation = transform.rotation;
 	}
 	
 	public void ResetToCheckPoint(object sender, EventArgs e){

@@ -31,7 +31,7 @@ public class MovingPlatform : MonoBehaviour {
 
 	public void CheckPointReached(object sender, EventArgs e){
 		
-		checkPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+		checkPosition = transform.position;
 		
 	}
 	
