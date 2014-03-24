@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\AliverController.cs" />
+     <Compile Include="Assets\Scripts\AttackHandler.cs" />
      <Compile Include="Assets\Scripts\BoardShip.cs" />
      <Compile Include="Assets\Scripts\DummyBot.cs" />
      <Compile Include="Assets\Scripts\Elevator.cs" />
@@ -80,6 +81,8 @@
      <Compile Include="Assets\Scripts\PowerSwitch.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\SteamValve.cs" />
+     <Compile Include="Assets\Scripts\pyochang.cs" />
+     <Compile Include="Assets\Scripts\swordAttack.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

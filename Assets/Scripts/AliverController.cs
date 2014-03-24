@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 
@@ -21,6 +21,7 @@ public class AliverController : MonoBehaviour {
 	public Vector2 checkVelocity;
 	public float checkDirection;
 	public bool checkGrounded;
+	public bool facingRight = true;
 
 	public event CheckPointEventHandler CheckPoint;
 	public event ResetEventHandler Reset;
@@ -49,7 +50,7 @@ public class AliverController : MonoBehaviour {
 
 		CheckPoint += new CheckPointEventHandler(CheckPointReached);
 		Reset += new ResetEventHandler(ResetToCheckPoint);
-
+		facingRight = true;
 		CheckPoint (this, EventArgs.Empty);
 	}
 
@@ -86,14 +87,13 @@ public class AliverController : MonoBehaviour {
 			OnCheckPoint(EventArgs.Empty);
 
 		}
-
-
-		if(Input.GetButtonDown("Reset")){
-
-			OnReset(EventArgs.Empty);
-
+		float move = Input.GetAxis ("Horizontal");
+		if (move > 0) {
+			facingRight = true;
+		} 
+		if (move < 0) {
+			facingRight = false;
 		}
-
 
 		if (grounded && Input.GetButtonDown ("Jump"))
 		{

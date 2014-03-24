@@ -5,6 +5,7 @@ TagManager:
   tags:
   - ground
   - maglev
+  - attackHandler
   - 
   - 
   - 
@@ -12,6 +13,7 @@ TagManager:
   - 
   - 
   - 
+  - weapon
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

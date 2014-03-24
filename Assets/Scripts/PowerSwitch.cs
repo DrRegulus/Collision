@@ -35,7 +35,7 @@ public class PowerSwitch : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		
+		if(col.tag != "weapon"){
 		if(!anim.GetBool("Power")){
 			
 			delay.Stop();
@@ -47,7 +47,7 @@ public class PowerSwitch : MonoBehaviour {
 		}
 		
 		anim.SetBool ("Power", true);
-
+		}
 	}
 
 	void FixedUpdate()
