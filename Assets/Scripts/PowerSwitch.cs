@@ -35,18 +35,18 @@ public class PowerSwitch : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.tag != "weapon"){
-		if(!anim.GetBool("Power")){
-			
-			delay.Stop();
-			delay.Reset();
-			delay.Start();
-			doneDelay = false;
+		if(col.tag == "weapon"){
+			if(!anim.GetBool("Power")){
+				
+				delay.Stop();
+				delay.Reset();
+				delay.Start();
+				doneDelay = false;
 
-			delayElapsed = 0;
-		}
+				delayElapsed = 0;
+			}
 		
-		anim.SetBool ("Power", true);
+			anim.SetBool ("Power", true);
 		}
 	}
 

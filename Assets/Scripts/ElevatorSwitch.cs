@@ -27,18 +27,19 @@ public class ElevatorSwitch : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(!anim.GetBool("Power")){
-			
-			t.Stop();
-			t.Reset();
-			t.Start();
-			
-			elapsed = 0;
+		if (col.tag == "weapon" || col.tag == "Player") {
+			if (!anim.GetBool ("Power")) {
+
+					t.Stop ();
+					t.Reset ();
+					t.Start ();
+
+					elapsed = 0;
+			}
+
+			anim.SetBool ("Power", true);
+			transform.parent.parent.GetComponent<Elevator> ().Activate ();
 		}
-		
-		anim.SetBool ("Power", true);
-		transform.parent.parent.GetComponent<Elevator> ().Activate ();
-		
 	}
 	
 	

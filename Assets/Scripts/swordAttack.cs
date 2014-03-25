@@ -41,6 +41,7 @@ public class swordAttack : MonoBehaviour {
 			boxCol.enabled = false;		
 		}
 	}
+
 	void OnTriggerEnter2D (Collider2D col) 
 	{
 		if (col.tag == "Enemy") {

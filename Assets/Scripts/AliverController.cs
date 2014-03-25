@@ -32,16 +32,6 @@ public class AliverController : MonoBehaviour {
 	public delegate void CheckPointEventHandler(object sender, EventArgs e);
 	public delegate void ResetEventHandler(object sender, EventArgs e);
 
-	protected virtual void OnCheckPoint(EventArgs e) 
-	{
-		CheckPoint(this, e);
-	}
-
-	protected virtual void OnReset(EventArgs e) 
-	{
-		Reset(this, e);
-	}
-
 
 	// Use this for initialization
 	void Start () {
@@ -84,9 +74,15 @@ public class AliverController : MonoBehaviour {
 	
 		if(Input.GetButtonDown("CheckPoint")){
 	
-			OnCheckPoint(EventArgs.Empty);
+			CheckPoint(this, EventArgs.Empty);
 
 		}
+
+		if (Input.GetButtonDown ("Reset"))
+		{
+			Reset(this, EventArgs.Empty);
+		}
+
 		float move = Input.GetAxis ("Horizontal");
 		if (move > 0) {
 			facingRight = true;
@@ -98,12 +94,13 @@ public class AliverController : MonoBehaviour {
 		if (grounded && Input.GetButtonDown ("Jump"))
 		{
 			rigidbody2D.AddForce(new Vector2(0, jumpForce));
-			transform.parent = null;
 		}
 	}
 
 
 	void FixedUpdate() {
+		if (!grounded)
+			transform.parent = null;
 
 		anim.SetBool ("Grounded", grounded);
 		anim.SetFloat ("vSpeed", rigidbody2D.velocity.x);

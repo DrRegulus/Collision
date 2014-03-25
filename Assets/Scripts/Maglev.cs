@@ -41,6 +41,9 @@ public class Maglev : MonoBehaviour {
 			    || (moveDir < 0 && leftBorder.position.x <= leftEdge.position.x)) {
 				moveDir *= -1;
 				powered = false;
+				Transform Aliver = transform.FindChild("Aliver1");
+				if(Aliver != null)
+					Aliver.parent = null;
 			}
 		}
 	}
