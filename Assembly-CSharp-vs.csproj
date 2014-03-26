@@ -81,6 +81,7 @@
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\PowerSwitch.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
+     <Compile Include="Assets\Scripts\SetCheckpoint.cs" />
      <Compile Include="Assets\Scripts\SteamValve.cs" />
      <Compile Include="Assets\Scripts\pyochang.cs" />
      <Compile Include="Assets\Scripts\swordAttack.cs" />
