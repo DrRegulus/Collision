@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\ExampleScripts\SetParticleSortingLayer.cs" />
      <Compile Include="Assets\Scripts\ExampleScripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
+     <Compile Include="Assets\Scripts\GetBackground.cs" />
      <Compile Include="Assets\Scripts\KillZone.cs" />
      <Compile Include="Assets\Scripts\Maglev.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />

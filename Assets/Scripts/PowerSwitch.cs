@@ -18,7 +18,7 @@ public class PowerSwitch : MonoBehaviour {
 		anim = GetComponent<Animator>();
 
 		//set up event handlers for CheckPoints and Resets
-		AliverController aliver = GameObject.Find("Aliver1").GetComponent<AliverController>();
+		AliverController aliver = GameObject.Find("Aliver").GetComponent<AliverController>();
 		aliver.CheckPoint += new AliverController.CheckPointEventHandler(CheckPointReached);
 		aliver.Reset += new AliverController.ResetEventHandler(ResetToCheckPoint);
 

@@ -20,7 +20,7 @@ public class Maglev : MonoBehaviour {
 		maglev = transform.FindChild("platform_block").rigidbody2D;
 
 		//set up event handlers for CheckPoints and Resets
-		AliverController aliver = GameObject.Find("Aliver1").GetComponent<AliverController>();
+		AliverController aliver = GameObject.Find("Aliver").GetComponent<AliverController>();
 		aliver.CheckPoint += new AliverController.CheckPointEventHandler(CheckPointReached);
 		aliver.Reset += new AliverController.ResetEventHandler(ResetToCheckPoint);
 
@@ -41,7 +41,7 @@ public class Maglev : MonoBehaviour {
 			    || (moveDir < 0 && leftBorder.position.x <= leftEdge.position.x)) {
 				moveDir *= -1;
 				powered = false;
-				Transform Aliver = transform.FindChild("Aliver1");
+				Transform Aliver = transform.FindChild("Aliver");
 				if(Aliver != null)
 					Aliver.parent = null;
 			}
