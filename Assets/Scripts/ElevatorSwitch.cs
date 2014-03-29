@@ -13,8 +13,6 @@ public class ElevatorSwitch : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		anim = GetComponent<Animator>();
-		
 		AliverController aliver = GameObject.Find("Aliver").GetComponent<AliverController>();
 		aliver.CheckPoint += new AliverController.CheckPointEventHandler(CheckPointReached);
 		aliver.Reset += new AliverController.ResetEventHandler(ResetToCheckPoint);
@@ -27,7 +25,7 @@ public class ElevatorSwitch : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.tag == "weapon" || col.tag == "Player") {
+		if (col.tag == "weapon") {
 			if (!anim.GetBool ("Power")) {
 
 					t.Stop ();

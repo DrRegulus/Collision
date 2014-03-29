@@ -8,15 +8,10 @@ public class PowerSwitch : MonoBehaviour {
 	public int secondsDelayed = 3, delayElapsed, checkDelayElapsed, deactivateElapsed, checkDeactivateElapsed;
 	public bool doneDelay, checkState, checkDoneDelay;
 	public Stopwatch delay = new Stopwatch(), deactivate = new Stopwatch();
-
-
-
 	public Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		anim = GetComponent<Animator>();
-
 		//set up event handlers for CheckPoints and Resets
 		AliverController aliver = GameObject.Find("Aliver").GetComponent<AliverController>();
 		aliver.CheckPoint += new AliverController.CheckPointEventHandler(CheckPointReached);

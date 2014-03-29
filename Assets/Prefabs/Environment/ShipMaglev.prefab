@@ -243,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 142, y: -1, z: 0}
+  m_LocalPosition: {x: 142, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -553,7 +553,7 @@ MonoBehaviour:
   doneDelay: 0
   checkState: 0
   checkDoneDelay: 0
-  anim: {fileID: 0}
+  anim: {fileID: 9500004}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

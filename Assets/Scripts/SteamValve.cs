@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class SteamValve : MonoBehaviour {
-	
+
+	private bool locked = false;
+	public bool debug = false;
 	//public Animator valveAnim;
 	//public Animator steamAnim;
 	
@@ -11,18 +13,31 @@ public class SteamValve : MonoBehaviour {
 		//valveAnim = GetComponent<Animator>();
 		//steamAnim = transform.parent.GetComponentInChildren<Animator> ();
 	}
+
+	void Update()
+	{
+		if(!locked && debug)
+		{
+			StartCoroutine (TurnValveCoRoutine ());
+			locked = true;
+		}
+	}
 	
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		//valveAnim.SetBool ("Turning", true);
-		//steamAnim.SetBool ("On", true);
-		StartCoroutine (TurnValveCoRoutine ());
+		if(!locked)
+		{
+			//valveAnim.SetBool ("Turning", true);
+			//steamAnim.SetBool ("On", true);
+			StartCoroutine (TurnValveCoRoutine ());
+			locked = true;
+		}
 	}
 	
 	IEnumerator TurnValveCoRoutine()
 	{
-		yield return new WaitForSeconds (2);
-		transform.parent.collider2D.enabled = false;
+		yield return new WaitForSeconds (1);
+		Destroy (transform.parent.FindChild ("Steam").gameObject);
 		//valveAnim.SetBool ("Turning", false);
 		//steamAnim.SetBool ("Off", false);
 	}

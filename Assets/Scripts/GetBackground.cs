@@ -6,11 +6,11 @@ public class GetBackground : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SpriteRenderer sr = GetComponent<SpriteRenderer> ();
-		Sprite spr = Resources.LoadAssetAtPath<Sprite>("Assets/Sprites/_Environment/Backgrounds/background_level" + Application.loadedLevel + ".png");
+		Sprite spr = Resources.Load<Sprite>("Backgrounds/background_level" + Application.loadedLevel);
 
 		if (spr == null)
 		{
-			spr = Resources.LoadAssetAtPath<Sprite>("Assets/Sprites/_Environment/Backgrounds/debugDefault.png");
+			spr = Resources.Load<Sprite>("Backgrounds/debugDefault");
 		}
 
 		sr.sprite = spr;
