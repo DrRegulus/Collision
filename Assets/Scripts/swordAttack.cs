@@ -30,7 +30,7 @@ public class swordAttack : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.GetKeyDown(KeyCode.Z))
+		if(Input.GetKeyDown(KeyCode.Mouse0))
 		{
 			sprRenderer = (SpriteRenderer)renderer;
 			boxCol = (BoxCollider2D)collider2D;
