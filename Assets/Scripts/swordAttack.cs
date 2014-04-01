@@ -69,7 +69,7 @@ public class swordAttack : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D col) 
 	{
 		if (col.tag == "Enemy") {
-			col.gameObject.GetComponent<Enemy> ().Hurt ();
+			//col.gameObject.GetComponent<Enemy> ().Hurt ();
 		}
 	}
 

@@ -55,7 +55,7 @@ Transition:
   m_TransitionDuration: .25
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: Collided
     m_EventTreshold: 0
     m_ExitTime: .75
@@ -158,17 +158,14 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110288901}
+      first: {fileID: 0}
       second: []
     data:
       first: {fileID: 110273625}
       second:
       - {fileID: 110121432}
     data:
-      first: {fileID: 0}
-      second: []
-    data:
-      first: {fileID: 0}
+      first: {fileID: 110288901}
       second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -132, y: -240, z: 0}

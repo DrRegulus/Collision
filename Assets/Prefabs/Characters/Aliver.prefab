@@ -54,22 +54,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &100006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 400006}
-  - 114: {fileID: 11400002}
-  m_Layer: 0
-  m_Name: AttackHandler
-  m_TagString: weapon
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &100008
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +73,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100010
 GameObject:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -99,7 +83,7 @@ GameObject:
   - 212: {fileID: 21200004}
   - 61: {fileID: 6100002}
   m_Layer: 0
-  m_Name: swordHandler
+  m_Name: Sword
   m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,23 +121,11 @@ Transform:
   m_LocalPosition: {x: -152, y: -5.42647743, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
-  - {fileID: 400006}
   - {fileID: 400002}
   - {fileID: 400000}
   - {fileID: 400008}
-  m_Father: {fileID: 0}
---- !u!4 &400006
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .663169861, y: .563169003, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
   - {fileID: 400010}
-  m_Father: {fileID: 400004}
+  m_Father: {fileID: 0}
 --- !u!4 &400008
 Transform:
   m_ObjectHideFlags: 1
@@ -172,10 +144,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .300000012, z: 0}
   m_LocalScale: {x: .25, y: .25, z: 1}
   m_Children: []
-  m_Father: {fileID: 400006}
+  m_Father: {fileID: 400004}
 --- !u!20 &2000000
 Camera:
   m_ObjectHideFlags: 1
@@ -285,6 +257,10 @@ MonoBehaviour:
   lives: 3
   ParallaxFactor: .0599999987
   maxSpeed: 10
+  throwW: {fileID: 11400000, guid: c6ed0f243592b824a835e7110151583e, type: 2}
+  coolDown: 3
+  RightArm: {fileID: 100000, guid: 1727116cecec3f24d9f364e2cd971202, type: 2}
+  LeftArm: {fileID: 100000, guid: d21b819161202d34d89cf5eb9644ba7f, type: 2}
   grounded: 1
   groundCheck: {fileID: 400002}
   jumpForce: 1000
@@ -296,20 +272,6 @@ MonoBehaviour:
   checkDirection: 0
   checkGrounded: 0
   facingRight: 0
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2927a8e447b105640a92d2239b098e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwW: {fileID: 11400002, guid: 9875e19d7d828704d9285482d4ec5576, type: 2}
-  speed: 20
-  coolDown: 3
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

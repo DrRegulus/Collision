@@ -11,6 +11,13 @@ public class AliverController : MonoBehaviour {
 	public float ParallaxFactor = 1f;
 	public float maxSpeed = 10f;
 
+	public ThrowableWeapon throwW;			//projectile weapon
+	public float coolDown = 3.0f;			//able to shoot after 3 sec
+	private float lastTime = 0.0f;
+
+	public GameObject RightArm;
+	public GameObject LeftArm;
+
 	public bool grounded = true;
 	public Transform groundCheck;
 	public float jumpForce = 1000f;
@@ -35,16 +42,19 @@ public class AliverController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (anim == null)
+			anim = GetComponent<Animator> ();
+
 		lastPos = transform.position;
 		background = transform.FindChild ("Background");
 
 		CheckPoint += new CheckPointEventHandler(CheckPointReached);
 		Reset += new ResetEventHandler(ResetToCheckPoint);
 		facingRight = true;
-		CheckPoint (this, EventArgs.Empty);
+		//CheckPoint (this, EventArgs.Empty);
 	}
 
-
+	//Set a new checkpoint
 	public void CheckPointReached(object sender, EventArgs e){
 
 		CheckPointPosition = transform.position;
@@ -55,13 +65,14 @@ public class AliverController : MonoBehaviour {
 
 	}
 
+	//Revert to last checkpoint
 	public void ResetToCheckPoint(object sender, EventArgs e){
 				
 		transform.position = CheckPointPosition;
 		rigidbody2D.velocity = checkVelocity;
 
 		anim.SetBool ("Grounded", checkGrounded);
-		anim.SetFloat ("vSpeed", checkDirection);
+		anim.SetFloat ("hSpeed", checkDirection);
 
 		grounded = checkGrounded;
 
@@ -71,18 +82,20 @@ public class AliverController : MonoBehaviour {
 	void Update () {
 		grounded = Physics2D.Linecast (transform.position, groundCheck.position, whatIsGround);
 
-	
+		//Set a new checkpoint DEBUG ONLY
 		if(Input.GetButtonDown("CheckPoint")){
 	
 			CheckPoint(this, EventArgs.Empty);
 
 		}
 
+		//Reset to checkpoint DEBUG ONLY
 		if (Input.GetButtonDown ("Reset"))
 		{
 			Reset(this, EventArgs.Empty);
 		}
 
+		//Get movement input
 		float move = Input.GetAxis ("Horizontal");
 		if (move > 0) {
 			facingRight = true;
@@ -91,33 +104,79 @@ public class AliverController : MonoBehaviour {
 			facingRight = false;
 		}
 
-		if (grounded && Input.GetButtonDown ("Jump"))
+		//Ignore jumps and attacks while not grounded
+		if (grounded)
 		{
-			rigidbody2D.AddForce(new Vector2(0, jumpForce));
+			//Jump
+			if(Input.GetButtonDown ("Jump"))
+			{
+				rigidbody2D.AddForce(new Vector2(0, jumpForce));
+			}
+
+			/*Melee attack
+			if(Input.GetKeyDown(KeyCode.Mouse0))
+			{
+
+			}*/
+
+			//Shoot attack
+			if(Input.GetKeyDown(KeyCode.Mouse1))
+			{
+				if(Time.time - lastTime > coolDown || lastTime == 0)
+				{
+					//Set arm rotation to match projectile
+					Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+					GameObject arm;
+
+					if(aim.x > 0)
+					{
+						anim.Play("ShootRight");
+						arm = Instantiate(RightArm, transform.position + new Vector3(.4f, 1.2f , 0), Quaternion.Euler (aim)) as GameObject;
+					}
+					else
+					{
+						anim.Play("ShootLeft");
+						arm = Instantiate(LeftArm, transform.position + new Vector3(-.4f, 1.2f , 0), Quaternion.Euler(aim)) as GameObject;
+					}
+
+					arm.transform.parent = transform;
+					Destroy (arm, .2f);
+
+					Shoot();
+					lastTime = Time.time;
+				}
+			}
 		}
 	}
 
 
 	void FixedUpdate() {
+
+		//Disconnect from parent platform or object
 		if (!grounded)
 			transform.parent = null;
 
+		//Update animation variables
 		anim.SetBool ("Grounded", grounded);
-		anim.SetFloat ("vSpeed", rigidbody2D.velocity.x);
+		anim.SetFloat ("hSpeed", rigidbody2D.velocity.x);
+		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
 
+		//Move character
 		float move = Input.GetAxis ("Horizontal");
 		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
 
+		//Compute distance moved
 		float xDist = transform.position.x - lastPos.x;
 		float yDist = transform.position.y - lastPos.y;
-		
+
+		//Shift background in opposite direction
 		background.Translate(-ParallaxFactor * xDist, -ParallaxFactor * yDist, 0);
 		lastPos = transform.position;
 	}
 
-
-	void OnCollisionExit2D(Collision2D col)
-	{
-		transform.parent = null;
+	//Generate new projectile
+	void Shoot(){
+		//Need to set projectile rotation
+		Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, 0)));
 	}
 }

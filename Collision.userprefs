@@ -1,8 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AttackHandler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AliverController.cs">
     <Files>
-      <File FileName="Assets\Scripts\AttackHandler.cs" Line="45" Column="1" />
+      <File FileName="Assets\Scripts\Projectile.cs" Line="29" Column="51" />
+      <File FileName="Assets\Scripts\AliverController.cs" Line="179" Column="36" />
+      <File FileName="Assets\Scripts\ThrowableWeapon.cs" Line="24" Column="1" />
+      <File FileName="c:\Users\zento_000\Documents\GitHub\Collision\Assets\Scripts\swordAttack.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\zento_000\Documents\GitHub\Collision\Assets\Scripts\DialoguePrompt.cs" Line="27" Column="4" />
+      <File FileName="Assets\Scripts\FixedRotator.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
