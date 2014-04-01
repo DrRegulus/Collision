@@ -5,7 +5,7 @@ using System.Collections;
 public class pyochang : MonoBehaviour {
 
 	public float liveTime = 5;
-
+	public float speed = 5000f;
 	void Awake()
 	{
 		Destroy (gameObject, liveTime);
