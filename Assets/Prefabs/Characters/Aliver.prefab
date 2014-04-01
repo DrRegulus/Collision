@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2927a8e447b105640a92d2239b098e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwW: {fileID: 5000000, guid: 9875e19d7d828704d9285482d4ec5576, type: 2}
+  throwW: {fileID: 11400002, guid: 9875e19d7d828704d9285482d4ec5576, type: 2}
   speed: 20
   coolDown: 3
 --- !u!114 &11400004
