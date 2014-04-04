@@ -29,35 +29,30 @@ public class swordAttack : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+				if (Time.timeScale == 1) {
+						if (Input.GetKeyDown (KeyCode.Mouse0)) {
+								sprRenderer = (SpriteRenderer)renderer;
+								boxCol = (BoxCollider2D)collider2D;
+								if (aliver.rigidbody2D.velocity.x > 0) {
+										boxCol.transform.position.Set (aliver.transform.position.x + 1, aliver.transform.position.y, aliver.transform.position.z);
+								} else {
+										boxCol.transform.position.Set (aliver.transform.position.x - 1, aliver.transform.position.y, aliver.transform.position.z);
+								}
+								sprRenderer.sprite = sword;
+								boxCol.enabled = true;
 
-		if(Input.GetKeyDown(KeyCode.Mouse0))
-		{
-			sprRenderer = (SpriteRenderer)renderer;
-			boxCol = (BoxCollider2D)collider2D;
-			if(aliver.rigidbody2D.velocity.x > 0)
-			{
-				boxCol.transform.position.Set(aliver.transform.position.x + 1, aliver.transform.position.y, aliver.transform.position.z);
-     		}
-			else{
-				boxCol.transform.position.Set(aliver.transform.position.x - 1, aliver.transform.position.y, aliver.transform.position.z);
-			}
-			sprRenderer.sprite = sword;
-			boxCol.enabled = true;
+								if (!timer.IsRunning) {
+										timer.Start ();
+								}
+						}
 
-			if(!timer.IsRunning)
-			{
-				timer.Start();
-			}
+						if (timer.IsRunning && timer.ElapsedMilliseconds > 1000 * animDuration) {
+								timer.Stop ();
+								timer.Reset ();
+								back ();
+						}
+				}
 		}
-
-		if(timer.IsRunning && timer.ElapsedMilliseconds > 1000 * animDuration)
-		{
-			timer.Stop();
-			timer.Reset();
-			back ();
-		}
-	}
-
 	void back()
 	{
 		sprRenderer = (SpriteRenderer)renderer;

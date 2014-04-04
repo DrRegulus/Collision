@@ -83,6 +83,7 @@
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\NPC.cs" />
+     <Compile Include="Assets\Scripts\Pause.cs" />
      <Compile Include="Assets\Scripts\PowerSwitch.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
