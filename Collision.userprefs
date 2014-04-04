@@ -1,12 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AliverController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\pauseManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\AliverController.cs" Line="149" Column="11" />
-      <File FileName="Assets\Scripts\Projectile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AliverController.cs" Line="149" Column="11" />
-      <File FileName="Assets\Scripts\ThrowableWeapon.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\FixedRotator.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\pauseManager.cs" Line="15" Column="4" />
+      <File FileName="Assets\Scripts\AttackHandler.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

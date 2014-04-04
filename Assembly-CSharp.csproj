@@ -90,6 +90,7 @@
      <Compile Include="Assets\Scripts\Steam.cs" />
      <Compile Include="Assets\Scripts\SteamValve.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
+     <Compile Include="Assets\Scripts\pauseManager.cs" />
      <Compile Include="Assets\Scripts\swordAttack.cs" />
      <Compile Include="Assets\Scripts\throwableWeapon.cs" />
   </ItemGroup>
