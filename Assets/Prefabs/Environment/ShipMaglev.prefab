@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!1 &100004
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -169,7 +169,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &100028
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -210,10 +210,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 68.88797, y: -1.55613041, z: 3}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 1.62199211, y: .0609674454, z: 3}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
-  m_Father: {fileID: 400010}
+  m_Father: {fileID: 400020}
 --- !u!4 &400006
 Transform:
   m_ObjectHideFlags: 1
@@ -246,8 +246,6 @@ Transform:
   m_LocalPosition: {x: 142, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 400004}
-  - {fileID: 400028}
   - {fileID: 400012}
   - {fileID: 400016}
   - {fileID: 400022}
@@ -296,6 +294,8 @@ Transform:
   m_LocalPosition: {x: 62.4000015, y: -1.80000019, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
+  - {fileID: 400028}
+  - {fileID: 400004}
   - {fileID: 400024}
   - {fileID: 400014}
   - {fileID: 400030}
@@ -309,7 +309,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22, y: 49, z: 0}
+  m_LocalPosition: {x: 24, y: 44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400010}
@@ -331,10 +331,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.88797, y: -1.55613041, z: 3}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: -1.62800789, y: .0609674454, z: 3}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
-  m_Father: {fileID: 400010}
+  m_Father: {fileID: 400020}
 --- !u!4 &400030
 Transform:
   m_ObjectHideFlags: 1
@@ -444,7 +444,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 1.24000001, y: 1.15999997}
+  m_Size: {x: .25, y: .25}
   m_Center: {x: 0, y: 0}
 --- !u!61 &6100020
 BoxCollider2D:
@@ -479,13 +479,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2dd22f2dd3b5341a8589882dcb53cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ecaec19695aa3941be1bcece84b0703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1
-  checkRotationSpeed: 0
-  checkPosition: {x: 0, y: 0, z: 0}
-  checkRotation: {x: 0, y: 0, z: 0, w: 0}
+  alwaysRotate: 0
+  rotationInterval: 0
+  dir: -1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -494,13 +493,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2dd22f2dd3b5341a8589882dcb53cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ecaec19695aa3941be1bcece84b0703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1
-  checkRotationSpeed: 0
-  checkPosition: {x: 0, y: 0, z: 0}
-  checkRotation: {x: 0, y: 0, z: 0, w: 0}
+  alwaysRotate: 0
+  rotationInterval: 0
+  dir: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -509,7 +507,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100026}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859997498760567429a6056694c6f6a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9afe2635861018f4cbce57abc2c5b1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
@@ -676,9 +674,9 @@ SpriteRenderer:
   m_UseLightProbes: 0
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_SortingLayerID: 0
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_SortingLayerID: 1535931219
   m_Sprite: {fileID: 21300000, guid: b954cdb1521aae54ea982babf4ad7fcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200018

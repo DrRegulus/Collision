@@ -36,13 +36,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c2dd22f2dd3b5341a8589882dcb53cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6ecaec19695aa3941be1bcece84b0703, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 1
-  checkRotationSpeed: 0
-  checkPosition: {x: 0, y: 0, z: 0}
-  checkRotation: {x: 0, y: 0, z: 0, w: 0}
+  alwaysRotate: 1
+  rotationInterval: 45
+  dir: 1
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

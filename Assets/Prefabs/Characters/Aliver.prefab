@@ -84,7 +84,7 @@ GameObject:
   - 61: {fileID: 6100002}
   m_Layer: 0
   m_Name: Sword
-  m_TagString: weapon
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,7 +118,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -152, y: -5.42647743, z: 0}
+  m_LocalPosition: {x: -48.6159973, y: -4.37069368, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -258,7 +258,7 @@ MonoBehaviour:
   ParallaxFactor: .0599999987
   maxSpeed: 10
   throwW: {fileID: 11400000, guid: c6ed0f243592b824a835e7110151583e, type: 2}
-  coolDown: 3
+  coolDown: 1
   RightArm: {fileID: 100000, guid: 1727116cecec3f24d9f364e2cd971202, type: 2}
   LeftArm: {fileID: 100000, guid: d21b819161202d34d89cf5eb9644ba7f, type: 2}
   grounded: 1

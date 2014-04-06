@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Projectile : ThrowableWeapon {
 
+	public int damage = 0;
 	public float liveTime = 5;
 	public Animator anim;
 
@@ -26,7 +27,7 @@ public class Projectile : ThrowableWeapon {
 			if(col.tag == "Enemy")
 			{
 				// ... find the Enemy script and call the Hurt function.
-				//col.gameObject.GetComponent<Enemy>().Hurt();
+				col.gameObject.GetComponent<Enemy>().Hurt(damage);
 			}
 
 		}

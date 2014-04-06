@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Diagnostics;
 
-public class DummyBot : MonoBehaviour {
+public class DummyBot : Enemy {
 
 	public float moveRange = 5f;
 	public float maxSpeed = 10f;
@@ -29,7 +29,7 @@ public class DummyBot : MonoBehaviour {
 
 	void FixedUpdate() {
 
-		UnityEngine.Debug.Log( "" + moving);
+		//UnityEngine.Debug.Log( "" + moving);
 
 		if(move){
 
@@ -88,9 +88,15 @@ public class DummyBot : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		Collider2D obj = col.collider;
+
+		if(obj.tag == "Player")
+		{
+			obj.GetComponent<AliverController>().Recoil(0);
+		}
 	}
 
 

@@ -21,14 +21,9 @@ public class KillZone : MonoBehaviour {
 			if(controls.lives > 0)
 				controls.ResetToCheckPoint(this, EventArgs.Empty);
 			else
-				GameOver();
+				controls.GameOver();
 		}
 		else
 			Destroy (col.gameObject);
-	}
-	
-	public void GameOver()
-	{
-		Application.LoadLevel ("mainMenu");
 	}
 }

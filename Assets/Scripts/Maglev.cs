@@ -13,11 +13,11 @@ public class Maglev : MonoBehaviour {
 	public Transform leftEdge;
 	public Transform rightEdge;
 
-	Rigidbody2D maglev;
+	protected Transform maglev;
 
 	// Use this for initialization
 	void Start () {
-		maglev = transform.FindChild("platform_block").rigidbody2D;
+		maglev = transform.FindChild("platform_block");
 
 		//set up event handlers for CheckPoints and Resets
 		AliverController aliver = GameObject.Find("Aliver").GetComponent<AliverController>();
@@ -35,7 +35,7 @@ public class Maglev : MonoBehaviour {
 	{
 		if (powered) {
 
-			maglev.transform.Translate(moveSpeed * moveDir, 0 , 0);
+			maglev.Translate(moveSpeed * moveDir, 0 , 0);
 			
 			if ((moveDir > 0 && rightBorder.position.x >= rightEdge.position.x)
 			    || (moveDir < 0 && leftBorder.position.x <= leftEdge.position.x)) {

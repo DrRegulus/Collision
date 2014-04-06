@@ -1,10 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\swordAttack.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SwordAttack.cs">
     <Files>
-      <File FileName="Assets\Scripts\pauseManager.cs" Line="47" Column="38" />
-      <File FileName="Assets\Scripts\AliverController.cs" Line="150" Column="4" />
-      <File FileName="Assets\Scripts\swordAttack.cs" Line="72" Column="1" />
+      <File FileName="Assets\Scripts\SwordAttack.cs" Line="5" Column="25" />
+      <File FileName="Assets\Scripts\KillZone.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ThrowableWeapon.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Textbox.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SwordAttack.cs" Line="77" Column="1" />
+      <File FileName="Assets\Scripts\Steam.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PauseManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

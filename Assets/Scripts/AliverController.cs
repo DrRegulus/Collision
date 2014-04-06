@@ -80,74 +80,55 @@ public class AliverController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-				if (Time.timeScale == 1) {
-						grounded = Physics2D.Linecast (transform.position, groundCheck.position, whatIsGround);
+		if(lives <= 0)
+			GameOver();
 
-						//Set a new checkpoint DEBUG ONLY
-						if (Input.GetButtonDown ("CheckPoint")) {
+		grounded = Physics2D.Linecast (transform.position, groundCheck.position, whatIsGround);
+
+		//Set a new checkpoint DEBUG ONLY
+		if(Input.GetButtonDown("CheckPoint")){
 	
-								CheckPoint (this, EventArgs.Empty);
+			CheckPoint(this, EventArgs.Empty);
 
-						}
+		}
 
-						//Reset to checkpoint DEBUG ONLY
-						if (Input.GetButtonDown ("Reset")) {
-								Reset (this, EventArgs.Empty);
-						}
+		//Reset to checkpoint DEBUG ONLY
+		if (Input.GetButtonDown ("Reset"))
+		{
+			Reset(this, EventArgs.Empty);
+		}
 
-						//Get movement input
-						float move = Input.GetAxis ("Horizontal");
-						if (move > 0) {
-								facingRight = true;
-						} 
-						if (move < 0) {
-								facingRight = false;
-						}
+		//Get movement input
+		float move = Input.GetAxis ("Horizontal");
+		if (move > 0) {
+			facingRight = true;
+		} 
+		if (move < 0) {
+			facingRight = false;
+		}
 
-						//Ignore jumps and attacks while not grounded
-						if (grounded) {
-								//Jump
-								if (Input.GetButtonDown ("Jump")) {
-										rigidbody2D.AddForce (new Vector2 (0, jumpForce));
-								}
+		//Ignore jumps and attacks while not grounded
+		if (grounded)
+		{
+			//Jump
+			if(Input.GetButtonDown ("Jump"))
+			{
+				rigidbody2D.AddForce(new Vector2(0, jumpForce));
+			}
 
-								/*Melee attack
+			/*Melee attack
 			if(Input.GetKeyDown(KeyCode.Mouse0))
 			{
 
 			}*/
 
-								//Shoot attack
-								if (Input.GetKeyDown (KeyCode.Mouse1)) {
-										if (Time.time - lastTime > coolDown || lastTime == 0) {
-												//Set arm rotation to match projectile
-												Vector3 aim = Camera.main.ScreenToWorldPoint (Input.mousePosition) - transform.position;
-												aim.z = 0;
-												aim.Normalize ();
-												float angle = Vector3.Angle (new Vector3 (1, 0, 0), aim);
-												GameObject arm;
-
-												if (aim.x > 0) {
-														anim.Play ("ShootRight");
-														arm = Instantiate (RightArm, transform.position + new Vector3 (.4f, 1.2f, 0), Quaternion.Euler (aim)) as GameObject;
-												} else {
-														anim.Play ("ShootLeft");
-														arm = Instantiate (LeftArm, transform.position + new Vector3 (-.4f, 1.2f, 0), Quaternion.Euler (aim)) as GameObject;
-												}
-
-												if (aim.y < 0)
-														angle = 360 - angle;
-
-												arm.transform.parent = transform;
-												Destroy (arm, .2f);
-
-												Shoot (angle);
-												lastTime = Time.time;
-										}
-								}
-						}
-				}
+			//Shoot attack
+			if(Input.GetKeyDown(KeyCode.Mouse1))
+			{
+				Shoot ();
+			}
 		}
+	}
 
 
 	void FixedUpdate() {
@@ -175,9 +156,51 @@ public class AliverController : MonoBehaviour {
 	}
 
 	//Generate new projectile
-	void Shoot(float angle){
-		Debug.Log(angle);
-		//Need to set projectile rotation
-		Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
+	void Shoot(){
+		if(Time.time - lastTime > coolDown || lastTime == 0)
+		{
+			//Set arm rotation to match projectile
+			Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+			aim.z = 0;
+			aim.Normalize();
+			float angle = Vector3.Angle( new Vector3(1,0,0), aim);
+			//GameObject arm;
+			
+			if(aim.x > 0)
+			{
+				anim.Play("ShootRight");
+				//arm = Instantiate(RightArm, transform.position + new Vector3(.4f, 1.2f , 0), Quaternion.Euler (aim)) as GameObject;
+			}
+			else
+			{
+				anim.Play("ShootLeft");
+				//arm = Instantiate(LeftArm, transform.position + new Vector3(-.4f, 1.2f , 0), Quaternion.Euler(aim)) as GameObject;
+			}
+			
+			if(aim.y < 0)
+				angle = 360 - angle;
+			
+			//arm.transform.parent = transform;
+			//Destroy (arm, .2f);
+			
+			Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
+			lastTime = Time.time;
+		}
+	}
+
+	//Take some damage
+	public void Recoil(int damage)
+	{
+		lives -= damage;
+		rigidbody2D.velocity = new Vector2 (0, 0);
+		if(facingRight)
+			transform.Translate(-0.1f, 0 , 0);
+		else
+			transform.Translate(0.1f, 0 , 0);
+	}
+
+	public void GameOver()
+	{
+		Application.LoadLevel ("mainMenu");
 	}
 }

@@ -25,7 +25,7 @@ public class ElevatorSwitch : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.tag == "weapon") {
+		if (col.tag == "Powered") {
 			if (!anim.GetBool ("Power")) {
 
 					t.Stop ();
