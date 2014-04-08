@@ -123,7 +123,7 @@ public class AliverController : MonoBehaviour {
 			}*/
 
 			//Shoot attack
-			if(Input.GetKeyDown(KeyCode.Mouse1))
+			if(Input.GetKeyDown(KeyCode.Mouse1) && Time.timeScale == 1)
 			{
 				Shoot ();
 			}

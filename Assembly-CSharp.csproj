@@ -73,7 +73,7 @@
      <Compile Include="Assets\Scripts\SteamValve.cs" />
      <Compile Include="Assets\Scripts\SwordAttack.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
-     <Compile Include="Assets\Scripts\ThrowableWeapon.cs" />
+     <Compile Include="Assets\Scripts\throwableWeapon.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

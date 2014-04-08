@@ -11080,7 +11080,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sword: {fileID: 21300000, guid: e3959f9fe13fdaf48a7466708c62ee07, type: 3}
   animDuration: .5
-  aliver: {fileID: 0}
 --- !u!212 &1318171515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14380,11 +14379,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1676799656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abe8b78b59da61d47b264a07e681b7ac, type: 3}
+  m_Script: {fileID: 11500000, guid: cf35b596c4a0b204bb2a5641c9fef943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseText: {fileID: 0}
-  pause: 0
+  resumeBtn: {fileID: 2800000, guid: 09f7e3d09aad0e6488aa34f6712f0db2, type: 3}
+  quitBtn: {fileID: 2800000, guid: fd899cf7a126906458010153dcfba595, type: 3}
 --- !u!1 &1681074612
 GameObject:
   m_ObjectHideFlags: 0
@@ -14918,8 +14917,8 @@ Transform:
   - {fileID: 364002206}
   - {fileID: 1468134931}
   - {fileID: 1594445167}
-  - {fileID: 1676799657}
   - {fileID: 1318171513}
+  - {fileID: 1676799657}
   m_Father: {fileID: 0}
 --- !u!95 &1743201725
 Animator:
