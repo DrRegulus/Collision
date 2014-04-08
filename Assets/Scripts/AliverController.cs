@@ -6,6 +6,7 @@ public class AliverController : MonoBehaviour {
 
 	public Animator anim;
 	private Transform background;
+	private bool frozen = false;
 
 	public int lives = 3;
 	public float ParallaxFactor = 1f;
@@ -15,8 +16,7 @@ public class AliverController : MonoBehaviour {
 	public float coolDown = 3.0f;			//able to shoot after 3 sec
 	private float lastTime = 0.0f;
 
-	public GameObject RightArm;
-	public GameObject LeftArm;
+	public Sprite lifeSprite;
 
 	public bool grounded = true;
 	public Transform groundCheck;
@@ -85,47 +85,41 @@ public class AliverController : MonoBehaviour {
 
 		grounded = Physics2D.Linecast (transform.position, groundCheck.position, whatIsGround);
 
-		//Set a new checkpoint DEBUG ONLY
-		if(Input.GetButtonDown("CheckPoint")){
-	
-			CheckPoint(this, EventArgs.Empty);
-
-		}
-
-		//Reset to checkpoint DEBUG ONLY
-		if (Input.GetButtonDown ("Reset"))
+		if(!frozen)
 		{
-			Reset(this, EventArgs.Empty);
-		}
+			//Set a new checkpoint DEBUG ONLY
+			if(Input.GetButtonDown("CheckPoint")){
+		
+				CheckPoint(this, EventArgs.Empty);
 
-		//Get movement input
-		float move = Input.GetAxis ("Horizontal");
-		if (move > 0) {
-			facingRight = true;
-		} 
-		if (move < 0) {
-			facingRight = false;
-		}
-
-		//Ignore jumps and attacks while not grounded
-		if (grounded)
-		{
-			//Jump
-			if(Input.GetButtonDown ("Jump"))
-			{
-				rigidbody2D.AddForce(new Vector2(0, jumpForce));
 			}
 
-			/*Melee attack
-			if(Input.GetKeyDown(KeyCode.Mouse0))
+			//Reset to checkpoint DEBUG ONLY
+			if (Input.GetButtonDown ("Reset"))
 			{
+				Reset(this, EventArgs.Empty);
+			}
 
-			}*/
-
-			//Shoot attack
-			if(Input.GetKeyDown(KeyCode.Mouse1) && Time.timeScale == 1)
+			//Ignore jumps and attacks while not grounded
+			if (grounded)
 			{
-				Shoot ();
+				//Jump
+				if(Input.GetButtonDown ("Jump"))
+				{
+					rigidbody2D.AddForce(new Vector2(0, jumpForce));
+				}
+
+				/*Melee attack
+				if(Input.GetKeyDown(KeyCode.Mouse0))
+				{
+
+				}*/
+
+				//Shoot attack
+				if(Input.GetKeyDown(KeyCode.Mouse1) && Time.timeScale == 1)
+				{
+					Shoot ();
+				}
 			}
 		}
 	}
@@ -142,13 +136,25 @@ public class AliverController : MonoBehaviour {
 		anim.SetFloat ("hSpeed", rigidbody2D.velocity.x);
 		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
 
-		//Move character
-		float move = Input.GetAxis ("Horizontal");
-		rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+		if(!frozen)
+		{
+			//Move character
+			float move = Input.GetAxis ("Horizontal");
+			rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+		}
+		else
+		{
+			rigidbody2D.velocity = new Vector2(0, 0);
+		}
 
 		//Compute distance moved
 		float xDist = transform.position.x - lastPos.x;
 		float yDist = transform.position.y - lastPos.y;
+
+		if (xDist > 0)
+			facingRight = true;
+		else
+			facingRight = false;
 
 		//Shift background in opposite direction
 		background.Translate(-ParallaxFactor * xDist, -ParallaxFactor * yDist, 0);
@@ -188,10 +194,42 @@ public class AliverController : MonoBehaviour {
 		}
 	}
 
+	public void LoseLives(int damage)
+	{
+		//lives -= damage;
+		if (lives <= 0)
+			GameOver ();
+	}
+
+	public void GainLife()
+	{
+		lives++;
+	}
+
+	public void Freeze()
+	{
+		frozen = true;
+		rigidbody2D.velocity = new Vector2(0, 0);
+	}
+
+	public void Unfreeze()
+	{
+		frozen = false;
+	}
+
+	void OnGUI()
+	{
+		GUI.backgroundColor = Color.clear;
+		for (int i = 0; i < lives; i++) 
+		{
+			GUI.Box(new Rect(i * lifeSprite.texture.width, 0, lifeSprite.texture.width, lifeSprite.texture.height), new GUIContent(lifeSprite.texture));
+		}
+	}
+
 	//Take some damage
 	public void Recoil(int damage)
 	{
-		lives -= damage;
+		LoseLives (damage);
 		rigidbody2D.velocity = new Vector2 (0, 0);
 		if(facingRight)
 			transform.Translate(-0.1f, 0 , 0);

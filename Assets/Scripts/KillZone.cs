@@ -16,7 +16,7 @@ public class KillZone : MonoBehaviour {
 		if (controls != null)
 		{
 			//Infinite lives for debugging
-			//controls.lives--;
+			controls.LoseLives(1);
 
 			if(controls.lives > 0)
 				controls.ResetToCheckPoint(this, EventArgs.Empty);

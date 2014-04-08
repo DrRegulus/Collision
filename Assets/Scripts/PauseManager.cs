@@ -3,16 +3,20 @@ using System.Collections;
 
 
 public class PauseManager : MonoBehaviour {
+
 	public Texture resumeBtn;
 	public Texture quitBtn;
+
 	private bool pause = false;
-	static float buttonHeight = 30;
-	static float numButtons = 3;
-	static float menuWidth = Screen.width / 3;
-	static float menuHeight = buttonHeight / 2 + numButtons * (buttonHeight * 1.5f);
-	static float buttonWidth = menuWidth - 20;
-	static Rect menu;
-	static Rect backGray;
+	private static float buttonHeight = 30;
+	private static float numButtons = 3;
+	private static float menuWidth = Screen.width / 3;
+	private static float menuHeight = buttonHeight / 2 + numButtons * (buttonHeight * 1.5f);
+	private static float buttonWidth = menuWidth - 20;
+
+	private static Rect menu;
+	private static Rect backGray;
+
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape) && pause){
