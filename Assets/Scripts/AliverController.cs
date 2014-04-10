@@ -118,9 +118,17 @@ public class AliverController : MonoBehaviour {
 				//Shoot attack
 				if(Input.GetKeyDown(KeyCode.Mouse1) && Time.timeScale == 1)
 				{
-					Shoot ();
+					if(!anim.GetBool("Attack"))
+					{
+						Shoot ();
+					}
 				}
 			}
+		}
+
+		if(Time.time - lastTime > coolDown || lastTime == 0)
+		{
+			anim.SetBool("Attack", false);
 		}
 	}
 
@@ -163,25 +171,14 @@ public class AliverController : MonoBehaviour {
 
 	//Generate new projectile
 	void Shoot(){
-		if(Time.time - lastTime > coolDown || lastTime == 0)
-		{
 			//Set arm rotation to match projectile
 			Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 			aim.z = 0;
 			aim.Normalize();
 			float angle = Vector3.Angle( new Vector3(1,0,0), aim);
 			//GameObject arm;
-			
-			if(aim.x > 0)
-			{
-				anim.Play("ShootRight");
-				//arm = Instantiate(RightArm, transform.position + new Vector3(.4f, 1.2f , 0), Quaternion.Euler (aim)) as GameObject;
-			}
-			else
-			{
-				anim.Play("ShootLeft");
-				//arm = Instantiate(LeftArm, transform.position + new Vector3(-.4f, 1.2f , 0), Quaternion.Euler(aim)) as GameObject;
-			}
+
+			anim.SetBool("Attack", true);
 			
 			if(aim.y < 0)
 				angle = 360 - angle;
@@ -191,7 +188,6 @@ public class AliverController : MonoBehaviour {
 			
 			Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
 			lastTime = Time.time;
-		}
 	}
 
 	public void LoseLives(int damage)

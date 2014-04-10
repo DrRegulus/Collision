@@ -124,7 +124,7 @@ GameObject:
   - 50: {fileID: 5000006}
   - 114: {fileID: 11400006}
   m_Layer: 0
-  m_Name: platform_block
+  m_Name: ShipDock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,7 +140,6 @@ GameObject:
   - 4: {fileID: 400022}
   - 212: {fileID: 21200014}
   - 61: {fileID: 6100016}
-  - 50: {fileID: 5000008}
   - 114: {fileID: 11400008}
   - 95: {fileID: 9500004}
   m_Layer: 0
@@ -199,7 +198,7 @@ GameObject:
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
-  m_Icon: {fileID: -1376725286, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -309,7 +308,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24, y: 44, z: 0}
+  m_LocalPosition: {x: 24, y: 42.4000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400010}
@@ -376,21 +375,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 2
   m_CollisionDetection: 0
---- !u!50 &5000008
-Rigidbody2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100024}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 0
-  m_FixedAngle: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
 --- !u!61 &6100008
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -444,8 +428,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: .25, y: .25}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: .699999988, y: 2}
+  m_Center: {x: 0, y: -.200000003}
 --- !u!61 &6100020
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -677,7 +661,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_SortingLayerID: 1535931219
-  m_Sprite: {fileID: 21300000, guid: b954cdb1521aae54ea982babf4ad7fcd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c689b26306eb834e90c5451e42b740f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200018
 SpriteRenderer:

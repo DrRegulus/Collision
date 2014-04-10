@@ -4,6 +4,7 @@ using System.Diagnostics;
 
 public class DummyBot : Enemy {
 
+	public Animator anim;
 	public float moveRange = 5f;
 	public float maxSpeed = 10f;
 	public float waitTime = 0f;
@@ -44,8 +45,11 @@ public class DummyBot : Enemy {
 				leftOfDestination = false;
 			}
 
+			anim.SetBool("facingRight", leftOfDestination);
+
 			move = false;
 			moving = true;
+			anim.SetBool("moving", true);
 		}
 
 		if(moving){
@@ -65,6 +69,7 @@ public class DummyBot : Enemy {
 				rigidbody2D.velocity = new Vector2 (0, rigidbody2D.velocity.y);
 
 				moving = false;
+				anim.SetBool("moving", false);
 
 				delay.Reset();
 				delay.Start();

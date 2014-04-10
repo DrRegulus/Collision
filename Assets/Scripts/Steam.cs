@@ -6,14 +6,15 @@ public class Steam : MonoBehaviour {
 	private const float steamWidth = 2f;
 	private float currDist = steamWidth;
 	private float dir = 1;
-	private const float steamPush = 5f;
-	public bool collision = false;
+	private const float steamPush = 4f;
+	private bool collision = false;
 	private Transform player;
 
 	void Update()
 	{
 		if (collision)
 		{
+			//Translate player a set distance, then unfreeze
 			if(currDist < steamPush)
 			{
 				currDist += .1f;
@@ -23,7 +24,9 @@ public class Steam : MonoBehaviour {
 			{
 				collision = false;
 				currDist = steamWidth;
+
 				//Enable player movement
+				player.GetComponent<AliverController>().Unfreeze();
 			}
 		}
 	}
@@ -34,8 +37,12 @@ public class Steam : MonoBehaviour {
 		{
 			collision = true;
 			player = col.transform;
-			//Disable player movement
 
+			//Disable player movement
+			player.GetComponent<AliverController>().Freeze();
+			//player.GetComponent<AliverController>().anim.Play();
+
+			//Set direction based on relative positions
 			if(player.transform.position.x < transform.position.x)
 			{
 				dir = -1;
