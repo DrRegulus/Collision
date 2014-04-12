@@ -37,7 +37,7 @@ public class DialoguePrompt : MonoBehaviour
 	void Update () {
 		//print (target.transform.position.x);
 		//print (Vector3.Distance (target.transform.position, transform.position));
-		if (spawner == true && Input.GetKeyDown (KeyCode.F)) {
+		if (spawner == true) {
 			print(NPC);
 			print ("spawning textbox");
 			Vector3 temp = transform.position;
@@ -47,18 +47,18 @@ public class DialoguePrompt : MonoBehaviour
 			spawner = false;
 			myInstance.SendMessage ("TheStart", NPC);
 			print ("destroying prompt from update");
-			Destroy (gameObject);
+			//Destroy (gameObject);
 			//renderer.enabled = false;
 		}
 		//print (Vector3.Distance (target.transform.position, transform.position));
-		if (Vector3.Distance (target.transform.position, transform.position) > 10) {
+		/*if (Vector3.Distance (target.transform.position, transform.position) > 20) {
 			print ("Destroying object from proximity");
 			print (target.transform.position.x);
 			print (transform.position.x);
 			print (Vector3.Distance (target.transform.position, transform.position));
 			Destroy (gameObject); 
 			//renderer.enabled = false;
-		}
+		}*/
 	}
 
 	/*void OnCollisionEnter2D (Collision2D col){

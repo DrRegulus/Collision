@@ -16,7 +16,6 @@ using System.IO;
 public class Textbox : MonoBehaviour
 {
 	string NPC;
-	int speechNumber;
 	string speech;
 	public GameObject myNPC;
 	bool displayText;
@@ -30,24 +29,22 @@ public class Textbox : MonoBehaviour
 	void TheStart(string name){
 		NPC = name;
 		print (NPC);
-		TextDisplay ();
-		speechNumber = 1;
 		displayText = false;
 		target = GameObject.FindWithTag ("Player");
 	}
 
 	void Update(){
-		if (Vector3.Distance (target.transform.position, transform.position) > 10) {
+		/*if (Vector3.Distance (target.transform.position, transform.position) > 10) {
 			print ("Destroying Textbox from proximity");
 			//print (target.transform.position.x);
 			//print (transform.position.x);
 			//print (Vector3.Distance (target.transform.position, transform.position));
 			Destroy (gameObject); 
 			//renderer.enabled = false;
-		}
+		}*/
 	}
 
-	void TextDisplay(){
+	void TextDisplay(int num){
 		XmlDocument textFile = new XmlDocument ();
 		textFile.Load ("Assets/Resources/Dialogue/TestDialogue.xml");
 		
@@ -64,23 +61,9 @@ public class Textbox : MonoBehaviour
 
 		//XML READING
 		foreach (XmlNode textXML in textFile.SelectNodes("dialogue//"+NPC)) {
-			speechNumber = 1;
-			if(speechNumber == 1){
-				speech = textXML.SelectSingleNode("speech1").InnerText;
+				speech = textXML.SelectSingleNode("speech" + num.ToString()).InnerText + "\nPress \"E\" to continue.";
 				print (speech);
-				speechNumber ++;
 				displayText = true;
-
-			}
-			else if(speechNumber == 2){
-				speech = textXML.SelectSingleNode("speech2").InnerText;
-				print (speech);
-				speechNumber ++;
-			}
-			else if(speechNumber == 3){
-				speech = textXML.SelectSingleNode("speech3").InnerText;
-				print (speech);
-			}
 
 			//speechNumber = int.Parse(textXML.SelectSingleNode
 			//myTest = textXML.SelectSingleNode ("s").InnerText;
@@ -111,9 +94,9 @@ public class Textbox : MonoBehaviour
 			}
 			if(currentIndex == speechChars.Length){
 				//print (lastStop);
-				print (speechChars.Length);
+				//print (speechChars.Length);
 				string line = new String(speechChars, lastStop, currentIndex - lastStop);
-				print (line);
+				//print (line);
 				mySpeech += line + "\n";
 				break;
 			}
@@ -131,7 +114,7 @@ public class Textbox : MonoBehaviour
 		//print (speechSplit [0]);
 		//print ("ongui");
 		//if (displayText == true) {
-		GUI.Box(new Rect (0, 0, Screen.width, Screen.height/3), mySpeech, myStyle);
+		GUI.Box(new Rect (10, 10, Screen.width, Screen.height/3), mySpeech, myStyle);
 		//GUI.contentColor = Color.black;
 		//GUI.Label (new Rect (100, 100, 100, 200), speech);
 		//}

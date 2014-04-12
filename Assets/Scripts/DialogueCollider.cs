@@ -15,50 +15,66 @@ using System.Collections;
 public class DialogueCollider : MonoBehaviour {
 
 	public GameObject thePrefab;
-	public int spawnLimit = 0;
-	public GameObject instance;
+	private GameObject instance;
 	public GameObject player; 
 	public string NPC = "bob";
+	public int speechNumbers = 3;
+	private int currentSpeech = 0;
+	private bool activated = false;
 
-
-	void OnCollisionEnter2D (Collision2D col)
+	void FixedUpdate()
 	{
-		//print (NPC);
-		print ("collision with NPC");
-		//player = GameObject.Find ("Aliver");
-		//player.GetComponent<AliverController> ().enabled = false;
-		//player.rigidbody2D.velocity.Set (0, 0);
-		/*if (Input.GetKeyDown (KeyCode.F) && spawnLimit == 0) {
-			print ("Textbox Spawn");
-			Vector3 temp = transform.position;
-			temp.x = transform.position.x - 5;
-			temp.y = transform.position.y + 6;
-			UnityEngine.Quaternion temp2 = transform.rotation;
-			temp2.z = transform.rotation.z - 90;
-			instance = Instantiate (thePrefab, temp, temp2) as GameObject;
-			spawnLimit = 1;
-		}*/
-		if (spawnLimit == 0) {
-			Vector3 temp = transform.position;
-			temp.x = transform.position.x + 1;
-			Quaternion temp2 = transform.rotation;
-			temp2.z = transform.rotation.z - 90;
-			print ("spawning prompt");
-			instance = Instantiate (thePrefab, temp, temp2) as GameObject;
-			instance.transform.parent = transform;
-			instance.SendMessage ("TheStart", NPC);
-			spawnLimit = 1;
+		if(activated && Input.GetKeyUp(KeyCode.E))
+		{
+			currentSpeech = (currentSpeech + 1) % speechNumbers;
+			instance.SendMessage("TextDisplay", currentSpeech);
 		}
 	}
 
-	void OnCollisionExit2D (Collision2D col)
+	void OnTriggerEnter2D (Collider2D col)
 	{
-		print ("Exit");
-		if (spawnLimit == 1) {
-			//Destroy(instance);
-			spawnLimit = 0;
+		if(col.tag == "Player")
+		{
+			//print (NPC);
+			//print ("collision with NPC");
+			//player = GameObject.Find ("Aliver");
+			//player.GetComponent<AliverController> ().enabled = false;
+			//player.rigidbody2D.velocity.Set (0, 0);
+			/*if (Input.GetKeyDown (KeyCode.F) && spawnLimit == 0) {
+				print ("Textbox Spawn");
+				Vector3 temp = transform.position;
+				temp.x = transform.position.x - 5;
+				temp.y = transform.position.y + 6;
+				UnityEngine.Quaternion temp2 = transform.rotation;
+				temp2.z = transform.rotation.z - 90;
+				instance = Instantiate (thePrefab, temp, temp2) as GameObject;
+				spawnLimit = 1;
+			}*/
+			if (!activated) {
+				Vector3 temp = transform.position;
+				temp.x = transform.position.x + 1;
+				Quaternion temp2 = transform.rotation;
+				temp2.z = transform.rotation.z - 90;
+				print ("spawning prompt");
+				instance = Instantiate (thePrefab, temp, temp2) as GameObject;
+				instance.transform.parent = transform;
+				instance.SendMessage ("TheStart", NPC);
+				instance.SendMessage("TextDisplay", currentSpeech);
+				activated = true;
+			}
 		}
+	}
 
+	void OnTriggerExit2D (Collider2D col)
+	{
+		if(col.tag == "Player")
+		{
+			print ("Exit");
+			if (activated) {
+				Destroy(instance);
+				activated = false;
+			}
+		}
 	}
 }
 

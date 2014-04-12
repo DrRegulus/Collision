@@ -218,7 +218,7 @@ public class AliverController : MonoBehaviour {
 		GUI.backgroundColor = Color.clear;
 		for (int i = 0; i < lives; i++) 
 		{
-			GUI.Box(new Rect(i * lifeSprite.texture.width, 0, lifeSprite.texture.width, lifeSprite.texture.height), new GUIContent(lifeSprite.texture));
+			GUI.Box(new Rect(i * lifeSprite.texture.width, Screen.height - lifeSprite.texture.height, lifeSprite.texture.width, lifeSprite.texture.height), new GUIContent(lifeSprite.texture));
 		}
 	}
 

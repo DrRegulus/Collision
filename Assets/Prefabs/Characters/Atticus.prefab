@@ -25,7 +25,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: -15.7007294, y: -5.51503563, z: -49.4499512}
+  m_LocalPosition: {x: 148, y: -1.10000002, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -37,9 +37,9 @@ BoxCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: .839999974, y: 2.36999989}
-  m_Center: {x: 0, y: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 5, y: 3}
+  m_Center: {x: -2, y: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,9 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d33aade96bfec1b45aabee35e0b3765a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePrefab: {fileID: 100000, guid: 3801f09b929d362449f22969669647a3, type: 2}
+  thePrefab: {fileID: 100000, guid: 65d319f27987737409d31eb4aaf5a8dc, type: 2}
   spawnLimit: 0
-  instance: {fileID: 100000, guid: 3801f09b929d362449f22969669647a3, type: 2}
+  instance: {fileID: 0}
   player: {fileID: 100004, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
   NPC: bob
 --- !u!212 &21200000

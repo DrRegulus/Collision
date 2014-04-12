@@ -42,7 +42,7 @@ MonoBehaviour:
   myStyle:
     m_Name: 
     m_Normal:
-      m_Background: {fileID: 2800000, guid: 9c4f351711e1b7d42887772ef7cad1a7, type: 3}
+      m_Background: {fileID: 0}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
       m_Background: {fileID: 0}
