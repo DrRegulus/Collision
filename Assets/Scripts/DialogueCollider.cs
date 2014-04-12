@@ -18,23 +18,12 @@ public class DialogueCollider : MonoBehaviour {
 	public int spawnLimit = 0;
 	public GameObject instance;
 	public GameObject player; 
-	string NPC;
+	public string NPC = "bob";
 
-
-	// Use this for initialization
-	void Start () {
-		NPC = "bob";
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
-	
 
 	void OnCollisionEnter2D (Collision2D col)
 	{
-		print (NPC);
+		//print (NPC);
 		print ("collision with NPC");
 		//player = GameObject.Find ("Aliver");
 		//player.GetComponent<AliverController> ().enabled = false;
@@ -55,7 +44,7 @@ public class DialogueCollider : MonoBehaviour {
 			Quaternion temp2 = transform.rotation;
 			temp2.z = transform.rotation.z - 90;
 			print ("spawning prompt");
-			instance = Instantiate (thePrefab) as GameObject;
+			instance = Instantiate (thePrefab, temp, temp2) as GameObject;
 			instance.transform.parent = transform;
 			instance.SendMessage ("TheStart", NPC);
 			spawnLimit = 1;

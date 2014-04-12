@@ -205,7 +205,7 @@ public class AliverController : MonoBehaviour {
 	public void Freeze()
 	{
 		frozen = true;
-		rigidbody2D.velocity = new Vector2(0, 0);
+		rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
 	}
 
 	public void Unfreeze()

@@ -36,8 +36,9 @@ public class DialoguePrompt : MonoBehaviour
 
 	void Update () {
 		//print (target.transform.position.x);
-		print (Vector3.Distance (target.transform.position, transform.position));
+		//print (Vector3.Distance (target.transform.position, transform.position));
 		if (spawner == true && Input.GetKeyDown (KeyCode.F)) {
+			print(NPC);
 			print ("spawning textbox");
 			Vector3 temp = transform.position;
 			temp.x = transform.position.x - 5;

@@ -62,7 +62,7 @@
      <Compile Include="Assets\Scripts\Maglev.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
-     <Compile Include="Assets\Scripts\NPC.cs" />
+     <Compile Include="Assets\Scripts\MyNPC.cs" />
      <Compile Include="Assets\Scripts\OneUp.cs" />
      <Compile Include="Assets\Scripts\PauseManager.cs" />
      <Compile Include="Assets\Scripts\PowerSwitch.cs" />
@@ -75,6 +75,7 @@
      <Compile Include="Assets\Scripts\SwordAttack.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\ThrowableWeapon.cs" />
+     <None Include="Assets\Resources\Dialogue\TestDialogue.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,26 +11,30 @@ using System;
 using UnityEngine;
 using System.Collections;
 
-public class NPC {
+public class MyNPC : MonoBehaviour {
 
 	public Animator anim;
 	string name;
-				
+	int speechNumber;
+		
 	void Start(){
 
+		name = "bob";
+		speechNumber = 1;
 		//here get texture/animator
-
-
+			
+			
 	}
-
+		
 	void OnTriggerEnter2D(Collider2D col){
-
+			
 		//play sound
 		//spawn new object here
 		//will need to create new dialogue box option
 		//figure out xml later
-
+			
 	}
 }
+
 
 

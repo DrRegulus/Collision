@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+     
+	<dialogue>
+		<harriet>
+    		<speech1>This is my first speech harriet</speech1>
+    		<speech2>This is my second speech harriet</speech2>
+    		<speech3>This is my third speech harriet</speech3>
+        </harriet>
+    	<bob>
+    		<speech1>This is a really long string of words. I did not add any spaces to this, The last letter was a comma. omfgbbqttyl next line.~!?</speech1>
+    		<speech2>This is my second speech bob</speech2>
+    		<speech3>This is my third speech bob</speech3>
+        </bob>
+    </dialogue>
+

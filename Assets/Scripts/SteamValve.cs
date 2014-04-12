@@ -25,7 +25,7 @@ public class SteamValve : MonoBehaviour {
 	
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(!locked)
+		if((col.tag == "Powered" || col.tag == "Weapon") && !locked)
 		{
 			//valveAnim.SetBool ("Turning", true);
 			//steamAnim.SetBool ("On", true);
