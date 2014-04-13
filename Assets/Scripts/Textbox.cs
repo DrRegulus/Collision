@@ -61,7 +61,7 @@ public class Textbox : MonoBehaviour
 
 		//XML READING
 		foreach (XmlNode textXML in textFile.SelectNodes("dialogue//"+NPC)) {
-				speech = textXML.SelectSingleNode("speech" + num.ToString()).InnerText + "\nPress \"E\" to continue.";
+				speech = textXML.SelectSingleNode("speech" + num.ToString()).InnerText + " (Press \"E\" to continue.)";
 				print (speech);
 				displayText = true;
 

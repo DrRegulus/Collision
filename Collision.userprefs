@@ -1,11 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DialogueCollider.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Textbox.cs">
     <Files>
-      <File FileName="Assets\Scripts\DialogueCollider.cs" Line="32" Column="3" />
-      <File FileName="Assets\Scripts\Textbox.cs" Line="64" Column="81" />
-      <File FileName="Assets\Scripts\MyNPC.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\AliverController.cs" Line="221" Column="92" />
+      <File FileName="Assets\Scripts\PlayMusic.cs" Line="7" Column="17" />
+      <File FileName="Assets\Scripts\Textbox.cs" Line="64" Column="82" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

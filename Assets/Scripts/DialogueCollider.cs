@@ -16,8 +16,8 @@ public class DialogueCollider : MonoBehaviour {
 
 	public GameObject thePrefab;
 	private GameObject instance;
-	public GameObject player; 
-	public string NPC = "bob";
+	//public GameObject player; 
+	//public string NPC = "bob";
 	public int speechNumbers = 3;
 	private int currentSpeech = 0;
 	private bool activated = false;
@@ -58,7 +58,7 @@ public class DialogueCollider : MonoBehaviour {
 				print ("spawning prompt");
 				instance = Instantiate (thePrefab, temp, temp2) as GameObject;
 				instance.transform.parent = transform;
-				instance.SendMessage ("TheStart", NPC);
+				instance.SendMessage ("TheStart", gameObject.name);
 				instance.SendMessage("TextDisplay", currentSpeech);
 				activated = true;
 			}

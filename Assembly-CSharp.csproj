@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\MyNPC.cs" />
      <Compile Include="Assets\Scripts\OneUp.cs" />
      <Compile Include="Assets\Scripts\PauseManager.cs" />
+     <Compile Include="Assets\Scripts\PlayMusic.cs" />
      <Compile Include="Assets\Scripts\PowerSwitch.cs" />
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />

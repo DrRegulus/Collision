@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 61: {fileID: 6100000}
   m_Layer: 0
-  m_Name: Atticus
+  m_Name: AtticusTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,10 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thePrefab: {fileID: 100000, guid: 65d319f27987737409d31eb4aaf5a8dc, type: 2}
-  spawnLimit: 0
-  instance: {fileID: 0}
-  player: {fileID: 100004, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
-  NPC: bob
+  NPC: AtticusTutorial
+  speechNumbers: 3
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

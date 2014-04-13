@@ -9,7 +9,9 @@ public class GetBackground : MonoBehaviour {
 		Sprite spr = Resources.Load<Sprite>("Backgrounds/background_level" + Application.loadedLevel);
 
 		if(Application.loadedLevelName == "Tutorial")
+		{
 			spr = Resources.Load<Sprite>("Backgrounds/background_level1");
+		}
 
 		if (spr == null)
 		{
