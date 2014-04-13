@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Textbox.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PauseManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\PlayMusic.cs" Line="7" Column="17" />
-      <File FileName="Assets\Scripts\Textbox.cs" Line="64" Column="82" />
+      <File FileName="Assets\Scripts\MainMenu.cs" Line="53" Column="38" />
+      <File FileName="Assets\Scripts\PauseManager.cs" Line="46" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

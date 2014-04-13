@@ -28,7 +28,7 @@ public class MainMenu : MonoBehaviour {
 		Vector3 zero = Camera.main.WorldToScreenPoint (new Vector3 (0, 0, 0));//For some reason, the button was mirrored across the Y axis, so having the inscene object in the top half would put the button in the bottom half. I couldn't figure it out, but this workaround works.
 		button1pos.y = (zero.y - button1pos.y) + zero.y;//The center dot of the object will be the upper-left of the button.
 
-		return GUI.Button (new Rect (button1pos.x - width / 2, button1pos.y - height / 2, width, height), texture);
+		return GUI.Button (new Rect (button1pos.x - width / 2, button1pos.y - height / 2, width, height), "");
 	}
 
 	void OnGUI()
@@ -49,13 +49,13 @@ public class MainMenu : MonoBehaviour {
 		//Debug.Log ("button1pos x" + button1pos.x + "," + button1pos.y);
 		//if(GUI.Button(new Rect(button1pos.x,button1pos.y,148,75), lv1texture)) {
 		//if(Button(button1spot,148,75,lv1texture)) {
-		if(Button(buttonspots[0],74,38,Texlist[0])) {
-			Application.LoadLevel("level1");
+		if(Button(buttonspots[0],74,38,null)) {
+			Application.LoadLevel("Tutorial");
 		}
-		if(Button(buttonspots[1],74,38,Texlist[1])) {
+		/*if(Button(buttonspots[1],74,38,Texlist[1])) {
 			Application.LoadLevel("level2");
-		}
-		if(Button(buttonspots[2],74,38,Texlist[2])) {
+		}*/
+		if(Button(buttonspots[1],74,38,null)) {
 			Application.Quit();
 		}
 
@@ -67,12 +67,12 @@ public class MainMenu : MonoBehaviour {
 		int menuheight = (int)(scrhei  * 2000f / 2100f);
 		Debug.Log ("Screen width, height, menuheight:" + scrwid + "," + scrhei + "," + menuheight);
 		//GUI.BeginGroup (new Rect (390, 568, 300, 100));
-		GUI.BeginGroup (new Rect (0, menuheight, scrwid,100));
+		/*GUI.BeginGroup (new Rect (0, menuheight, scrwid,100));
 		GUI.Box (new Rect (0, 0, scrwid, 100), "");
 		//if(GUI.Button(new Rect(10,10,80,20), "Level 1")) {
 		/*if(GUI.Button(new Rect(8,0,64,28), lv1texture)) {
 			Application.LoadLevel("level1");
-		}*/
+		}
 
 		if(GUI.Button(new Rect(10,40,80,20), "Level 2")) {
 			Application.LoadLevel("level2");
@@ -82,6 +82,6 @@ public class MainMenu : MonoBehaviour {
 			Application.Quit ();
 		}
 
-		GUI.EndGroup ();
+		GUI.EndGroup ();*/
 	}
 }

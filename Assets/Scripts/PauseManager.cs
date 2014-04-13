@@ -44,15 +44,24 @@ public class PauseManager : MonoBehaviour {
 			GUI.EndGroup();
 			GUI.Box (menu, "Collision Paused");
 			GUI.BeginGroup (menu);
-			
+
+			/*
 			if (GUI.Button (new Rect (10, (buttonHeight + buttonHeight / 2), buttonWidth, buttonHeight),resumeBtn)) {
 				pauseFunction ();
 			}
 			
 			if (GUI.Button (new Rect (10, (buttonHeight + 4 * buttonHeight / 2), buttonWidth, buttonHeight), quitBtn)) {
 				Application.LoadLevel("mainMenu");
+			}*/
+
+			if (GUI.Button (new Rect (10, (buttonHeight + buttonHeight / 2), buttonWidth, buttonHeight), "Resume")) {
+				pauseFunction ();
 			}
 			
+			if (GUI.Button (new Rect (10, (buttonHeight + 4 * buttonHeight / 2), buttonWidth, buttonHeight), "Quit")) {
+				Application.LoadLevel("mainMenu");
+			}
+
 			GUI.EndGroup ();
 
 		}
