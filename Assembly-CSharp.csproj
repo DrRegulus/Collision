@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\AliverController.cs" />
      <Compile Include="Assets\Scripts\AttackHandler.cs" />
      <Compile Include="Assets\Scripts\BoardShip.cs" />
+     <Compile Include="Assets\Scripts\ComicPlayer.cs" />
+     <Compile Include="Assets\Scripts\Credits.cs" />
      <Compile Include="Assets\Scripts\DialogueCollider.cs" />
      <Compile Include="Assets\Scripts\DialoguePrompt.cs" />
      <Compile Include="Assets\Scripts\DummyBot.cs" />

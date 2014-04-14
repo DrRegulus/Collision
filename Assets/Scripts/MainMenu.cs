@@ -53,7 +53,7 @@ public class MainMenu : MonoBehaviour {
 			Application.LoadLevel("Tutorial");
 		}
 		if(Button(buttonspots[1],74,38,null)) {
-			Application.LoadLevel("level1");
+			Application.LoadLevel("Comic1");
 		}
 		if(Button(buttonspots[2],74,38,null)) {
 			Application.Quit();

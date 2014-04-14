@@ -3,6 +3,17 @@ using System.Collections;
 
 public class ShipMaglev : Maglev {
 
+	// Use this for initialization
+	void Start () {
+		maglev = transform.FindChild("ShipDock");
+		
+		//set up event handlers for CheckPoints and Resets
+		AliverController aliver = GameObject.Find("Aliver").GetComponent<AliverController>();
+		aliver.CheckPoint += new AliverController.CheckPointEventHandler(CheckPointReached);
+		aliver.Reset += new AliverController.ResetEventHandler(ResetToCheckPoint);
+		
+	}
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (powered) {
