@@ -51,6 +51,7 @@ public class AliverController : MonoBehaviour {
 		CheckPoint += new CheckPointEventHandler(CheckPointReached);
 		Reset += new ResetEventHandler(ResetToCheckPoint);
 		facingRight = true;
+		print ("LEVEL LOADED");
 		//CheckPoint (this, EventArgs.Empty);
 	}
 
@@ -192,7 +193,7 @@ public class AliverController : MonoBehaviour {
 
 	public void LoseLives(int damage)
 	{
-		//lives -= damage;
+		lives -= damage;
 		if (lives <= 0)
 			GameOver ();
 	}

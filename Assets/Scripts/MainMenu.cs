@@ -52,10 +52,10 @@ public class MainMenu : MonoBehaviour {
 		if(Button(buttonspots[0],74,38,null)) {
 			Application.LoadLevel("Tutorial");
 		}
-		/*if(Button(buttonspots[1],74,38,Texlist[1])) {
-			Application.LoadLevel("level2");
-		}*/
 		if(Button(buttonspots[1],74,38,null)) {
+			Application.LoadLevel("level1");
+		}
+		if(Button(buttonspots[2],74,38,null)) {
 			Application.Quit();
 		}
 

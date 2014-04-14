@@ -15,7 +15,8 @@ public class BoardShip : MonoBehaviour {
 
 			if (distance <= 0)
 			{
-				Application.LoadLevel(Application.loadedLevel + 1);
+				//Application.LoadLevel(Application.loadedLevel + 1);
+				Application.LoadLevel("mainMenu");
 			}
 		}
 	}

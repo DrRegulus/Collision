@@ -76,7 +76,7 @@
      <Compile Include="Assets\Scripts\SwordAttack.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\ThrowableWeapon.cs" />
-     <None Include="Assets\Resources\Dialogue\TestDialogue.xml" />
+     <None Include="Assets\TestDialogue.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

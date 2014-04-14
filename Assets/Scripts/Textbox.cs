@@ -46,7 +46,7 @@ public class Textbox : MonoBehaviour
 
 	void TextDisplay(int num){
 		XmlDocument textFile = new XmlDocument ();
-		textFile.Load ("Assets/Resources/Dialogue/TestDialogue.xml");
+		textFile.Load (Application.dataPath + "/TestDialogue.xml");
 		
 		
 		if (textFile == null) {

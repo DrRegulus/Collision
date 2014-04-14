@@ -8,14 +8,20 @@ public class PauseManager : MonoBehaviour {
 	public Texture quitBtn;
 
 	private bool pause = false;
-	private static float buttonHeight = 30;
-	private static float numButtons = 3;
-	private static float menuWidth = Screen.width / 3;
-	private static float menuHeight = buttonHeight / 2 + numButtons * (buttonHeight * 1.5f);
-	private static float buttonWidth = menuWidth - 20;
+	private float buttonHeight = 30;
+	private float numButtons = 3;
+	private float menuWidth = Screen.width / 3;
+	private float menuHeight;
+	private float buttonWidth;
 
-	private static Rect menu;
-	private static Rect backGray;
+	private Rect menu;
+	private Rect backGray;
+
+	void Start()
+	{
+		menuHeight = buttonHeight / 2 + numButtons * (buttonHeight * 1.5f);
+		buttonWidth = menuWidth - 20;
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -59,6 +65,7 @@ public class PauseManager : MonoBehaviour {
 			}
 			
 			if (GUI.Button (new Rect (10, (buttonHeight + 4 * buttonHeight / 2), buttonWidth, buttonHeight), "Quit")) {
+				Time.timeScale = 1;
 				Application.LoadLevel("mainMenu");
 			}
 

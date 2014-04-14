@@ -21,7 +21,6 @@ public class DummyBot : Enemy {
 
 	// Use this for initialization
 	void Start () {
-	
 		moveCenterX = transform.position.x;
 		move = true;
 		moving = false;
@@ -93,6 +92,15 @@ public class DummyBot : Enemy {
 
 	}
 
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.tag == "Powered" || col.tag == "Weapon")
+		{
+			anim.Play("Break");
+			Hurt(1);
+		}
+	}
+
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
@@ -100,7 +108,7 @@ public class DummyBot : Enemy {
 
 		if(obj.tag == "Player")
 		{
-			obj.GetComponent<AliverController>().Recoil(0);
+			obj.GetComponent<AliverController>().Recoil(1);
 		}
 	}
 

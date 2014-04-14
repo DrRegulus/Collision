@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour {
 		lives -= damage;
 		if(lives <= 0)
 		{
-			Destroy (gameObject);
+			Destroy (gameObject, 2);
 		}
 	}
 }

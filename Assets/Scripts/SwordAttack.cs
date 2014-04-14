@@ -5,8 +5,8 @@ using System.Diagnostics;
 public class SwordAttack : MonoBehaviour {
 	public Sprite sword;
 	public float animDuration = 0.2f;
-	static private BoxCollider2D boxCol;// = (BoxCollider2D)collider2D;
-	static private SpriteRenderer sprRenderer;// = (SpriteRenderer)renderer;
+	private BoxCollider2D boxCol;// = (BoxCollider2D)collider2D;
+	private SpriteRenderer sprRenderer;// = (SpriteRenderer)renderer;
 	private Stopwatch timer = new Stopwatch();
 	private AliverController aliver;
 
