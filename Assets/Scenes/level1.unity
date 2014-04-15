@@ -6258,13 +6258,17 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[1].Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -151.921494
+      value: -152.389603
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -5.42647743
+      value: -4.45364189
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6285,6 +6289,54 @@ Prefab:
     - target: {fileID: 400004, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[1].Array.data[1].x
+      value: .155423507
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[1].Array.data[1].y
+      value: .110423461
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[1].Array.data[2].x
+      value: .18941927
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[1].Array.data[2].y
+      value: .10562437
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[1].Array.data[0].x
+      value: .20700863
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[1].Array.data[0].y
+      value: .17401734
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[2].Array.data[1].x
+      value: -.145423889
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[2].Array.data[1].y
+      value: .223213837
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[2].Array.data[0].x
+      value: -.201808766
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_Poly.m_Paths.Array.data[2].Array.data[0].y
+      value: .241205141
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
@@ -14406,7 +14458,7 @@ Transform:
   m_PrefabInternal: {fileID: 761144729}
   m_GameObject: {fileID: 1743201723}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -151.921494, y: -5.42647743, z: 0}
+  m_LocalPosition: {x: -152.389603, y: -4.45364189, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 364002206}
@@ -14494,13 +14546,11 @@ PolygonCollider2D:
       - {x: -.000137329102, y: -1.02769732}
       - {x: .221221924, y: -.89022851}
       - {x: .28918457, y: -.693171263}
-    - - {x: .254999995, y: .269999981}
-      - {x: .284999996, y: .239999995}
-      - {x: .294999987, y: .239999995}
-      - {x: .264999986, y: .179999992}
-      - {x: .275000006, y: .179999992}
-    - - {x: -.24499999, y: .269999981}
-      - {x: -.275000006, y: .299999982}
+    - - {x: .20700863, y: .17401734}
+      - {x: .155423507, y: .110423461}
+      - {x: .18941927, y: .10562437}
+    - - {x: -.201808766, y: .241205141}
+      - {x: -.145423889, y: .223213837}
       - {x: -.185000002, y: .269999981}
 --- !u!61 &1743201729
 BoxCollider2D:
@@ -16631,10 +16681,10 @@ GameObject:
   - 4: {fileID: 2003853692}
   - 212: {fileID: 2003853691}
   - 50: {fileID: 2003853690}
-  - 61: {fileID: 2003853693}
   - 61: {fileID: 2003853689}
   - 114: {fileID: 2003853688}
   - 95: {fileID: 2003853687}
+  - 61: {fileID: 2003853693}
   m_Layer: 10
   m_Name: Broken Robot
   m_TagString: Enemy
