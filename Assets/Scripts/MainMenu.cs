@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour {
 
 	//public Texture lv1texture; 
 	//public Transform button1spot;
-	public Texture[] Texlist; 
+	public Texture[] texlist; 
 	public Transform[] buttonspots;
 
 

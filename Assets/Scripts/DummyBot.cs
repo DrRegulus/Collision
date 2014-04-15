@@ -96,6 +96,9 @@ public class DummyBot : Enemy {
 	{
 		if(col.tag == "Powered" || col.tag == "Weapon")
 		{
+			moving = false;
+			move = false;
+			delay.Stop();
 			anim.Play("Break");
 			Hurt(1);
 		}

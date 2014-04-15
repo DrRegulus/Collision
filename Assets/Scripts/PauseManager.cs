@@ -66,7 +66,7 @@ public class PauseManager : MonoBehaviour {
 			
 			if (GUI.Button (new Rect (10, (buttonHeight + 4 * buttonHeight / 2), buttonWidth, buttonHeight), "Quit")) {
 				Time.timeScale = 1;
-				Application.LoadLevel("mainMenu");
+				Application.LoadLevel("MainMenu");
 			}
 
 			GUI.EndGroup ();

@@ -200,6 +200,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 6746e35ac23ada54ca220a96466e4da5, type: 3}
   - {fileID: 2800000, guid: d337a01ef85459243b327f671b9c4365, type: 3}
   - {fileID: 2800000, guid: 915b23061af377a4fb837b4424363a86, type: 3}
+  - {fileID: 2800000, guid: 892b9c856cdc8dd4f8b8c1a310668e8d, type: 3}
   - {fileID: 2800000, guid: 84d0e023aafd8524e8a9237d5c99f739, type: 3}
   nextBtn: {fileID: 2800000, guid: 399371b426ee4dc4fb91d2b1e10e06ad, type: 3}
   prevBtn: {fileID: 2800000, guid: 08c690387c6a0364c9e5c7ace799976e, type: 3}
@@ -270,6 +271,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11400000, guid: e0576be32a2228b43a566ad6bf065310, type: 2}
+      propertyPath: panels.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e0576be32a2228b43a566ad6bf065310, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -312,6 +317,10 @@ Prefab:
       objectReference: {fileID: 2800000, guid: 915b23061af377a4fb837b4424363a86, type: 3}
     - target: {fileID: 11400000, guid: e0576be32a2228b43a566ad6bf065310, type: 2}
       propertyPath: panels.Array.data[3]
+      value: 
+      objectReference: {fileID: 2800000, guid: 892b9c856cdc8dd4f8b8c1a310668e8d, type: 3}
+    - target: {fileID: 11400000, guid: e0576be32a2228b43a566ad6bf065310, type: 2}
+      propertyPath: panels.Array.data[4]
       value: 
       objectReference: {fileID: 2800000, guid: 84d0e023aafd8524e8a9237d5c99f739, type: 3}
     m_RemovedComponents: []

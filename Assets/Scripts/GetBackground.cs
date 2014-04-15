@@ -12,8 +12,7 @@ public class GetBackground : MonoBehaviour {
 
 		if (spr == null)
 		{
-			//spr = Resources.Load<Sprite>("Backgrounds/debugDefault");
-			spr = null;
+			spr = Resources.Load<Sprite>("Backgrounds/Comic1");
 		}
 
 		sr.sprite = spr;

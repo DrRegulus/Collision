@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using System.Diagnostics;
 
 public class AliverController : MonoBehaviour {
 
@@ -34,6 +35,7 @@ public class AliverController : MonoBehaviour {
 	public event ResetEventHandler Reset;
 
 	private Vector3 lastPos;
+	private Stopwatch vulnerable = new Stopwatch();
 
 
 	public delegate void CheckPointEventHandler(object sender, EventArgs e);
@@ -51,7 +53,7 @@ public class AliverController : MonoBehaviour {
 		CheckPoint += new CheckPointEventHandler(CheckPointReached);
 		Reset += new ResetEventHandler(ResetToCheckPoint);
 		facingRight = true;
-		print ("LEVEL LOADED");
+		vulnerable.Start ();
 		//CheckPoint (this, EventArgs.Empty);
 	}
 
@@ -193,9 +195,14 @@ public class AliverController : MonoBehaviour {
 
 	public void LoseLives(int damage)
 	{
-		lives -= damage;
-		if (lives <= 0)
-			GameOver ();
+		if(vulnerable.ElapsedMilliseconds > 2000)
+		{
+			vulnerable.Reset();
+			vulnerable.Start();
+			lives -= damage;
+			if (lives <= 0)
+				GameOver ();
+		}
 	}
 
 	public void GainLife()
@@ -236,6 +243,6 @@ public class AliverController : MonoBehaviour {
 
 	public void GameOver()
 	{
-		Application.LoadLevel ("mainMenu");
+		Application.LoadLevel ("MainMenu");
 	}
 }

@@ -34,7 +34,7 @@ public class ComicPlayer : MonoBehaviour {
 		                            beginBtn.width, beginBtn.height), beginBtn))
 		{
 			Destroy(Camera.main.gameObject);
-			Application.LoadLevelAdditive("level" + lvlNum);
+			Application.LoadLevelAdditive("Level" + lvlNum);
 			Destroy(gameObject);
 		}
 
