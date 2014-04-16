@@ -21,13 +21,21 @@ public class DialogueCollider : MonoBehaviour {
 	public int speechNumbers = 3;
 	private int currentSpeech = 0;
 	private bool activated = false;
+	int counter = 0;
 
 	void FixedUpdate()
 	{
 		if(activated && Input.GetKeyUp(KeyCode.E))
 		{
-			currentSpeech = (currentSpeech + 1) % speechNumbers;
-			instance.SendMessage("TextDisplay", currentSpeech);
+			currentSpeech++;
+
+			if(currentSpeech == speechNumbers){
+				Destroy (instance);
+				currentSpeech = 0;
+				activated = false;
+			}
+			else
+				instance.SendMessage("TextDisplay", currentSpeech);
 		}
 	}
 
@@ -55,7 +63,7 @@ public class DialogueCollider : MonoBehaviour {
 				temp.x = transform.position.x + 1;
 				Quaternion temp2 = transform.rotation;
 				temp2.z = transform.rotation.z - 90;
-				print ("spawning prompt");
+				//print ("spawning prompt");
 				instance = Instantiate (thePrefab, temp, temp2) as GameObject;
 				instance.transform.parent = transform;
 				instance.SendMessage ("TheStart", gameObject.name);
@@ -69,7 +77,7 @@ public class DialogueCollider : MonoBehaviour {
 	{
 		if(col.tag == "Player")
 		{
-			print ("Exit");
+			//print ("Exit");
 			if (activated) {
 				Destroy(instance);
 				activated = false;

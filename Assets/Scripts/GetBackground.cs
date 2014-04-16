@@ -8,7 +8,7 @@ public class GetBackground : MonoBehaviour {
 		SpriteRenderer sr = GetComponent<SpriteRenderer> ();
 		Sprite spr = Resources.Load<Sprite>("Backgrounds/" + Application.loadedLevelName);
 
-		print (Application.loadedLevelName);
+		//print (Application.loadedLevelName);
 
 		if (spr == null)
 		{

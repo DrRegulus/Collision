@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thePrefab: {fileID: 100000, guid: 65d319f27987737409d31eb4aaf5a8dc, type: 2}
-  NPC: AtticusTutorial
   speechNumbers: 3
 --- !u!212 &21200000
 SpriteRenderer:

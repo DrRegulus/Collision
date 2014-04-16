@@ -5,99 +5,90 @@ using System.Diagnostics;
 public class DummyBot : Enemy {
 
 	public Animator anim;
-	public float moveRange = 5f;
+	public Transform left;
+	public Transform right;
+
 	public float maxSpeed = 10f;
 	public float waitTime = 0f;
 	public float maxWaitTime = 2f;
 	public float minWaitTime = 1f;
-	public float moveCenterX = 0;
-	public float moveDestinationX = 0;
-	public bool move = true;
-	public bool moving = false;
-	public bool leftOfDestination = false;
+
+	public bool canMove = true;
+	public bool moving = true;
+	public bool moveRight = true;
 
 	public Stopwatch delay = new Stopwatch();
-
+	private Vector3 dest;
 
 	// Use this for initialization
 	void Start () {
-		moveCenterX = transform.position.x;
-		move = true;
-		moving = false;
+		dest = transform.position;
+		delay.Start ();
 	}
 
 
 	void FixedUpdate() {
 
-		//UnityEngine.Debug.Log( "" + moving);
+		if((moveRight && transform.position.x > dest.x) ||
+		   (!moveRight && transform.position.x < dest.x))
+		{
+			moving = false;
+			
+			delay.Reset();
+			delay.Start();
+			
+			waitTime = Random.Range(minWaitTime, maxWaitTime);
 
-		if(move){
-
-			moveDestinationX = moveCenterX + Random.Range(0f, moveRange * 2) - moveRange;
-
-			if(moveDestinationX > transform.position.x){
-
-				leftOfDestination = true;
-			}
-			else{
-
-				leftOfDestination = false;
-			}
-
-			anim.SetBool("facingRight", leftOfDestination);
-
-			move = false;
-			moving = true;
-			anim.SetBool("moving", true);
+			dest = new Vector3(Random.Range(left.position.x, right.position.x), dest.y);
+			moveRight = dest.x > transform.position.x;
 		}
 
 		if(moving){
-
-			if(leftOfDestination){
-
+			if(moveRight)
 				rigidbody2D.velocity = new Vector2 (maxSpeed, rigidbody2D.velocity.y);
-			}
-			else{
-
+			else
 				rigidbody2D.velocity = new Vector2 (-maxSpeed, rigidbody2D.velocity.y);
-			}
-
-
-			if( (moveDestinationX > transform.position.x) != leftOfDestination){
-
-				rigidbody2D.velocity = new Vector2 (0, rigidbody2D.velocity.y);
-
-				moving = false;
-				anim.SetBool("moving", false);
-
-				delay.Reset();
-				delay.Start();
-
-				waitTime = Random.Range(minWaitTime, maxWaitTime);
-				//set not moving animation
-			}
-
 		}
-
-		if(!moving && !move){
+		else if(canMove){
 
 			if(delay.ElapsedMilliseconds > (waitTime * 1000)){
+				moving = true;
 
 				delay.Stop();
-				move = true;
 			}
 
 		}
+	
+		if(!moving)
+		{
+			rigidbody2D.velocity = new Vector2 (0, rigidbody2D.velocity.y);
+		}
 
-
+		anim.SetBool("facingRight", moveRight);
+		anim.SetBool("moving", moving);
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.tag == "Powered" || col.tag == "Weapon")
+		if(col.tag == "Player")
+		{
+			AliverController aliver = col.gameObject.GetComponent<AliverController>();
+			aliver.Freeze();
+			aliver.LoseLives(1);
+
+			moving = false;
+			
+			delay.Reset();
+			delay.Start();
+			
+			waitTime = maxWaitTime;
+			aliver.Unfreeze();
+		}
+
+		else if(col.tag == "Powered" || col.tag == "Weapon")
 		{
 			moving = false;
-			move = false;
+			canMove = false;
 			delay.Stop();
 			anim.Play("Break");
 			Hurt(1);
@@ -105,25 +96,29 @@ public class DummyBot : Enemy {
 	}
 
 
-	void OnCollisionEnter2D(Collision2D col)
+	/*void OnCollisionEnter2D(Collision2D col)
 	{
-		Collider2D obj = col.collider;
+		GameObject obj = col.gameObject;
 
 		if(obj.tag == "Player")
 		{
-			obj.GetComponent<AliverController>().Recoil(1);
+			obj.GetComponent<AliverController>().LoseLives(1);
+			moving = false;
+			
+			delay.Reset();
+			delay.Start();
+			
+			waitTime = maxWaitTime;
 		}
-	}
 
-
-	void OnCollisionExit2D(Collision2D col)
-	{
-		moving = false;
-		
-		delay.Reset();
-		delay.Start();
-		
-		waitTime = Random.Range(minWaitTime, maxWaitTime);
-	}
-
+		if(col.collider.tag != "Ground")
+		{
+			moving = false;
+			
+			delay.Reset();
+			delay.Start();
+			
+			waitTime = Random.Range(minWaitTime, maxWaitTime);
+		}
+	}*/
 }

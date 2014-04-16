@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+     
+	<dialogue>
+    <MirandaTutorial>
+      <speech0>Listen up: we don’t have much time so you need to get the hang of this gauntlet quickly. If you shoot at an object, sometimes it’ll react to the electricity. Use the right mouse button to try it out.</speech0>
+      <speech1>If it comes down to it, you might need to engage in close combat. Use the left mouse button to throw a punch.</speech1>
+      <speech2>If you fall, the lampposts around the city will help guide you back. Make sure you turn on any you pass. The wiring is a bit temperamental, so only one lamp will light at a time.</speech2>
+      <speech3>Familiarize yourself with the city and find Atticus and Sullivan east of here. Go on, get to it.</speech3>
+    </MirandaTutorial>
+    <AtticusTutorial>
+      <speech0>Fine work, Aliver. You learn quickly. It looks like we’re just about ready to go.</speech0>
+      <speech1>Well, perhaps not…</speech1>
+      <speech2>It looks like Sullivan still has some work to finish. You’ll have to leave here by using your menu. Press “Esc” and click the “Quit” button to finish this tutorial.</speech2>
+    </AtticusTutorial>
+	<SullivanTutorial>
+    	<speech0>I see you've spoken with Atticus and Miranda.</speech0>
+    	<speech1>I'm going to take a while to finish my work, you should get out of here using your menu</speech1>
+    	<speech2>Go on! Open the menu by pressing "Esc".</speech2>
+    </SullivanTutorial>
+    <MirandaLevel1>
+    	<speech0>Time is of the essence, Aliver. You need to get back to work.</speech0>
+    	<speech1>Is the Airship ready? If it's not, you shouldn't be here talking to me. </speech1>
+    	<speech2>I know this is a lot to deal with, but bear with us—there's a lot at stake here.</speech2>
+   		<speech3>Stop stalling!</speech3>
+    </MirandaLevel1>
+    <AtticusLevel1>
+    	<speech0>We'll answer more of your questions once we're on the airship.</speech0>
+    	<speech1>This task should give you a chance to practice with Abigail. You'll definitely need it.</speech1>
+    	<speech2>Aliver, this probably isn't the best time to chit-chat.</speech2>
+    	<speech3>I hope you didn't actually think we'd really remove your arm.</speech3>
+    </AtticusLevel1>
+    <SullivanLevel1>
+    	<speech0>How's it going? The airship ready yet?</speech0>
+    	<speech1>Are you finding the map helpful? you know, I don't typically draw things, but I think that this one is one of my best yet!</speech1>
+    	<speech2>You know, if we pull this off we'll be heroes! How exciting is that?</speech2>
+    	<speech3>You should probably get back to the whole release-the-airship thing…</speech3>
+    </SullivanLevel1>
+    <MirandaLevel2>
+    	<speech0>Level2 Speech1</speech0>
+    	<speech1>Level2 Speech2</speech1>
+    	<speech2>Level2 Speech3</speech2>
+    	<speech3>Level2 Speech4</speech3>
+    </MirandaLevel2>
+    <AtticusLevel2>
+    	<speech0>0</speech0>
+    	<speech1>1</speech1>
+    	<speech2>2</speech2>
+    	<speech3>3</speech3>
+    </AtticusLevel2>
+    <SullivanLevel2>
+    	<speech0>0</speech0>
+    	<speech1>1</speech1>
+    	<speech2>2</speech2>
+    	<speech3>3</speech3>
+    </SullivanLevel2>
+    </dialogue>
+

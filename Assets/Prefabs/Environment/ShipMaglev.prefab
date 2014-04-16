@@ -161,7 +161,7 @@ GameObject:
   - 50: {fileID: 5000004}
   m_Layer: 0
   m_Name: ShipMaglev
-  m_TagString: Untagged
+  m_TagString: Maglev
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -28,7 +28,7 @@ public class Textbox : MonoBehaviour
 
 	void TheStart(string name){
 		NPC = name;
-		print (NPC);
+		//print (NPC);
 		displayText = false;
 		target = GameObject.FindWithTag ("Player");
 	}
@@ -46,23 +46,23 @@ public class Textbox : MonoBehaviour
 
 	void TextDisplay(int num){
 		XmlDocument textFile = new XmlDocument ();
-		textFile.Load (Application.dataPath + "/TestDialogue.xml");
+		textFile.Load (Application.dataPath + "/Dialogue.xml");
 		
 		
 		if (textFile == null) {
 				//TODO: Display File Not Found Error
-				print ("Text not found");
+				//print ("Text not found");
 				return;
 		}
 		else {
-			print ("Text found");
+			//print ("Text found");
 		}
 
 
 		//XML READING
 		foreach (XmlNode textXML in textFile.SelectNodes("dialogue//"+NPC)) {
-				speech = textXML.SelectSingleNode("speech" + num.ToString()).InnerText + " (Press \"E\" to continue.)";
-				print (speech);
+				speech = textXML.SelectSingleNode("speech" + num.ToString()).InnerText;
+				//print (speech);
 				displayText = true;
 
 			//speechNumber = int.Parse(textXML.SelectSingleNode
@@ -114,7 +114,9 @@ public class Textbox : MonoBehaviour
 		//print (speechSplit [0]);
 		//print ("ongui");
 		//if (displayText == true) {
-		GUI.Box(new Rect (10, 10, Screen.width, Screen.height/3), mySpeech, myStyle);
+		GUI.Box(new Rect (0, 0, Screen.width, Screen.height/3), mySpeech, myStyle);
+		GUI.contentColor = Color.black;
+		GUI.Label (new Rect(Screen.width/(float)1.25, Screen.height/(float)3.6, Screen.width, Screen.height/(float)3), "Press 'E' to Continue");
 		//GUI.contentColor = Color.black;
 		//GUI.Label (new Rect (100, 100, 100, 200), speech);
 		//}

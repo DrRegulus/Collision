@@ -35,7 +35,7 @@ public class AliverController : MonoBehaviour {
 	public event ResetEventHandler Reset;
 
 	private Vector3 lastPos;
-	private Stopwatch vulnerable = new Stopwatch();
+	private float lastHit = 0;
 
 
 	public delegate void CheckPointEventHandler(object sender, EventArgs e);
@@ -53,7 +53,6 @@ public class AliverController : MonoBehaviour {
 		CheckPoint += new CheckPointEventHandler(CheckPointReached);
 		Reset += new ResetEventHandler(ResetToCheckPoint);
 		facingRight = true;
-		vulnerable.Start ();
 		//CheckPoint (this, EventArgs.Empty);
 	}
 
@@ -195,10 +194,9 @@ public class AliverController : MonoBehaviour {
 
 	public void LoseLives(int damage)
 	{
-		if(vulnerable.ElapsedMilliseconds > 2000)
+		if(Time.time - lastHit > 1)
 		{
-			vulnerable.Reset();
-			vulnerable.Start();
+			lastHit = Time.time;
 			lives -= damage;
 			if (lives <= 0)
 				GameOver ();
@@ -230,7 +228,7 @@ public class AliverController : MonoBehaviour {
 		}
 	}
 
-	//Take some damage
+	/*//Take some damage
 	public void Recoil(int damage)
 	{
 		LoseLives (damage);
@@ -239,7 +237,7 @@ public class AliverController : MonoBehaviour {
 			transform.Translate(-0.1f, 0 , 0);
 		else
 			transform.Translate(0.1f, 0 , 0);
-	}
+	}*/
 
 	public void GameOver()
 	{
