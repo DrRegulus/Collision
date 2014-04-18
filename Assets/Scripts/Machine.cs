@@ -2,40 +2,52 @@
 using System.Collections;
 using System;
 
-public class MovingPlatform : MonoBehaviour {
+public class Machine : MonoBehaviour {
 
-	public Transform aliver;
-	private Vector3 checkPosition;
+	public bool powered = false;
+	public float moveDir = 1f;
+	protected float moveSpeed = 5f;
+
+	protected bool checkPowered;
+	protected float checkMoveDir;
+	protected float checkMoveSpeed;
 
 	// Use this for initialization
 	void Start () {
+		checkMoveDir = moveDir;
+		checkMoveSpeed = moveSpeed;
+		checkPowered = powered;
+		
 		//set up event handlers for CheckPoints and Resets
 		AliverController aliver = GameObject.Find("Aliver").GetComponent<AliverController>();
 		aliver.CheckPoint += new AliverController.CheckPointEventHandler(CheckPointReached);
 		aliver.Reset += new AliverController.ResetEventHandler(ResetToCheckPoint);
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
+	public void Activate()
 	{
-		aliver = col.transform;
+		powered = true;
 	}
 
-	void OnCollisionExit2D(Collision2D col)
+	public void Deactivate()
 	{
-		aliver.GetComponent<AliverController>().SetParentVelocity(new Vector2(0, 0));	
-		aliver = null;
+		powered = false;
+		moveDir *= -1;
 	}
-
 
 	public void CheckPointReached(object sender, EventArgs e){
 		
-		checkPosition = transform.position;
+		checkPowered = powered;
+		checkMoveDir = moveDir;
+		checkMoveSpeed = moveSpeed;
 		
 	}
 	
 	public void ResetToCheckPoint(object sender, EventArgs e){
 		
-		transform.position = checkPosition;
+		powered = checkPowered;
+		moveDir = checkMoveDir;
+		moveSpeed = checkMoveSpeed;
 		
 	}
 }

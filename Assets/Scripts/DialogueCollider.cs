@@ -21,9 +21,8 @@ public class DialogueCollider : MonoBehaviour {
 	public int speechNumbers = 3;
 	private int currentSpeech = 0;
 	private bool activated = false;
-	int counter = 0;
 
-	void FixedUpdate()
+	void Update()
 	{
 		if(activated && Input.GetKeyUp(KeyCode.E))
 		{

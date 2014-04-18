@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ShipMaglev : Maglev {
+
+	private bool locked = false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,21 +19,18 @@ public class ShipMaglev : Maglev {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (powered) {
+		if (powered && !locked) {
 
 			FixedRotator[] gears = maglev.GetComponentsInChildren<FixedRotator>();
-			gears[0].Rotate();
-			gears[1].Rotate();
+			gears[0].Rotate(FixedRotator.Direction.COUNTERCLOCKWISE);
+			gears[1].Rotate(FixedRotator.Direction.COUNTERCLOCKWISE);
 
 			maglev.Translate(moveSpeed * moveDir, 0 , 0);
 			
-			if ((moveDir > 0 && rightBorder.position.x >= rightEdge.position.x)
-			    || (moveDir < 0 && leftBorder.position.x <= leftEdge.position.x)) {
-				moveDir *= -1;
+			if ((moveDir > 0 && maglev.position.x >= rightEdge.position.x)
+			    || (moveDir < 0 && maglev.position.x <= leftEdge.position.x)) {
 				powered = false;
-				Transform Aliver = transform.FindChild("Aliver");
-				if(Aliver != null)
-					Aliver.parent = null;
+				locked = true;
 			}
 		}
 	}

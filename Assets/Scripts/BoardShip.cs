@@ -6,7 +6,7 @@ public class BoardShip : MonoBehaviour {
 	public bool takeoff = false;
 	private float distance = 20f;
 
-	void Update()
+	void FixedUpdate()
 	{
 		if (takeoff)
 		{

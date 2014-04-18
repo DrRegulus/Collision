@@ -40,7 +40,7 @@ public class ComicPlayer : MonoBehaviour {
 
 		//print (panels.Length);
 
-		if(0 < idx && idx < panels.Length - 1)
+		if(0 < idx)
 		{
 			if(GUI.Button(new Rect(0, Screen.height/2 - prevBtn.height/2,
 			                       prevBtn.width, prevBtn.height), prevBtn))

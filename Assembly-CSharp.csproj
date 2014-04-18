@@ -54,12 +54,14 @@
      <Compile Include="Assets\Scripts\DialogueCollider.cs" />
      <Compile Include="Assets\Scripts\DialoguePrompt.cs" />
      <Compile Include="Assets\Scripts\DummyBot.cs" />
+     <Compile Include="Assets\Scripts\ElectricRail.cs" />
      <Compile Include="Assets\Scripts\Elevator.cs" />
      <Compile Include="Assets\Scripts\ElevatorSwitch.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\FixedRotator.cs" />
      <Compile Include="Assets\Scripts\GetBackground.cs" />
      <Compile Include="Assets\Scripts\KillZone.cs" />
+     <Compile Include="Assets\Scripts\Machine.cs" />
      <Compile Include="Assets\Scripts\Maglev.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />

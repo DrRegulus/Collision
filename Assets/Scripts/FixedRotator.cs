@@ -19,7 +19,7 @@ public class FixedRotator : MonoBehaviour {
 		{
 			if(rotationCount < rotationInterval)
 			{
-				Rotate ();
+				Rotate (dir);
 				rotationCount++;
 			}
 			else if(rotationCount < 2 * rotationInterval)
@@ -33,8 +33,13 @@ public class FixedRotator : MonoBehaviour {
 		}
 	}
 
-	public void Rotate()
+	public void Rotate(Direction direc)
 	{
-		transform.Rotate (0, 0, (float)dir);
+		transform.Rotate (0, 0, (float)direc);
+	}
+
+	public void Rotate(Direction direc, float angle)
+	{
+		transform.Rotate (0, 0, (float)direc * angle);
 	}
 }

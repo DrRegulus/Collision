@@ -4,9 +4,9 @@ using System.Collections;
 public class OneUp : MonoBehaviour {
 
 
-	void Update()
+	void FixedUpdate()
 	{
-		transform.Rotate (0, 2, 0);
+		transform.Rotate (0, 4, 0);
 	}
 
 	void OnTriggerEnter2D(Collider2D col)

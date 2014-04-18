@@ -37,6 +37,7 @@ public class AliverController : MonoBehaviour {
 	private Vector3 lastPos;
 	private float lastHit = 0;
 
+	private Vector2 parVel = new Vector2(0, 0);
 
 	public delegate void CheckPointEventHandler(object sender, EventArgs e);
 	public delegate void ResetEventHandler(object sender, EventArgs e);
@@ -53,7 +54,7 @@ public class AliverController : MonoBehaviour {
 		CheckPoint += new CheckPointEventHandler(CheckPointReached);
 		Reset += new ResetEventHandler(ResetToCheckPoint);
 		facingRight = true;
-		//CheckPoint (this, EventArgs.Empty);
+		CheckPoint (this, EventArgs.Empty);
 	}
 
 	//Set a new checkpoint
@@ -89,18 +90,9 @@ public class AliverController : MonoBehaviour {
 
 		if(!frozen)
 		{
-			//Set a new checkpoint DEBUG ONLY
-			if(Input.GetButtonDown("CheckPoint")){
-		
-				CheckPoint(this, EventArgs.Empty);
-
-			}
-
-			//Reset to checkpoint DEBUG ONLY
-			if (Input.GetButtonDown ("Reset"))
-			{
-				Reset(this, EventArgs.Empty);
-			}
+			//Move character
+			float move = Input.GetAxis ("Horizontal");
+			rigidbody2D.velocity = new Vector2 (move * maxSpeed + parVel.x, rigidbody2D.velocity.y);
 
 			//Ignore jumps and attacks while not grounded
 			if (grounded)
@@ -127,49 +119,35 @@ public class AliverController : MonoBehaviour {
 				}
 			}
 		}
-
-		if(Time.time - lastTime > coolDown || lastTime == 0)
-		{
-			anim.SetBool("Attack", false);
-		}
-	}
-
-
-	void FixedUpdate() {
-
-		//Disconnect from parent platform or object
-		if (!grounded)
-			transform.parent = null;
-
-		//Update animation variables
-		anim.SetBool ("Grounded", grounded);
-		anim.SetFloat ("hSpeed", rigidbody2D.velocity.x);
-		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
-
-		if(!frozen)
-		{
-			//Move character
-			float move = Input.GetAxis ("Horizontal");
-			rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
-		}
 		else
 		{
 			rigidbody2D.velocity = new Vector2(0, 0);
 		}
 
+		if(Time.time - lastTime > coolDown || lastTime == 0)
+		{
+			anim.SetBool("Attack", false);
+		}
+
 		//Compute distance moved
 		float xDist = transform.position.x - lastPos.x;
 		float yDist = transform.position.y - lastPos.y;
-
+		
 		if (xDist > 0)
 			facingRight = true;
 		else
 			facingRight = false;
-
+		
 		//Shift background in opposite direction
 		background.Translate(-ParallaxFactor * xDist, -ParallaxFactor * yDist, 0);
 		lastPos = transform.position;
+
+		//Update animation variables
+		anim.SetBool ("Grounded", grounded);
+		anim.SetFloat ("hSpeed", rigidbody2D.velocity.x - parVel.x);
+		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y - parVel.y);
 	}
+
 
 	//Generate new projectile
 	void Shoot(){
@@ -228,16 +206,10 @@ public class AliverController : MonoBehaviour {
 		}
 	}
 
-	/*//Take some damage
-	public void Recoil(int damage)
+	public void SetParentVelocity(Vector2 vel)
 	{
-		LoseLives (damage);
-		rigidbody2D.velocity = new Vector2 (0, 0);
-		if(facingRight)
-			transform.Translate(-0.1f, 0 , 0);
-		else
-			transform.Translate(0.1f, 0 , 0);
-	}*/
+		parVel = vel;
+	}
 
 	public void GameOver()
 	{
