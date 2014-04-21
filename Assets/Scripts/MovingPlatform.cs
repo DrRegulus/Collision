@@ -22,8 +22,11 @@ public class MovingPlatform : MonoBehaviour {
 
 	void OnCollisionExit2D(Collision2D col)
 	{
-		aliver.GetComponent<AliverController>().SetParentVelocity(new Vector2(0, 0));	
-		aliver = null;
+		if(aliver != null)
+		{
+			aliver.GetComponent<AliverController>().SetParentVelocity(new Vector2(0, 0));	
+			aliver = null;
+		}
 	}
 
 

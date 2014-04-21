@@ -4,8 +4,8 @@ using System.Collections;
 public class FixedRotator : MonoBehaviour {
 
 	public enum Direction{
-		CLOCKWISE = 1,
-		COUNTERCLOCKWISE = -1
+		CLOCKWISE = -1,
+		COUNTERCLOCKWISE = 1
 	};
 
 	public bool alwaysRotate = true;

@@ -16,6 +16,7 @@ public class DummyBot : Enemy {
 	public bool canMove = true;
 	public bool moving = true;
 	public bool moveRight = true;
+	protected bool alive = true;
 
 	public Stopwatch delay = new Stopwatch();
 	private Vector3 dest;
@@ -70,13 +71,12 @@ public class DummyBot : Enemy {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.tag == "Player")
+		if(alive && col.tag == "Player")
 		{
 			AliverController aliver = col.gameObject.GetComponent<AliverController>();
 			aliver.Freeze();
-			aliver.LoseLives(1);
-
 			moving = false;
+			aliver.LoseLives(1);
 			
 			delay.Reset();
 			delay.Start();
@@ -87,6 +87,7 @@ public class DummyBot : Enemy {
 
 		else if(col.tag == "Powered" || col.tag == "Weapon")
 		{
+			alive = false;
 			moving = false;
 			canMove = false;
 			delay.Stop();
