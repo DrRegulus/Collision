@@ -14,6 +14,7 @@ public class AliverController : MonoBehaviour {
 	public float maxSpeed = 10f;
 
 	public ThrowableWeapon throwW;			//projectile weapon
+	public ThrowableWeapon bomb;
 	public float coolDown = 3.0f;			//able to shoot after 3 sec
 	private float lastTime = 0.0f;
 
@@ -117,6 +118,13 @@ public class AliverController : MonoBehaviour {
 						Shoot ();
 					}
 				}
+				if(Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale == 1)
+				{
+					if(!anim.GetBool("Attack"))
+					{
+						ShootBomb ();
+					}
+				}
 			}
 		}
 		else
@@ -169,6 +177,26 @@ public class AliverController : MonoBehaviour {
 			Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
 			lastTime = Time.time;
 	}
+	void ShootBomb(){
+		//Set arm rotation to match projectile
+		Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+		aim.z = 0;
+		aim.Normalize();
+		float angle = Vector3.Angle( new Vector3(1,0,0), aim);
+		//GameObject arm;
+		
+		anim.SetBool("Attack", true);
+		
+		if(aim.y < 0)
+			angle = 360 - angle;
+		
+		//arm.transform.parent = transform;
+		//Destroy (arm, .2f);
+		
+		Instantiate (bomb, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
+		lastTime = Time.time;
+	}
+
 
 	public void LoseLives(int damage)
 	{

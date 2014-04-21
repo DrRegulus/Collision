@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\AliverController.cs" />
      <Compile Include="Assets\Scripts\AttackHandler.cs" />
      <Compile Include="Assets\Scripts\BoardShip.cs" />
+     <Compile Include="Assets\Scripts\Bomb.cs" />
      <Compile Include="Assets\Scripts\ComicPlayer.cs" />
      <Compile Include="Assets\Scripts\Credits.cs" />
      <Compile Include="Assets\Scripts\DialogueCollider.cs" />
@@ -80,7 +81,11 @@
      <Compile Include="Assets\Scripts\SwordAttack.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\ThrowableWeapon.cs" />
+     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Dialogue.xml" />
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
