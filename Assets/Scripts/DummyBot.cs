@@ -7,6 +7,7 @@ public class DummyBot : Enemy {
 	public Animator anim;
 	public Transform left;
 	public Transform right;
+	public GameObject throwW;
 
 	public float maxSpeed = 10f;
 	public float waitTime = 0f;
@@ -37,7 +38,7 @@ public class DummyBot : Enemy {
 			
 			delay.Reset();
 			delay.Start();
-			
+			Shoot ();
 			waitTime = Random.Range(minWaitTime, maxWaitTime);
 
 			dest = new Vector3(Random.Range(left.position.x, right.position.x), dest.y);
@@ -95,7 +96,37 @@ public class DummyBot : Enemy {
 			Hurt(1);
 		}
 	}
+	void Shoot(){
+		Vector3 aim;
+		float angle = 0;
+		float dir = 0;
 
+		//Set arm rotation to match projectile
+		if (moveRight)
+		{
+			aim = Vector3.right;
+			angle = 0;
+			dir = 1;
+		}
+		else
+		{
+			aim = Vector3.left;
+			angle = 180;
+			dir = -1;
+		}
+		
+		aim.z = 0;
+		aim.Normalize();
+		//GameObject arm;
+		
+		//anim.SetBool("Attack", true);
+		
+		//arm.transform.parent = transform;
+		//Destroy (arm, .2f);
+		GameObject proj = Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject;
+		proj.transform.Rotate(new Vector3(0, 0, 1), angle);
+		proj.rigidbody2D.velocity = new Vector2 (dir,0) * 24f;
+	}
 
 	/*void OnCollisionEnter2D(Collision2D col)
 	{

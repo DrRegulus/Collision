@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Elevator.cs" />
      <Compile Include="Assets\Scripts\ElevatorSwitch.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\Enemy_projectile.cs" />
      <Compile Include="Assets\Scripts\FixedRotator.cs" />
      <Compile Include="Assets\Scripts\GetBackground.cs" />
      <Compile Include="Assets\Scripts\KillZone.cs" />
