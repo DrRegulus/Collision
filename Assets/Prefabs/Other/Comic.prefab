@@ -154,11 +154,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lvlNum: 1
-  panels:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  panels: []
+  skipBtn: {fileID: 2800000, guid: 779e2d7688c5c6946ad9b4db344d9c8b, type: 3}
   nextBtn: {fileID: 2800000, guid: 399371b426ee4dc4fb91d2b1e10e06ad, type: 3}
   prevBtn: {fileID: 2800000, guid: 08c690387c6a0364c9e5c7ace799976e, type: 3}
   beginBtn: {fileID: 2800000, guid: c1967fe2061198740b7099e39b5e6aa8, type: 3}

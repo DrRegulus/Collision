@@ -20,7 +20,7 @@ public class DialogueCollider : MonoBehaviour {
 	//public string NPC = "bob";
 	public int speechNumbers = 3;
 	private int currentSpeech = 0;
-	private bool activated = false;
+	public bool activated = false;
 
 	void Update()
 	{

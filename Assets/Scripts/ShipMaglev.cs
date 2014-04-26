@@ -25,12 +25,16 @@ public class ShipMaglev : Maglev {
 			gears[0].Rotate(FixedRotator.Direction.COUNTERCLOCKWISE);
 			gears[1].Rotate(FixedRotator.Direction.COUNTERCLOCKWISE);
 
-			maglev.Translate(moveSpeed * moveDir, 0 , 0);
+			//maglev.Translate(moveSpeed * moveDir, 0 , 0);
+
+			maglev.rigidbody2D.velocity = new Vector2(2 * moveDir * moveSpeed, 0);
 			
 			if ((moveDir > 0 && maglev.position.x >= rightEdge.position.x)
 			    || (moveDir < 0 && maglev.position.x <= leftEdge.position.x)) {
 				powered = false;
 				locked = true;
+
+				maglev.rigidbody2D.velocity = new Vector2(0, 0);
 			}
 		}
 	}

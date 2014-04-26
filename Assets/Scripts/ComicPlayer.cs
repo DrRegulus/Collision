@@ -5,6 +5,7 @@ public class ComicPlayer : MonoBehaviour {
 
 	public int lvlNum = 0;
 	public Texture[] panels;
+	public Texture skipBtn;
 	public Texture nextBtn;
 	public Texture prevBtn;
 	public Texture beginBtn;
@@ -38,7 +39,13 @@ public class ComicPlayer : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
-		//print (panels.Length);
+		if(GUI.Button(new Rect(Screen.width - skipBtn.width, 3*Screen.height/4 - skipBtn.height/2,
+		                                 skipBtn.width, skipBtn.height), skipBtn))
+		{
+			Destroy(Camera.main.gameObject);
+			Application.LoadLevelAdditive("Level" + lvlNum);
+			Destroy(gameObject);
+		}
 
 		if(0 < idx)
 		{

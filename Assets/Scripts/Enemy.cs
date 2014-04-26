@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour {
 		lives -= damage;
 		if(lives <= 0)
 		{
-			Destroy (gameObject, 2);
+			//Destroy (gameObject, 2);
 		}
 	}
 }

@@ -4,7 +4,7 @@ using System.Collections;
 
 public class Projectile : ThrowableWeapon {
 
-	public int damage = 0;
+	public int damage = 1;
 	public float liveTime = 5;
 	public Animator anim;
 
@@ -31,9 +31,5 @@ public class Projectile : ThrowableWeapon {
 			}
 
 		}
-	}
-
-	void Update(){
-		//rigidbody2D.AddTorque(Random.Range(-10,10));
 	}
 }

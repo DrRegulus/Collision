@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour {
 	{
 		mainIncs = Screen.width / (mainBtns.Length * 2);
 		lvlIncs = Screen.width / (lvlBtns.Length * 2);
+		PlayerPrefs.SetInt ("Lives", 3);
 	}
 
 	void OnGUI()

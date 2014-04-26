@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{15FB6CCB-D11E-BEBC-EA2B-48DC477F3561}") = "Collision", "Assembly-CSharp.csproj", "{AFEE7A35-2992-861B-0377-144F1117E0D9}"
 EndProject
-Project("{15FB6CCB-D11E-BEBC-EA2B-48DC477F3561}") = "Collision", "Assembly-UnityScript-firstpass.unityproj", "{D472F20B-2834-3C5B-FA9B-DE6B39C9AED4}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,15 +13,11 @@ Global
 		{AFEE7A35-2992-861B-0377-144F1117E0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFEE7A35-2992-861B-0377-144F1117E0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFEE7A35-2992-861B-0377-144F1117E0D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D472F20B-2834-3C5B-FA9B-DE6B39C9AED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D472F20B-2834-3C5B-FA9B-DE6B39C9AED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D472F20B-2834-3C5B-FA9B-DE6B39C9AED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D472F20B-2834-3C5B-FA9B-DE6B39C9AED4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																																													GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																																																																		GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

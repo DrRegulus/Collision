@@ -58,9 +58,11 @@
      <Compile Include="Assets\Scripts\ElectricRail.cs" />
      <Compile Include="Assets\Scripts\Elevator.cs" />
      <Compile Include="Assets\Scripts\ElevatorSwitch.cs" />
+     <Compile Include="Assets\Scripts\EndTutorial.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Scripts\Enemy_projectile.cs" />
+     <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
      <Compile Include="Assets\Scripts\FixedRotator.cs" />
+     <Compile Include="Assets\Scripts\FlyingRobot.cs" />
      <Compile Include="Assets\Scripts\GetBackground.cs" />
      <Compile Include="Assets\Scripts\KillZone.cs" />
      <Compile Include="Assets\Scripts\Machine.cs" />
@@ -76,17 +78,14 @@
      <Compile Include="Assets\Scripts\Projectile.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\SetCheckpoint.cs" />
+     <Compile Include="Assets\Scripts\Shield.cs" />
      <Compile Include="Assets\Scripts\ShipMaglev.cs" />
      <Compile Include="Assets\Scripts\Steam.cs" />
      <Compile Include="Assets\Scripts\SteamValve.cs" />
      <Compile Include="Assets\Scripts\SwordAttack.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\ThrowableWeapon.cs" />
-     <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
      <None Include="Assets\Dialogue.xml" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>Library\ScriptAssemblies\Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,6 +5,7 @@ public class GetBackground : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//Get current background image based on level name
 		SpriteRenderer sr = GetComponent<SpriteRenderer> ();
 		Sprite spr = Resources.Load<Sprite>("Backgrounds/" + Application.loadedLevelName);
 
@@ -16,10 +17,5 @@ public class GetBackground : MonoBehaviour {
 		}
 
 		sr.sprite = spr;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
 	}
 }

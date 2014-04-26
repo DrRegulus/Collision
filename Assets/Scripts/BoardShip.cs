@@ -26,7 +26,9 @@ public class BoardShip : MonoBehaviour {
 		if (col.tag == "Player")
 		{
 			col.transform.parent = transform;
-			col.transform.GetComponent<AliverController>().Freeze();
+			AliverController aliver = col.transform.GetComponent<AliverController>();
+			aliver.Freeze();
+			PlayerPrefs.SetInt("Lives", aliver.lives);
 			takeoff = true;
 		}
 	}

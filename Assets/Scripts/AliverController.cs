@@ -6,20 +6,28 @@ using System.Diagnostics;
 public class AliverController : MonoBehaviour {
 
 	public Animator anim;
-	private Transform background;
-	private bool frozen = false;
 
+	//Background variables
+	public Transform background;
+	public float ParallaxFactor = .04f;
+
+	//Life counter
+	public Sprite lifeSprite;
 	public int lives = 3;
-	public float ParallaxFactor = 1f;
+
+	//Movement variables
+	private bool frozen = false;
+	private bool shielded = false;
 	public float maxSpeed = 10f;
 
-	public ThrowableWeapon throwW;			//projectile weapon
-	public ThrowableWeapon bomb;
-	public float coolDown = 3.0f;			//able to shoot after 3 sec
+	//Weapon prefabs
+	public ThrowableWeapon throwW;
+	public GameObject shield;
+	public float coolDown = 1.0f;
 	private float lastTime = 0.0f;
+	private GameObject shieldInstance;
 
-	public Sprite lifeSprite;
-
+	//Grounding and jump variables
 	public bool grounded = true;
 	public Transform groundCheck;
 	public float jumpForce = 1000f;
@@ -32,14 +40,15 @@ public class AliverController : MonoBehaviour {
 	public bool checkGrounded;
 	public bool facingRight = true;
 
-	public event CheckPointEventHandler CheckPoint;
-	public event ResetEventHandler Reset;
-
+	//Private tracking variables
 	private Vector3 lastPos;
 	private float lastHit = 0;
-
 	private Vector2 parVel = new Vector2(0, 0);
+	private Vector3 cameraDest;
 
+	//Checkpoint events & delegates
+	public event CheckPointEventHandler CheckPoint;
+	public event ResetEventHandler Reset;
 	public delegate void CheckPointEventHandler(object sender, EventArgs e);
 	public delegate void ResetEventHandler(object sender, EventArgs e);
 
@@ -50,37 +59,17 @@ public class AliverController : MonoBehaviour {
 			anim = GetComponent<Animator> ();
 
 		lastPos = transform.position;
-		background = transform.FindChild ("Background");
 
 		CheckPoint += new CheckPointEventHandler(CheckPointReached);
 		Reset += new ResetEventHandler(ResetToCheckPoint);
 		facingRight = true;
 		CheckPoint (this, EventArgs.Empty);
+
+		int temp = PlayerPrefs.GetInt ("Lives");
+		if (temp != 0)
+			lives = temp;
 	}
 
-	//Set a new checkpoint
-	public void CheckPointReached(object sender, EventArgs e){
-
-		CheckPointPosition = transform.position;
-		checkVelocity = rigidbody2D.velocity;
-
-		checkGrounded = grounded;
-		checkDirection = rigidbody2D.velocity.x;
-
-	}
-
-	//Revert to last checkpoint
-	public void ResetToCheckPoint(object sender, EventArgs e){
-				
-		transform.position = CheckPointPosition;
-		rigidbody2D.velocity = checkVelocity;
-
-		anim.SetBool ("Grounded", checkGrounded);
-		anim.SetFloat ("hSpeed", checkDirection);
-
-		grounded = checkGrounded;
-
-	}
 
 	// Update is called once per frame
 	void Update () {
@@ -89,41 +78,60 @@ public class AliverController : MonoBehaviour {
 
 		grounded = Physics2D.Linecast (transform.position, groundCheck.position, whatIsGround);
 
+		if(shielded)
+			Camera.main.transform.position += new Vector3(UnityEngine.Random.Range(-.1f, .1f), UnityEngine.Random.Range(-.1f, .1f), 0);
+
 		if(!frozen)
 		{
-			//Move character
-			float move = Input.GetAxis ("Horizontal");
-			rigidbody2D.velocity = new Vector2 (move * maxSpeed + parVel.x, rigidbody2D.velocity.y);
-
-			//Ignore jumps and attacks while not grounded
-			if (grounded)
+			if(!shielded)
 			{
-				//Jump
-				if(Input.GetButtonDown ("Jump"))
+				//Move character
+				float move = Input.GetAxis ("Horizontal");
+				rigidbody2D.velocity = new Vector2 (move * maxSpeed + parVel.x, rigidbody2D.velocity.y);
+
+				if(move > 0)
 				{
-					rigidbody2D.AddForce(new Vector2(0, jumpForce));
+					facingRight = true;
+				}
+				else if(move < 0)
+				{
+					facingRight = false;
 				}
 
-				/*Melee attack
-				if(Input.GetKeyDown(KeyCode.Mouse0))
+				if(anim.GetBool("Attack"))
 				{
+					Camera.main.transform.position += new Vector3(UnityEngine.Random.Range(-.05f, .05f), UnityEngine.Random.Range(-.05f, .05f), 0);
+				}
 
-				}*/
-
-				//Shoot attack
-				if(Input.GetKeyDown(KeyCode.Mouse1) && Time.timeScale == 1)
+				//Ignore jumps and attacks while not grounded
+				if (grounded && !anim.GetBool("Attack"))
 				{
-					if(!anim.GetBool("Attack"))
+					//Jump
+					if(Input.GetButtonDown ("Jump"))
+					{
+						rigidbody2D.AddForce(new Vector2(0, jumpForce));
+					}
+					
+					//Shoot attack
+					if(Input.GetKeyDown(KeyCode.Mouse1) && Time.timeScale == 1)
 					{
 						Shoot ();
 					}
-				}
-				if(Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale == 1)
-				{
-					if(!anim.GetBool("Attack"))
+
+					if(Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale == 1)
 					{
-						ShootBomb ();
+						shielded = true;
+						shieldInstance = Instantiate(shield, transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject;
+						shieldInstance.transform.parent = transform;
 					}
+				}
+			}
+			else if(Input.GetKeyUp(KeyCode.Mouse0) && Time.timeScale == 1)
+			{
+				if(shieldInstance != null)
+				{
+					Destroy(shieldInstance);
+					shielded = false;
 				}
 			}
 		}
@@ -140,14 +148,22 @@ public class AliverController : MonoBehaviour {
 		//Compute distance moved
 		float xDist = transform.position.x - lastPos.x;
 		float yDist = transform.position.y - lastPos.y;
-		
-		if (xDist > 0)
-			facingRight = true;
+
+		if (facingRight)
+		{
+			cameraDest = new Vector3(transform.position.x + 4, transform.position.y, Camera.main.transform.position.z);
+			if(Camera.main.transform.position.x <=  cameraDest.x)
+				Camera.main.transform.position += new Vector3(.6f, 0, 0);
+		}
 		else
-			facingRight = false;
+		{
+			cameraDest = new Vector3(transform.position.x - 4, transform.position.y, Camera.main.transform.position.z);
+			if(Camera.main.transform.position.x >=  cameraDest.x)
+				Camera.main.transform.position -= new Vector3(.6f, 0, 0);
+		}
 		
 		//Shift background in opposite direction
-		background.Translate(-ParallaxFactor * xDist, -ParallaxFactor * yDist, 0);
+		background.position = background.position + new Vector3(-ParallaxFactor * xDist, -ParallaxFactor * yDist, 0);
 		lastPos = transform.position;
 
 		//Update animation variables
@@ -157,8 +173,45 @@ public class AliverController : MonoBehaviour {
 	}
 
 
-	//Generate new projectile
-	void Shoot(){
+	void OnGUI()
+	{
+		GUI.backgroundColor = Color.clear;
+		for (int i = 0; i < lives; i++) 
+		{
+			GUI.Box(new Rect(i * lifeSprite.texture.width, Screen.height - lifeSprite.texture.height,
+			                 lifeSprite.texture.width, lifeSprite.texture.height), new GUIContent(lifeSprite.texture));
+		}
+	}
+
+
+	///Set a new checkpoint
+	public void CheckPointReached(object sender, EventArgs e){
+		
+		CheckPointPosition = transform.position;
+		checkVelocity = rigidbody2D.velocity;
+		
+		checkGrounded = grounded;
+		checkDirection = rigidbody2D.velocity.x;
+		
+	}
+
+
+	///Revert to last checkpoint
+	public void ResetToCheckPoint(object sender, EventArgs e){
+		
+		transform.position = CheckPointPosition;
+		rigidbody2D.velocity = checkVelocity;
+		
+		anim.SetBool ("Grounded", checkGrounded);
+		anim.SetFloat ("hSpeed", checkDirection);
+		
+		grounded = checkGrounded;
+		
+	}
+
+
+	///Generate new projectile
+	private void Shoot(){
 			//Set arm rotation to match projectile
 			Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 			aim.z = 0;
@@ -177,7 +230,9 @@ public class AliverController : MonoBehaviour {
 			Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
 			lastTime = Time.time;
 	}
-	void ShootBomb(){
+
+
+	/*private void ShootBomb(){
 		//Set arm rotation to match projectile
 		Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 		aim.z = 0;
@@ -195,50 +250,64 @@ public class AliverController : MonoBehaviour {
 		
 		Instantiate (bomb, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
 		lastTime = Time.time;
-	}
+	}*/
 
-
+	
+	/// <summary>
+	/// Decrements life counter and prevents continuous collision damage.
+	/// </summary>
+	/// <param name="damage">Damage received</param>
 	public void LoseLives(int damage)
 	{
 		if(Time.time - lastHit > 1)
 		{
 			lastHit = Time.time;
-			lives -= damage;
+			//lives -= damage;
 			if (lives <= 0)
 				GameOver ();
 		}
 	}
 
+
+	/// <summary>
+	/// Increment the life counter.
+	/// </summary>
 	public void GainLife()
 	{
 		lives++;
 	}
 
+
+	/// <summary>
+	/// Disable all player movement.
+	/// </summary>
 	public void Freeze()
 	{
 		frozen = true;
 		rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
 	}
 
+
+	/// <summary>
+	/// Enable all player movement.
+	/// </summary>
 	public void Unfreeze()
 	{
 		frozen = false;
 	}
 
-	void OnGUI()
-	{
-		GUI.backgroundColor = Color.clear;
-		for (int i = 0; i < lives; i++) 
-		{
-			GUI.Box(new Rect(i * lifeSprite.texture.width, Screen.height - lifeSprite.texture.height, lifeSprite.texture.width, lifeSprite.texture.height), new GUIContent(lifeSprite.texture));
-		}
-	}
-
+	/// <summary>
+	/// Track parent platform's velocity for smooth movement
+	/// </summary>
+	/// <param name="vel">Parent's velocity</param>
 	public void SetParentVelocity(Vector2 vel)
 	{
 		parVel = vel;
 	}
 
+	/// <summary>
+	/// Ends game immediately.
+	/// </summary>
 	public void GameOver()
 	{
 		Application.LoadLevel ("MainMenu");

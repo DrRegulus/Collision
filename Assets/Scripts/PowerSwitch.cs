@@ -17,11 +17,21 @@ public class PowerSwitch : MonoBehaviour {
 		aliver.Reset += new AliverController.ResetEventHandler(ResetToCheckPoint);
 	}
 
+	void Update()
+	{
+		if(debug)
+		{
+			transform.parent.GetComponent<Machine>().Activate();
+		}
+	}
+
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		if(col.tag == "Powered"){
 			if(!anim.GetBool("Power")){
 				anim.SetBool ("Power", true);
+
+				transform.parent.GetComponent<ShipMaglev>().Activate();
 			}
 		}
 	}
