@@ -15,11 +15,12 @@ public class SteamValve : PowerSwitch {
 
 	void Update()
 	{
-		if(debug)
+		if(activated)
 		{
 			anim.SetBool ("Power", true);
-			Destroy(transform.parent.FindChild ("Steam").gameObject, 2);
-			debug = false;
+			Destroy(transform.parent.FindChild ("Steam").gameObject);
+			FindObjectOfType<AliverController>().Unfreeze();
+			activated = false;
 		}
 	}
 }

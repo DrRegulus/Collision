@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class EndTutorial : MonoBehaviour {
@@ -21,7 +21,7 @@ public class EndTutorial : MonoBehaviour {
 	void Update () {
 		if(!unlocked && atticusDialogue.activated)
 		{
-			steam.debug = true;
+			steam.activated = true;
 			unlocked = true;
 		}
 	}

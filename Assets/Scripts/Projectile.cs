@@ -17,7 +17,7 @@ public class Projectile : ThrowableWeapon {
 
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-		if(col.tag == "Powered" || col.tag == "Enemy" || (col.tag != "Player" && !col.isTrigger))
+		if(col.tag == "Powered" || (col.tag == "Enemy" && col.GetComponent<Enemy>().alive) || (col.tag != "Player" && !col.isTrigger))
 		{
 			rigidbody2D.velocity = new Vector2(0, 0);
 			anim.SetBool ("Collided", true);

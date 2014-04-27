@@ -18,7 +18,7 @@ public class AliverController : MonoBehaviour {
 	//Movement variables
 	private bool frozen = false;
 	private bool shielded = false;
-	public float maxSpeed = 10f;
+	public float maxSpeed = 14f;
 
 	//Weapon prefabs
 	public ThrowableWeapon throwW;
@@ -79,7 +79,10 @@ public class AliverController : MonoBehaviour {
 		grounded = Physics2D.Linecast (transform.position, groundCheck.position, whatIsGround);
 
 		if(shielded)
+		{
 			Camera.main.transform.position += new Vector3(UnityEngine.Random.Range(-.1f, .1f), UnityEngine.Random.Range(-.1f, .1f), 0);
+			rigidbody2D.velocity = new Vector2(0, 0);
+		}
 
 		if(!frozen)
 		{

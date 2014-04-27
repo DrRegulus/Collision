@@ -18,6 +18,7 @@ public class Steam : MonoBehaviour {
 			if(currDist < steamPush)
 			{
 				currDist += .1f;
+				//player.rigidbody2D.velocity = new Vector2(dir * 5, 0);
 				player.Translate(dir * 0.1f, 0 , 0);
 			}
 			else
@@ -31,17 +32,17 @@ public class Steam : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
+	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (col.gameObject.tag == "Player")
+		if (col.tag == "Player")
 		{
 			collision = true;
 			player = col.transform;
-
+			
 			//Disable player movement
 			player.GetComponent<AliverController>().Freeze();
 			//player.GetComponent<AliverController>().anim.Play();
-
+			
 			//Set direction based on relative positions
 			if(player.transform.position.x < transform.position.x)
 			{

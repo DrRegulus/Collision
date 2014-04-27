@@ -15,7 +15,7 @@ public class EnemyProjectile : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-		if(col.tag == "Player" || (col.tag != "Enemy" && !col.isTrigger))
+		if(col.tag == "Player" || (col.tag != "Enemy" && !col.isTrigger) || col.tag == "Shield")
 		{
 			rigidbody2D.velocity = new Vector2(0, 0);
 			anim.SetBool ("Collided", true);

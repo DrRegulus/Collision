@@ -32,12 +32,12 @@ public class Menu : MonoBehaviour {
 				Application.LoadLevel("Comic1");
 			}
 			
-			/*if(GUI.Button(new Rect(5 * lvlIncs - lvlBtns[2].width/2, Screen.height - lvlBtns[2].height,
+			if(GUI.Button(new Rect(5 * lvlIncs - lvlBtns[2].width/2, Screen.height - lvlBtns[2].height,
 			                       lvlBtns[2].width, lvlBtns[2].height), lvlBtns[2])) {
-				//Application.LoadLevel("Comic1");
+				Application.LoadLevel("Level2");
 			}
 
-			if(GUI.Button(new Rect(7 * lvlIncs - lvlBtns[3].width/2, Screen.height - lvlBtns[3].height,
+			/*if(GUI.Button(new Rect(7 * lvlIncs - lvlBtns[3].width/2, Screen.height - lvlBtns[3].height,
 			                       lvlBtns[3].width, lvlBtns[3].height), lvlBtns[3])) {
 				//Application.LoadLevel("Comic1");
 			}*/

@@ -135,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -63.1913185, y: -1.62880468, z: 0}
+  m_LocalPosition: {x: -45, y: 8, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -357,7 +357,7 @@ MonoBehaviour:
   ParallaxFactor: .0599999987
   lifeSprite: {fileID: 21300000, guid: e399ca7bd1aa34e4d862668272c9f2f7, type: 3}
   lives: 3
-  maxSpeed: 10
+  maxSpeed: 14
   throwW: {fileID: 11400000, guid: c6ed0f243592b824a835e7110151583e, type: 2}
   shield: {fileID: 100000, guid: 6bbc0e17e0a095b4cba140362cce5bef, type: 2}
   coolDown: .5

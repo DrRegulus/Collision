@@ -18,7 +18,6 @@ public class DummyBot : Enemy {
 	public bool canMove = true;
 	public bool moving = true;
 	public bool moveRight = true;
-	protected bool alive = true;
 
 	public Stopwatch delay = new Stopwatch();
 	private Vector3 dest;
@@ -115,12 +114,10 @@ public class DummyBot : Enemy {
 		//Take damage from projectile
 		else if(col.tag == "Powered")
 		{
-			alive = false;
 			moving = false;
 			canMove = false;
 			delay.Stop();
 			anim.Play("Break");
-			Hurt(1);
 		}
 
 		else if(col.tag == "Shield")

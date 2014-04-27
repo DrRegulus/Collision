@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System;
 using System.Diagnostics;
 
 public class PowerSwitch : MonoBehaviour {
 
-	public bool debug = false;
+	public bool activated = false;
 	private bool checkState;
 	public Animator anim;
 
@@ -19,7 +19,7 @@ public class PowerSwitch : MonoBehaviour {
 
 	void Update()
 	{
-		if(debug)
+		if(activated)
 		{
 			transform.parent.GetComponent<Machine>().Activate();
 		}
