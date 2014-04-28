@@ -63,7 +63,7 @@ public class Textbox : MonoBehaviour
 
 		foreach (XmlNode textXML in textFile.SelectNodes("dialogue//"+NPC)) {
 			speech = textXML.SelectSingleNode("speech" + num.ToString()).InnerText;
-			speech += "                                                           Press 'E' to advance.";
+			speech += "\n\nPress 'E' to advance.";
 				//print (speech);
 			displayText = true;
 

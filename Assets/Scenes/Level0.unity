@@ -193,6 +193,7 @@ MonoBehaviour:
   thePrefab: {fileID: 100000, guid: 65d319f27987737409d31eb4aaf5a8dc, type: 2}
   speechNumbers: 4
   activated: 0
+  talkedTo: 0
 --- !u!61 &24978034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1587,7 +1588,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 383629754}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 2, y: 8}
   m_Center: {x: 0, y: .400000006}
 --- !u!1 &392369661
@@ -1776,7 +1777,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 429564931}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 2, y: 8}
   m_Center: {x: 0, y: .400000006}
 --- !u!1001 &454519035
@@ -3849,6 +3850,7 @@ MonoBehaviour:
   thePrefab: {fileID: 100000, guid: 65d319f27987737409d31eb4aaf5a8dc, type: 2}
   speechNumbers: 3
   activated: 0
+  talkedTo: 0
 --- !u!4 &973748747
 Transform:
   m_ObjectHideFlags: 0
@@ -3903,11 +3905,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 1
+  alive: 1
   anim: {fileID: 987984806}
   left: {fileID: 178279713}
   right: {fileID: 87876223}
   throwW: {fileID: 100000, guid: ab2ca8b47819f4a419d901df7f34fa50, type: 2}
-  maxSpeed: 10
+  maxSpeed: 12
   waitTime: 0
   maxWaitTime: 2
   minWaitTime: 1
@@ -5427,6 +5430,7 @@ MonoBehaviour:
   thePrefab: {fileID: 100000, guid: 65d319f27987737409d31eb4aaf5a8dc, type: 2}
   speechNumbers: 3
   activated: 0
+  talkedTo: 0
 --- !u!61 &1520498086
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5593,7 +5597,7 @@ Transform:
   m_PrefabInternal: {fileID: 601176404}
   m_GameObject: {fileID: 1607887596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: -3.5, z: 0}
+  m_LocalPosition: {x: -3, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1458708252}
@@ -5609,7 +5613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612a6e16e446c73499c9d3e11cb0d9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 0
+  activated: 0
   anim: {fileID: 1607887599}
 --- !u!95 &1607887599
 Animator:
@@ -6029,8 +6033,9 @@ MonoBehaviour:
   ParallaxFactor: .0599999987
   lifeSprite: {fileID: 21300000, guid: e399ca7bd1aa34e4d862668272c9f2f7, type: 3}
   lives: 3
-  maxSpeed: 10
+  maxSpeed: 14
   throwW: {fileID: 11400000, guid: c6ed0f243592b824a835e7110151583e, type: 2}
+  shield: {fileID: 100000, guid: 6bbc0e17e0a095b4cba140362cce5bef, type: 2}
   coolDown: .5
   grounded: 1
   groundCheck: {fileID: 1432474102}
@@ -6914,7 +6919,7 @@ Transform:
   m_PrefabInternal: {fileID: 1781670169}
   m_GameObject: {fileID: 1943666515}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: -3.5, z: 0}
+  m_LocalPosition: {x: -3, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1390664905}
@@ -6930,7 +6935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612a6e16e446c73499c9d3e11cb0d9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debug: 0
+  activated: 0
   anim: {fileID: 1943666518}
 --- !u!95 &1943666518
 Animator:

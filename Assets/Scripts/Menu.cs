@@ -24,7 +24,7 @@ public class Menu : MonoBehaviour {
 		{
 			if(GUI.Button(new Rect(lvlIncs - lvlBtns[0].width/2, Screen.height - lvlBtns[0].height,
 			                       lvlBtns[0].width, lvlBtns[0].height), lvlBtns[0])) {
-				Application.LoadLevel("Tutorial");
+				Application.LoadLevel("Comic0");
 			}
 			
 			if(GUI.Button(new Rect(3 * lvlIncs - lvlBtns[1].width/2, Screen.height - lvlBtns[1].height,

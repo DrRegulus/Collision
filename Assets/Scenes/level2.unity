@@ -18099,7 +18099,7 @@ GameObject:
   - 61: {fileID: 1235041844}
   - 114: {fileID: 1235041845}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: EndZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

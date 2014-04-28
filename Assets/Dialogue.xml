@@ -10,12 +10,12 @@
     <AtticusTutorial>
       <speech0>Fine work, Aliver. You learn quickly. It looks like we’re just about ready to go.</speech0>
       <speech1>Well, perhaps not…</speech1>
-      <speech2>It looks like Sullivan still has some work to finish. You’ll have to leave here by using your menu. Press “Esc” and click the “Quit” button to finish this tutorial.</speech2>
+      <speech2>It looks like Sullivan still has some work to finish. Go talk to him when you're ready to finish this tutorial.</speech2>
     </AtticusTutorial>
 	<SullivanTutorial>
     	<speech0>I see you've spoken with Atticus and Miranda.</speech0>
-    	<speech1>I'm going to take a while to finish my work, you should get out of here using your menu</speech1>
-    	<speech2>Go on! Open the menu by pressing "Esc".</speech2>
+    	<speech1>I'm about finished here. So we can leave whenever you're ready.</speech1>
+    	<speech2>And remember that anytime you feel like taking a break, you can open the menu by pressing "Esc".</speech2>
     </SullivanTutorial>
     <MirandaLevel1>
     	<speech0>Time is of the essence, Aliver. You need to get back to work.</speech0>
@@ -25,7 +25,7 @@
     </MirandaLevel1>
     <AtticusLevel1>
     	<speech0>We'll answer more of your questions once we're on the airship.</speech0>
-    	<speech1>This task should give you a chance to practice with Abigail. You'll definitely need it.</speech1>
+    	<speech1>This task should give you a chance to practice with the glove. You'll definitely need it.</speech1>
     	<speech2>Aliver, this probably isn't the best time to chit-chat.</speech2>
     	<speech3>I hope you didn't actually think we'd really remove your arm.</speech3>
     </AtticusLevel1>

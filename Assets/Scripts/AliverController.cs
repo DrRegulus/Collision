@@ -265,7 +265,7 @@ public class AliverController : MonoBehaviour {
 		if(Time.time - lastHit > 1)
 		{
 			lastHit = Time.time;
-			//lives -= damage;
+			lives -= damage;
 			if (lives <= 0)
 				GameOver ();
 		}
