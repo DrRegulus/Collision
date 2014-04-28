@@ -71,6 +71,23 @@ public class AliverController : MonoBehaviour {
 	}
 
 
+	void FixedUpdate()
+	{
+		if (facingRight)
+		{
+			cameraDest = new Vector3(transform.position.x + 4, transform.position.y, Camera.main.transform.position.z);
+			if(Camera.main.transform.position.x <=  cameraDest.x)
+				Camera.main.transform.position += new Vector3(.6f, 0, 0);
+		}
+		else
+		{
+			cameraDest = new Vector3(transform.position.x - 4, transform.position.y, Camera.main.transform.position.z);
+			if(Camera.main.transform.position.x >=  cameraDest.x)
+				Camera.main.transform.position -= new Vector3(.6f, 0, 0);
+		}
+	}
+
+
 	// Update is called once per frame
 	void Update () {
 		if(lives <= 0)
@@ -151,19 +168,6 @@ public class AliverController : MonoBehaviour {
 		//Compute distance moved
 		float xDist = transform.position.x - lastPos.x;
 		float yDist = transform.position.y - lastPos.y;
-
-		if (facingRight)
-		{
-			cameraDest = new Vector3(transform.position.x + 4, transform.position.y, Camera.main.transform.position.z);
-			if(Camera.main.transform.position.x <=  cameraDest.x)
-				Camera.main.transform.position += new Vector3(.6f, 0, 0);
-		}
-		else
-		{
-			cameraDest = new Vector3(transform.position.x - 4, transform.position.y, Camera.main.transform.position.z);
-			if(Camera.main.transform.position.x >=  cameraDest.x)
-				Camera.main.transform.position -= new Vector3(.6f, 0, 0);
-		}
 		
 		//Shift background in opposite direction
 		background.position = background.position + new Vector3(-ParallaxFactor * xDist, -ParallaxFactor * yDist, 0);

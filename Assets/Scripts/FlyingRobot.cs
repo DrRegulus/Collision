@@ -20,6 +20,7 @@ public class FlyingRobot : Enemy {
 	private bool inCombat = false;
 	private float shootTime = 0f;
 
+	private Transform playerPos;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +32,8 @@ public class FlyingRobot : Enemy {
 		if(inCombat)
 		{
 			rigidbody2D.velocity = new Vector2(0, 0);
+
+			//Shoot at aliver here
 		}
 		else
 		{
@@ -68,5 +71,23 @@ public class FlyingRobot : Enemy {
 			   ((yDir > 0 && transform.position.y >= dest.y) ||
 		 		(yDir < 0 && transform.position.y <= dest.y) ||
 			 	 yDir == 0);
+	}
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if(col.tag == "Player")
+		{
+			inCombat = true;
+			playerPos = col.transform;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D col)
+	{
+		if(col.tag == "Player")
+		{
+			inCombat = false;
+			playerPos = null;
+		}
 	}
 }

@@ -2,20 +2,20 @@
      
 	<dialogue>
     <MirandaTutorial>
-      <speech0>Listen up: we don’t have much time so you need to get the hang of this gauntlet quickly. If you shoot at an object, sometimes it’ll react to the electricity. Use the right mouse button to try it out.</speech0>
-      <speech1>If it comes down to it, you might need to engage in close combat. Use the left mouse button to throw a punch.</speech1>
-      <speech2>If you fall, the lampposts around the city will help guide you back. Make sure you turn on any you pass. The wiring is a bit temperamental, so only one lamp will light at a time.</speech2>
-      <speech3>Familiarize yourself with the city and find Atticus and Sullivan east of here. Go on, get to it.</speech3>
+      <speech0>Listen up: we don’t have much time so you need to get the hang of this gauntlet quickly. If you shoot at objects like elevator rails they’ll react to the electricity. Use the right mouse button to try it out.</speech0>
+      <speech1>You also may need to use the glove to defend yourself. Use the left mouse button to generate an electric field that will neutralize enemy attacks.</speech1>
+      <speech2>Oh, and remember that you'll need to be properly grounded to use the glove, so try not to jump too much.</speech2>
+      <speech3>If you fall, the lampposts around the city will help guide you back. Make sure you turn on any you pass. The wiring is a bit temperamental, so only one lamp will light at a time.</speech3>
     </MirandaTutorial>
     <AtticusTutorial>
       <speech0>Fine work, Aliver. You learn quickly. It looks like we’re just about ready to go.</speech0>
-      <speech1>Well, perhaps not…</speech1>
-      <speech2>It looks like Sullivan still has some work to finish. Go talk to him when you're ready to finish this tutorial.</speech2>
+      <speech1>Remember that anytime you feel like taking a break, you can open the pause menu by pressing "Esc".</speech1>
+      <speech2>It looks like Miranda and Sullivan are ready to go. We'll be around if you need us!</speech2>
     </AtticusTutorial>
 	<SullivanTutorial>
-    	<speech0>I see you've spoken with Atticus and Miranda.</speech0>
-    	<speech1>I'm about finished here. So we can leave whenever you're ready.</speech1>
-    	<speech2>And remember that anytime you feel like taking a break, you can open the menu by pressing "Esc".</speech2>
+    	<speech0>Hey Aliver! You want some more practice with that glove?</speech0>
+    	<speech1>I've set up a training dummy over on your left. I lowered his power settings so he won't hurt you, but I wouldn't get too close to him.</speech1>
+    	<speech2>You'll run into more security drones like that on your way to the airship, but they're a little more threatening.</speech2>
     </SullivanTutorial>
     <MirandaLevel1>
     	<speech0>Time is of the essence, Aliver. You need to get back to work.</speech0>

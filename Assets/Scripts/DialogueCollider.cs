@@ -37,7 +37,6 @@ public class DialogueCollider : MonoBehaviour {
 				talkedTo = true;
 			}
 			else{
-				print ("what");
 				instance.SendMessage ("TextDisplay", currentSpeech);
 			}
 		}

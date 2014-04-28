@@ -59,7 +59,6 @@
      <Compile Include="Assets\Scripts\Elevator.cs" />
      <Compile Include="Assets\Scripts\ElevatorSwitch.cs" />
      <Compile Include="Assets\Scripts\EndLevel.cs" />
-     <Compile Include="Assets\Scripts\EndTutorial.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
      <Compile Include="Assets\Scripts\FixedRotator.cs" />
