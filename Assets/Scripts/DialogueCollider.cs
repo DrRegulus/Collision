@@ -21,22 +21,53 @@ public class DialogueCollider : MonoBehaviour {
 	public int speechNumbers = 3;
 	private int currentSpeech = 0;
 	public bool activated = false;
+	public bool talkedTo = false;
 
 	void Update()
 	{
-		if(activated && Input.GetKeyUp(KeyCode.E))
+		if(activated && Input.GetKeyUp(KeyCode.E) && talkedTo == false)
 		{
 			currentSpeech++;
 
 			if(currentSpeech == speechNumbers){
 				Destroy (instance);
 				currentSpeech = 0;
+				//currentSpeech = rnd;
 				activated = false;
+				talkedTo = true;
 			}
-			else
-				instance.SendMessage("TextDisplay", currentSpeech);
+			else{
+				print ("what");
+				instance.SendMessage ("TextDisplay", currentSpeech);
+			}
 		}
+		else if (instance == null && talkedTo == true){
+
+		}
+		else if(talkedTo == true && Input.GetKeyUp (KeyCode.E)){
+			currentSpeech ++;
+			int speechToSend = (int)Random.value % 3;
+			if(currentSpeech == 1){
+				currentSpeech = 0;
+				Destroy (instance);
+			}
+			else{
+				print ("butts");
+				print (speechToSend);
+				instance.SendMessage ("TextDisplay", speechToSend);
+			}
+
+		}
+
+
+		/*else{
+			instance.SendMessage("TextDisplay", currentSpeech);
+			//instance.SendMessage ("TextDisplay", talkedTo);
+			print ("cool");
+		}*/
 	}
+
+
 
 	void OnTriggerEnter2D (Collider2D col)
 	{
@@ -68,6 +99,7 @@ public class DialogueCollider : MonoBehaviour {
 				instance.SendMessage ("TheStart", gameObject.name);
 				instance.SendMessage("TextDisplay", currentSpeech);
 				activated = true;
+
 			}
 		}
 	}

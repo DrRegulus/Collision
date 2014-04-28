@@ -60,16 +60,19 @@ public class Textbox : MonoBehaviour
 
 
 		//XML READING
+
 		foreach (XmlNode textXML in textFile.SelectNodes("dialogue//"+NPC)) {
-				speech = textXML.SelectSingleNode("speech" + num.ToString()).InnerText;
+			speech = textXML.SelectSingleNode("speech" + num.ToString()).InnerText;
+			speech += "                                                           Press 'E' to advance.";
 				//print (speech);
-				displayText = true;
+			displayText = true;
 
 			//speechNumber = int.Parse(textXML.SelectSingleNode
 			//myTest = textXML.SelectSingleNode ("s").InnerText;
 			//print (myTest);
 			//print (textXML.InnerText);
 
+			
 		}
 	}
 
@@ -82,7 +85,8 @@ public class Textbox : MonoBehaviour
 		string mySpeech = "";
 		char[] splitCriteria = {'\t'};
 		char[] speechChars = speech.ToCharArray ();
-		foreach (char letter in speechChars) {
+
+		/*foreach (char letter in speechChars) {
 			counter ++;
 			currentIndex ++;
 			if(counter >= 55 && letter == ' '){
@@ -100,7 +104,7 @@ public class Textbox : MonoBehaviour
 				mySpeech += line + "\n";
 				break;
 			}
-		}
+		}*/
 		//print (speechChars[12]);
 		/*string[] speechSplit = speech.Split (splitCriteria);
 		string mySpeech = "";
@@ -114,9 +118,10 @@ public class Textbox : MonoBehaviour
 		//print (speechSplit [0]);
 		//print ("ongui");
 		//if (displayText == true) {
-		GUI.Box(new Rect (0, 0, Screen.width, Screen.height/3), mySpeech, myStyle);
+		myStyle.fontSize = 15;
+		GUI.Box(new Rect (Screen.width/6, Screen.height/12, Screen.width/3, Screen.height/3), speech, myStyle);
 		GUI.contentColor = Color.black;
-		GUI.Label (new Rect(Screen.width/(float)1.25, Screen.height/(float)3.6, Screen.width, Screen.height/(float)3), "Press 'E' to Continue");
+		//GUI.Label (new Rect(Screen.width/(float)1.25, Screen.height/(float)3.6, Screen.width, Screen.height/(float)3), "Press 'E' to Continue");
 		//GUI.contentColor = Color.black;
 		//GUI.Label (new Rect (100, 100, 100, 200), speech);
 		//}
