@@ -58,10 +58,13 @@ public class DummyBot : Enemy {
 				//End attack animation after cooldown
 				anim.SetBool("Attack", false);
 
-				//Shoot randomly
-				if(Random.Range(0, 4) > 2)
-				{
-					Shoot ();
+				if( isFacing("Aliver") && hasVision("Aliver", 70) ){
+					
+					//Shoot randomly
+					if(Random.Range(0, 4) > 2)
+					{
+						Shoot ();
+					}
 				}
 			}
 
@@ -135,33 +138,82 @@ public class DummyBot : Enemy {
 	/// Shoot while moving.
 	/// </summary>
 	private void Shoot(){
-		Vector3 aim;
+
 		float angle = 0;
 		float dir = 0;
 
 		shootTime = Time.time;
 		anim.SetBool("Attack", true);
 
+		Vector3 aim =  GameObject.Find("Aliver").transform.position - transform.position;
+		aim.z = 0;
+		aim.Normalize();
+		angle = Vector3.Angle( new Vector3(1,0,0), aim);
+
 		//Set arm rotation to match projectile
 		if (moveRight)
 		{
 			aim = Vector3.right;
-			angle = 0;
 			dir = 1;
 		}
 		else
 		{
 			aim = Vector3.left;
-			angle = 180;
 			dir = -1;
 		}
 		
 		aim.z = 0;
 		aim.Normalize();
+		
+		GameObject proj = Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
+		
+		
+		proj.rigidbody2D.velocity = new Vector2(Mathf.Cos(angle * (Mathf.PI / 180)) * (180 / Mathf.PI), Mathf.Sin(angle * (Mathf.PI / 180)) * (180 / Mathf.PI) ).normalized * 24f;
+		//proj.transform.Rotate(new Vector3(0, 0, 1), angle);
+		//proj.rigidbody2D.velocity = new Vector2 (dir,0) * 24f;
+	}
 
-		GameObject proj = Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject;
-		proj.transform.Rotate(new Vector3(0, 0, 1), angle);
-		proj.rigidbody2D.velocity = new Vector2 (dir,0) * 24f;
+	bool hasVision(  string target, float range){
+		
+		GameObject targ = GameObject.Find(target);
+		if( targ == null ){
+			
+			return false;
+		}
+		
+		int mask = ~(1 << LayerMask.NameToLayer("Enemies"));
+		RaycastHit2D hit = Physics2D.Raycast(transform.position, targ.transform.position - transform.position, range, mask);
+		
+		if( hit == null ){
+			
+			return false;
+		}
+		
+		if ( hit.transform.name.Equals(target) ){
+			
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	bool isFacing(string target){
+		
+		GameObject targ = GameObject.Find(target);
+		if( targ == null ){
+			
+			return false;
+		}
+		
+		float targetDir = targ.transform.position.x - transform.position.x;
+		
+		if( (moveRight && targetDir >= 0) || (!moveRight && targetDir <= 0)){
+			
+			return true;
+		}
+		
+		return false;
 	}
 
 	/*void OnCollisionEnter2D(Collision2D col)

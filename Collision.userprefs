@@ -1,7 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Credits.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\DummyBot.cs">
     <Files>
+      <File FileName="Assets\Scripts\DummyBot.cs" Line="161" Column="23" />
       <File FileName="Assets\Scripts\Credits.cs" Line="33" Column="31" />
       <File FileName="Assets\Scripts\GetBackground.cs" Line="16" Column="51" />
     </Files>
