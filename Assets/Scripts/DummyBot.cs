@@ -112,11 +112,12 @@ public class DummyBot : Enemy {
 		}
 
 		//Take damage from projectile
-		else if(col.tag == "Powered")
+		else if(col.tag == "Projectile")
 		{
 			moving = false;
 			canMove = false;
 			delay.Stop();
+			Hurt (1);
 			anim.Play("Break");
 		}
 

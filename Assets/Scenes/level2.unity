@@ -290,7 +290,7 @@ AudioSource:
   m_GameObject: {fileID: 16511200}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 288f9f1963bd65048874619fe69d8a33, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7bebef3543eb4104aa5c6a1aee5ba1b5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -527,7 +527,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 36429008}
   - 114: {fileID: 36429009}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Elevator
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -810,7 +810,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 47584842}
   - 114: {fileID: 47584843}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Elevator
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1150,7 +1150,7 @@ Transform:
   m_PrefabInternal: {fileID: 1992696721}
   m_GameObject: {fileID: 77582729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16, y: 12, z: 109}
+  m_LocalPosition: {x: 20, y: 12, z: 109}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children: []
   m_Father: {fileID: 122547263}
@@ -4288,7 +4288,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 319300941}
   m_Layer: 0
-  m_Name: BrokenRobot
+  m_Name: SecurityRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4321,7 +4321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539c30b3f55a891459a07726ad01ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 3
   alive: 1
   anim: {fileID: 319300936}
   left: {fileID: 1404997258}
@@ -4995,7 +4995,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 351886263}
   - 114: {fileID: 351886264}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Maglev
   m_TagString: Maglev
   m_Icon: {fileID: 0}
@@ -7181,7 +7181,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 518280246}
   - 114: {fileID: 518280247}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Maglev
   m_TagString: Maglev
   m_Icon: {fileID: 0}
@@ -10413,7 +10413,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 748049642}
   m_Layer: 0
-  m_Name: BrokenRobot
+  m_Name: SecurityRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10446,7 +10446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539c30b3f55a891459a07726ad01ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 3
   alive: 1
   anim: {fileID: 748049637}
   left: {fileID: 2096578014}
@@ -10535,7 +10535,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 750804579}
   m_Layer: 0
-  m_Name: BrokenRobot
+  m_Name: SecurityRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11073,7 +11073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539c30b3f55a891459a07726ad01ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 3
   alive: 1
   anim: {fileID: 779892531}
   left: {fileID: 2127254815}
@@ -11332,7 +11332,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 816963566}
   - 114: {fileID: 816963567}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Elevator
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -11380,7 +11380,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 820895107}
   m_Layer: 0
-  m_Name: BrokenRobot
+  m_Name: SecurityRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11413,7 +11413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539c30b3f55a891459a07726ad01ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 3
   alive: 1
   anim: {fileID: 820895102}
   left: {fileID: 1432413017}
@@ -12780,7 +12780,7 @@ MonoBehaviour:
   jumpForce: 1000
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294965757
+    m_Bits: 4294965740
   CheckPointPosition: {x: 0, y: 0, z: 0}
   checkVelocity: {x: 0, y: 0}
   checkDirection: 0
@@ -14026,7 +14026,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 944304722}
   - 114: {fileID: 944304723}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Maglev
   m_TagString: Maglev
   m_Icon: {fileID: 0}
@@ -15120,7 +15120,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1043505877}
   m_Layer: 0
-  m_Name: BrokenRobot
+  m_Name: SecurityRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15153,7 +15153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539c30b3f55a891459a07726ad01ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 3
   alive: 1
   anim: {fileID: 1043505872}
   left: {fileID: 837064759}
@@ -16328,7 +16328,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1122819633}
   - 114: {fileID: 1122819634}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Maglev
   m_TagString: Maglev
   m_Icon: {fileID: 0}
@@ -19561,7 +19561,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1336911445}
   - 114: {fileID: 1336911446}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Elevator
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -21451,7 +21451,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1490057887}
   - 114: {fileID: 1490057888}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Elevator
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -21554,7 +21554,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1500926660}
   - 114: {fileID: 1500926661}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Elevator
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -23788,7 +23788,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1670978909}
   - 114: {fileID: 1670978910}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Elevator
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -25202,7 +25202,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1762440401}
   - 114: {fileID: 1762440402}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Maglev
   m_TagString: Maglev
   m_Icon: {fileID: 0}
@@ -25730,7 +25730,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1803034166}
   - 114: {fileID: 1803034167}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Maglev
   m_TagString: Maglev
   m_Icon: {fileID: 0}
@@ -26722,7 +26722,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1877479138}
   - 114: {fileID: 1877479139}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Maglev
   m_TagString: Maglev
   m_Icon: {fileID: 0}
@@ -27347,7 +27347,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1960977269}
   - 114: {fileID: 1960977270}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: Maglev
   m_TagString: Maglev
   m_Icon: {fileID: 0}
@@ -27925,6 +27925,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bebef3543eb4104aa5c6a1aee5ba1b5, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c6f6316b0678abb418ef667d143e09e9, type: 2}
   m_RootGameObject: {fileID: 877626233}

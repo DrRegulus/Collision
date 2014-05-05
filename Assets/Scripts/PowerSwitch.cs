@@ -27,7 +27,7 @@ public class PowerSwitch : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.tag == "Powered"){
+		if(col.tag == "Projectile"){
 			if(!anim.GetBool("Power")){
 				anim.SetBool ("Power", true);
 

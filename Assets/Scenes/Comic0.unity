@@ -129,6 +129,10 @@ Prefab:
       propertyPath: lvlNum
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: e0576be32a2228b43a566ad6bf065310, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 288f9f1963bd65048874619fe69d8a33, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e0576be32a2228b43a566ad6bf065310, type: 2}
   m_RootGameObject: {fileID: 1358632387}

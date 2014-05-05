@@ -17,19 +17,11 @@ public class Projectile : ThrowableWeapon {
 
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-		if(col.tag == "Powered" || (col.tag == "Enemy" && col.GetComponent<Enemy>().alive) || (col.tag != "Player" && !col.isTrigger))
+		if(col.tag == "Powered" || (col.tag == "Enemy" && col.gameObject.GetComponent<Enemy>().alive) || (col.tag != "Player" && !col.isTrigger))
 		{
-			rigidbody2D.velocity = new Vector2(0, 0);
 			anim.SetBool ("Collided", true);
+			rigidbody2D.velocity = new Vector2(0, 0);
 			Destroy (gameObject, .5f);
-
-			// If it hits an enemy...
-			if(col.tag == "Enemy")
-			{
-				// ... find the Enemy script and call the Hurt function.
-				col.gameObject.GetComponent<Enemy>().Hurt(damage);
-			}
-
 		}
 	}
 }

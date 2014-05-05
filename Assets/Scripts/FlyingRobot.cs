@@ -9,8 +9,6 @@ public class FlyingRobot : Enemy {
 	
 	public float maxSpeed = 12f;
 	public float cooldown = 1f;
-	
-	protected bool alive = true;
 
 	private Vector3 dest;
 	private int patrolIdx = 0;

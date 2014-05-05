@@ -26,9 +26,11 @@ public class Credits : MonoBehaviour {
 		creds += "\n\n\n";
 		creds += "MUSIC\n\n";
 		creds += "Opening Menu\n\"Word play\" by Wendy Mao\n\n";
-		creds += "Tutorial\n\"Air\" by Ziyed Hedfi\n\n";
+		creds += "Intro\n\"Rend\" by Ziyed Hedfi\n\n";
 		creds += "Comic 1\n\"Rend\" by Ziyed Hedfi\n\n";
 		creds += "Level 1\n\"Air\" by Ziyed Hedfi\n\n";
+		creds += "Comic 2\n\"Rend\" by Ziyed Hedfi\n\n";
+		creds += "Level 2\n\"Walking\" by Ziyed Hedfi\n\n";
 		creds += "End Credits\n\"Word Play\" by Wendy Mao\n\n";
 		tc.text = creds;
 		tc.transform.position = new Vector3 (0.5f, -1, 0);

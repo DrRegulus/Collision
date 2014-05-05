@@ -8,7 +8,7 @@ TagManager:
   - Enemy
   - Powered
   - Shield
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -18,6 +18,10 @@ TagManager:
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - ground
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
