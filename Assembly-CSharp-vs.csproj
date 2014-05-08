@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\AttackHandler.cs" />
      <Compile Include="Assets\Scripts\BoardShip.cs" />
      <Compile Include="Assets\Scripts\Bomb.cs" />
+     <Compile Include="Assets\Scripts\Boss.cs" />
      <Compile Include="Assets\Scripts\ComicPlayer.cs" />
      <Compile Include="Assets\Scripts\Credits.cs" />
      <Compile Include="Assets\Scripts\DialogueCollider.cs" />
@@ -85,6 +86,7 @@
      <Compile Include="Assets\Scripts\SwordAttack.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\ThrowableWeapon.cs" />
+     <Compile Include="Assets\Scripts\changeDirection.cs" />
      <None Include="Assets\Dialogue.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
