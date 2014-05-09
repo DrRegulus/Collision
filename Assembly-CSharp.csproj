@@ -87,6 +87,7 @@
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\ThrowableWeapon.cs" />
      <Compile Include="Assets\Scripts\changeDirection.cs" />
+     <Compile Include="Assets\Sprites\DropBomb.cs" />
      <None Include="Assets\Dialogue.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,7 +7,7 @@ public class Bomb : ThrowableWeapon {
 	public float liveTime = 5;
 	void Awake()
 	{
-		this.Speed = 25f; //set the speed of weapon
+		this.Speed = 0f; //set the speed of weapon
 		this.throwWeapon ();
 		particleSystem.Pause ();
 		Destroy (gameObject, liveTime); 
@@ -15,13 +15,12 @@ public class Bomb : ThrowableWeapon {
 	
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-		if(col.tag == "Powered" || col.tag == "Enemy" || (col.tag != "Player" && !col.isTrigger))
-		{
+	//	if(col.tag != "ChangeDir"){
 			particleSystem.Play();
-			rigidbody2D.velocity = new Vector2(0, 0);
+		//	rigidbody2D.velocity = new Vector2(0, 0);
 		//	anim.SetBool ("Collided", true);
 
-			Destroy (gameObject, 0.1f);
+			Destroy (gameObject);
 			
 			// If it hits an enemy...
 			if(col.tag == "Enemy")
@@ -32,8 +31,7 @@ public class Bomb : ThrowableWeapon {
 			}
 			else if(col.tag == "Player"){
 				col.gameObject.GetComponent<AliverController>().LoseLives(damage);
-			}
-			
+	//		}
 		}
 	}
 	
