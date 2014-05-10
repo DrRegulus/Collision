@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Projectile : ThrowableWeapon {
 
+	public bool collided = false;
 	public int damage = 1;
 	public float liveTime = 5;
 	public Animator anim;
@@ -15,13 +16,21 @@ public class Projectile : ThrowableWeapon {
 		Destroy (gameObject, liveTime); 
 	}
 
-	void OnTriggerEnter2D (Collider2D col) 
+	void Update()
 	{
-		if(col.tag == "Powered" || (col.tag == "Enemy" && col.gameObject.GetComponent<Enemy>().alive) || (col.tag != "Player" && !col.isTrigger))
+		if(collided)
 		{
 			anim.SetBool ("Collided", true);
 			rigidbody2D.velocity = new Vector2(0, 0);
 			Destroy (gameObject, .5f);
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D col) 
+	{
+		if(col.tag == "Powered" || (col.tag != "Player" && !col.isTrigger))
+		{
+			collided = true;
 		}
 	}
 }

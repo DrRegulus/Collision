@@ -135,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -140, y: 44, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -270,7 +270,7 @@ AudioSource:
   m_GameObject: {fileID: 100012}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c37ea81a188c6144daa0d3fde2161110, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -361,6 +361,7 @@ MonoBehaviour:
   throwW: {fileID: 11400000, guid: c6ed0f243592b824a835e7110151583e, type: 2}
   shield: {fileID: 100000, guid: 6bbc0e17e0a095b4cba140362cce5bef, type: 2}
   coolDown: .5
+  loadTime: 0
   grounded: 1
   groundCheck: {fileID: 400002}
   jumpForce: 1000
@@ -433,7 +434,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayer: 3
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_SortingLayerID: 2511236001
   m_Sprite: {fileID: 21300000, guid: e97695367221b8046b0a26543044d712, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

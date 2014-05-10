@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539c30b3f55a891459a07726ad01ed21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 3
+  lives: 1
   alive: 1
   anim: {fileID: 9500000}
   left: {fileID: 400004}

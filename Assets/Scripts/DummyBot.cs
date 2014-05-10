@@ -117,6 +117,7 @@ public class DummyBot : Enemy {
 		//Take damage from projectile
 		else if(col.tag == "Projectile")
 		{
+			col.gameObject.GetComponent<Projectile>().collided = true;
 			moving = false;
 			canMove = false;
 			delay.Stop();
@@ -124,13 +125,13 @@ public class DummyBot : Enemy {
 			anim.Play("Break");
 		}
 
-		else if(col.tag == "Shield")
+		/*else if(col.tag == "Shield")
 		{
 			moving = false;
 			dest = transform.position;
 			delay.Reset();
 			delay.Start();
-		}
+		}*/
 	}
 
 

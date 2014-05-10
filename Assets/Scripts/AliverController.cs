@@ -95,6 +95,8 @@ public class AliverController : MonoBehaviour {
 			GameOver();
 
 		grounded = Physics2D.Linecast (transform.position, groundCheck.position, whatIsGround);
+		if (!grounded)
+			anim.SetBool ("Attack", false);
 
 		if(shielded)
 		{
@@ -136,8 +138,11 @@ public class AliverController : MonoBehaviour {
 					//Shoot attack
 					if(Input.GetKeyDown(KeyCode.Mouse1) && Time.timeScale == 1)
 					{
-						loadTime = Time.time;
-						anim.SetBool("Attack", true);
+						if(!anim.GetBool("Attack"))
+						{
+							loadTime = Time.time;
+							anim.SetBool("Attack", true);
+						}
 					}
 
 					if(Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale == 1)
@@ -145,14 +150,16 @@ public class AliverController : MonoBehaviour {
 						shielded = true;
 						shieldInstance = Instantiate(shield, transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject;
 						shieldInstance.transform.parent = transform;
+						anim.SetBool("Attack", true);
 					}
 				}
+				else if(anim.GetBool("Attack") && Time.time - loadTime > coolDown){
+					Shoot ();
+					loadTime = Time.time;
+				}
+
 				if(Input.GetKeyUp(KeyCode.Mouse1)){
 					anim.SetBool("Attack", false);
-					loadTime = Time.time - loadTime;
-					if(loadTime > coolDown){
-						Shoot ();
-					}
 				}
 			}
 			else if(Input.GetKeyUp(KeyCode.Mouse0) && Time.timeScale == 1)
@@ -161,6 +168,7 @@ public class AliverController : MonoBehaviour {
 				{
 					Destroy(shieldInstance);
 					shielded = false;
+					anim.SetBool("Attack", false);
 				}
 			}
 		}
