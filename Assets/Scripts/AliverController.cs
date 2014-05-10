@@ -24,7 +24,8 @@ public class AliverController : MonoBehaviour {
 	public ThrowableWeapon throwW;
 	public GameObject shield;
 	public float coolDown = 1.0f;
-	private float lastTime = 0.0f;
+//	private float lastTime = 0.0f;
+	public float loadTime = 0.0f;
 	private GameObject shieldInstance;
 
 	//Grounding and jump variables
@@ -135,7 +136,8 @@ public class AliverController : MonoBehaviour {
 					//Shoot attack
 					if(Input.GetKeyDown(KeyCode.Mouse1) && Time.timeScale == 1)
 					{
-						Shoot ();
+						loadTime = Time.time;
+						anim.SetBool("Attack", true);
 					}
 
 					if(Input.GetKeyDown(KeyCode.Mouse0) && Time.timeScale == 1)
@@ -143,6 +145,13 @@ public class AliverController : MonoBehaviour {
 						shielded = true;
 						shieldInstance = Instantiate(shield, transform.position, Quaternion.Euler (new Vector3 (0, 0, 0))) as GameObject;
 						shieldInstance.transform.parent = transform;
+					}
+				}
+				if(Input.GetKeyUp(KeyCode.Mouse1)){
+					anim.SetBool("Attack", false);
+					loadTime = Time.time - loadTime;
+					if(loadTime > coolDown){
+						Shoot ();
 					}
 				}
 			}
@@ -160,10 +169,7 @@ public class AliverController : MonoBehaviour {
 			rigidbody2D.velocity = new Vector2(0, 0);
 		}
 
-		if(Time.time - lastTime > coolDown || lastTime == 0)
-		{
-			anim.SetBool("Attack", false);
-		}
+	
 
 		//Compute distance moved
 		float xDist = transform.position.x - lastPos.x;
@@ -226,7 +232,7 @@ public class AliverController : MonoBehaviour {
 			float angle = Vector3.Angle( new Vector3(1,0,0), aim);
 			//GameObject arm;
 
-			anim.SetBool("Attack", true);
+			//anim.SetBool("Attack", true);
 			
 			if(aim.y < 0)
 				angle = 360 - angle;
@@ -235,7 +241,7 @@ public class AliverController : MonoBehaviour {
 			//Destroy (arm, .2f);
 			
 			Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
-			lastTime = Time.time;
+		//	lastTime = Time.time;
 	}
 
 

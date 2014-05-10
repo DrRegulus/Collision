@@ -431,6 +431,7 @@ MonoBehaviour:
   throwW: {fileID: 11400000, guid: c6ed0f243592b824a835e7110151583e, type: 2}
   shield: {fileID: 100000, guid: 6bbc0e17e0a095b4cba140362cce5bef, type: 2}
   coolDown: .5
+  loadTime: 0
   grounded: 1
   groundCheck: {fileID: 600457591}
   jumpForce: 1000
@@ -907,7 +908,7 @@ GameObject:
   - 114: {fileID: 773796462}
   - 212: {fileID: 773796465}
   m_Layer: 0
-  m_Name: dropBomb
+  m_Name: DropBomb
   m_TagString: DropBomb
   m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1169,7 +1170,7 @@ GameObject:
   - 50: {fileID: 913698354}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

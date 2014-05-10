@@ -1,13 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Bomb.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Boss.cs">
     <Files>
-      <File FileName="Assets\Sprites\DropBomb.cs" Line="16" Column="23" />
-      <File FileName="Assets\Scripts\Bomb.cs" Line="23" Column="25" />
+      <File FileName="Assets\Scripts\Boss.cs" Line="16" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\rdg77_000\Documents\GitHub\Collision\Assets\Scripts\Bomb.cs" line="40" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

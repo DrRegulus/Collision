@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Bomb : ThrowableWeapon {
 	
-	public int damage = 0;
+	public int damage = 1;
 	public float liveTime = 5;
 	void Awake()
 	{
@@ -12,16 +12,42 @@ public class Bomb : ThrowableWeapon {
 		particleSystem.Pause ();
 		Destroy (gameObject, liveTime); 
 	}
-	
+
+	void OnCollisionEnter2D (Collision2D col) 
+	{//	if(col.tag != "ChangeDir"){
+		if(col.gameObject.tag != "Projectile" && col.gameObject.tag != "DropBomb"){
+		
+			particleSystem.Play();
+		//	rigidbody2D.velocity = new Vector2(0, 0);
+		//	anim.SetBool ("Collided", true);
+		
+		Destroy (gameObject, 0.1f);
+		
+		// If it hits an enemy...
+			if(col.gameObject.tag == "Enemy")
+		{
+			// ... find the Enemy script and call the Hurt function.
+			col.gameObject.GetComponent<Enemy>().Hurt(damage);
+			
+		}
+			else if(col.gameObject.tag == "Player"){
+			col.gameObject.GetComponent<AliverController>().LoseLives(damage);
+			//		}
+		}
+		}
+		}
 	void OnTriggerEnter2D (Collider2D col) 
 	{
+		if(col.tag != "Projectile" && col.tag != "DropBomb"){
+
 	//	if(col.tag != "ChangeDir"){
 			particleSystem.Play();
 		//	rigidbody2D.velocity = new Vector2(0, 0);
 		//	anim.SetBool ("Collided", true);
 
-			Destroy (gameObject);
-			
+			Destroy (gameObject, 0.1f);
+
+
 			// If it hits an enemy...
 			if(col.tag == "Enemy")
 			{
@@ -32,7 +58,7 @@ public class Bomb : ThrowableWeapon {
 			else if(col.tag == "Player"){
 				col.gameObject.GetComponent<AliverController>().LoseLives(damage);
 	//		}
-		}
+			}}
 	}
 	
 	void Update(){

@@ -3,9 +3,17 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
-	public int lives = 1;
+	public float lives = 1f;
 	public bool alive = true;
 
+	public float Lives {
+		get {
+			return lives;
+		}
+		set {
+			lives = value;
+		}
+	}
 	public void Hurt(int damage)
 	{
 		lives -= damage;

@@ -24,6 +24,7 @@ public class Boss : Enemy {
 	void Start () {
 		rigidbody2D.velocity = new Vector2 (-maxSpeed, 0);
 		delay.Start ();
+		this.Lives = 5;
 	}
 	
 	
