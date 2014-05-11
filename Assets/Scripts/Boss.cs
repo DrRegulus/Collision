@@ -128,9 +128,17 @@ public class Boss : Enemy {
 						dest = transform.position;
 						delay.Reset ();
 						delay.Start ();
-				} else if (col.tag == "Boundary") {
+				} else if (col.tag == "Boundary" || col.tag == "Ground") {
 					rigidbody2D.velocity = rigidbody2D.velocity  * -1;
 				}
+	}
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		
+		if (col.gameObject.tag == "Boundary" || col.gameObject.tag == "LargePlatform" || 
+		    col.gameObject.tag == "MedPlatform" || col.gameObject.tag == "SmallPlatform" || col.gameObject.tag == "Ground") {
+			rigidbody2D.velocity = rigidbody2D.velocity  * -1;
+		}
 	}
 	
 	

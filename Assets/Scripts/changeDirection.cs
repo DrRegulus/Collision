@@ -38,7 +38,15 @@ public class changeDirection : MonoBehaviour {
 		}
 		}
 	}
-
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		
+		//Take damage from projectile
+		if(col.gameObject.tag == "ChangeDir"){
+			coll = col.gameObject.transform;
+			changed = false;
+		}
+	}
 	void OnTriggerEnter2D(Collider2D col)
 	{
 
