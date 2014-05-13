@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\BoardShip.cs" />
      <Compile Include="Assets\Scripts\Bomb.cs" />
      <Compile Include="Assets\Scripts\Boss.cs" />
+     <Compile Include="Assets\Scripts\ChangeDirection.cs" />
      <Compile Include="Assets\Scripts\ComicPlayer.cs" />
      <Compile Include="Assets\Scripts\Credits.cs" />
      <Compile Include="Assets\Scripts\DialogueCollider.cs" />
@@ -60,16 +61,15 @@
      <Compile Include="Assets\Scripts\ElectricRail.cs" />
      <Compile Include="Assets\Scripts\Elevator.cs" />
      <Compile Include="Assets\Scripts\ElevatorSwitch.cs" />
-     <Compile Include="Assets\Scripts\EndLevel.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
      <Compile Include="Assets\Scripts\FixedRotator.cs" />
      <Compile Include="Assets\Scripts\FlyingRobot.cs" />
      <Compile Include="Assets\Scripts\GetBackground.cs" />
      <Compile Include="Assets\Scripts\KillZone.cs" />
+     <Compile Include="Assets\Scripts\LevelSplash.cs" />
      <Compile Include="Assets\Scripts\Machine.cs" />
      <Compile Include="Assets\Scripts\Maglev.cs" />
-     <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\MyNPC.cs" />
@@ -87,7 +87,6 @@
      <Compile Include="Assets\Scripts\SwordAttack.cs" />
      <Compile Include="Assets\Scripts\Textbox.cs" />
      <Compile Include="Assets\Scripts\ThrowableWeapon.cs" />
-     <Compile Include="Assets\Scripts\changeDirection.cs" />
      <None Include="Assets\Dialogue.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

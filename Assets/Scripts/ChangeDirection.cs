@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class changeDirection : MonoBehaviour {
+public class ChangeDirection : MonoBehaviour {
 	public float maxSpeed = 50f;
 	public Transform Boss;
 	private Transform coll; 

@@ -101,7 +101,8 @@ public class AliverController : MonoBehaviour {
 		if(shielded)
 		{
 			Camera.main.transform.position += new Vector3(UnityEngine.Random.Range(-.1f, .1f), UnityEngine.Random.Range(-.1f, .1f), 0);
-			rigidbody2D.velocity = new Vector2(0, 0);
+			rigidbody2D.velocity = parVel;
+			shieldInstance.rigidbody2D.velocity = parVel;
 		}
 
 		if(!frozen)
@@ -331,6 +332,7 @@ public class AliverController : MonoBehaviour {
 	/// </summary>
 	public void GameOver()
 	{
-		Application.LoadLevel ("MainMenu");
+		PlayerPrefs.SetInt("Lives", 3);
+		Application.LoadLevel ("GameOver");
 	}
 }

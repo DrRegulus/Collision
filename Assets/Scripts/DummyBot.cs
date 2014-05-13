@@ -115,7 +115,7 @@ public class DummyBot : Enemy {
 		}
 
 		//Take damage from projectile
-		else if(col.tag == "Projectile")
+		else if(alive && col.tag == "Projectile")
 		{
 			col.gameObject.GetComponent<Projectile>().collided = true;
 			moving = false;

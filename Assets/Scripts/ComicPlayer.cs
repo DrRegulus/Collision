@@ -3,7 +3,6 @@ using System.Collections;
 
 public class ComicPlayer : MonoBehaviour {
 
-	public int lvlNum = 0;
 	public Texture[] panels;
 	public Texture skipBtn;
 	public Texture nextBtn;
@@ -34,17 +33,13 @@ public class ComicPlayer : MonoBehaviour {
 		else if(GUI.Button(new Rect(Screen.width - beginBtn.width, Screen.height/2 - beginBtn.height/2,
 		                            beginBtn.width, beginBtn.height), beginBtn))
 		{
-			Destroy(Camera.main.gameObject);
-			Application.LoadLevel("Level" + lvlNum);
-			Destroy(gameObject);
+			Application.LoadLevel(Application.loadedLevel + 1);
 		}
 
 		if(GUI.Button(new Rect(Screen.width - skipBtn.width, 3*Screen.height/4 - skipBtn.height/2,
 		                                 skipBtn.width, skipBtn.height), skipBtn))
 		{
-			Destroy(Camera.main.gameObject);
-			Application.LoadLevel("Level" + lvlNum);
-			Destroy(gameObject);
+			Application.LoadLevel(Application.loadedLevel + 1);
 		}
 
 		if(0 < idx)
