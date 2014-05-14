@@ -15,6 +15,21 @@ public class ElectricRail : MonoBehaviour {
 
 	void Update()
 	{
+		if(on)
+		{
+			if(!audio.isPlaying)
+			{
+				audio.Play();
+			}
+		}
+		else
+		{
+			if(audio.isPlaying)
+			{
+				audio.Stop();
+			}
+		}
+
 		if(control.powered && !on)
 		{
 			on = true;

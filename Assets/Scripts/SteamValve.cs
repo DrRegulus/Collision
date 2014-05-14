@@ -9,6 +9,7 @@ public class SteamValve : PowerSwitch {
 			if(!anim.GetBool("Power")){
 				anim.SetBool ("Power", true);
 				Destroy(transform.parent.FindChild ("Steam").gameObject);
+				audio.Play();
 			}
 		}
 	}

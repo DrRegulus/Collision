@@ -143,6 +143,7 @@ public class AliverController : MonoBehaviour {
 						{
 							loadTime = Time.time;
 							anim.SetBool("Attack", true);
+							audio.Play();
 						}
 					}
 
@@ -234,23 +235,15 @@ public class AliverController : MonoBehaviour {
 
 	///Generate new projectile
 	private void Shoot(){
-			//Set arm rotation to match projectile
-			Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-			aim.z = 0;
-			aim.Normalize();
-			float angle = Vector3.Angle( new Vector3(1,0,0), aim);
-			//GameObject arm;
+		Vector3 aim = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+		aim.z = 0;
+		aim.Normalize();
+		float angle = Vector3.Angle( new Vector3(1,0,0), aim);
+		
+		if(aim.y < 0)
+			angle = 360 - angle;
 
-			//anim.SetBool("Attack", true);
-			
-			if(aim.y < 0)
-				angle = 360 - angle;
-			
-			//arm.transform.parent = transform;
-			//Destroy (arm, .2f);
-			
-			Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
-		//	lastTime = Time.time;
+		Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle)));
 	}
 
 

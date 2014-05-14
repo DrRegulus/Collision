@@ -122,7 +122,6 @@ GameObject:
   - 212: {fileID: 21200012}
   - 61: {fileID: 6100014}
   - 50: {fileID: 5000006}
-  - 114: {fileID: 11400006}
   m_Layer: 0
   m_Name: ShipDock
   m_TagString: Untagged
@@ -142,6 +141,7 @@ GameObject:
   - 61: {fileID: 6100016}
   - 114: {fileID: 11400008}
   - 95: {fileID: 9500004}
+  - 82: {fileID: 8200000}
   m_Layer: 0
   m_Name: switch
   m_TagString: Powered
@@ -159,6 +159,7 @@ GameObject:
   - 4: {fileID: 400010}
   - 114: {fileID: 11400004}
   - 50: {fileID: 5000004}
+  - 82: {fileID: 8200002}
   m_Layer: 0
   m_Name: ShipMaglev
   m_TagString: Maglev
@@ -192,7 +193,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400030}
   - 212: {fileID: 21200020}
-  - 61: {fileID: 6100020}
   - 61: {fileID: 6100008}
   - 114: {fileID: 11400010}
   m_Layer: 0
@@ -242,7 +242,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -92.2519073, y: -2.22878909, z: 0}
+  m_LocalPosition: {x: 146, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400012}
@@ -308,7 +308,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24, y: 42.4000015, z: 0}
+  m_LocalPosition: {x: 17, y: 36.4000015, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400010}
@@ -384,8 +384,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 2, y: .5}
-  m_Center: {x: 1, y: -.5}
+  m_Size: {x: 4, y: 4}
+  m_Center: {x: 0, y: 0}
 --- !u!61 &6100010
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -430,17 +430,122 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .699999988, y: 2}
   m_Center: {x: 0, y: -.200000003}
---- !u!61 &6100020
-BoxCollider2D:
+--- !u!82 &8200000
+AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100030}
+  m_GameObject: {fileID: 100024}
   m_Enabled: 1
-  m_Material: {fileID: 6200000, guid: 81abecc8b24b83e428fd0091d842ea6c, type: 2}
-  m_IsTrigger: 0
-  m_Size: {x: 4, y: 1}
-  m_Center: {x: 0, y: -1}
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: d7819b1f0e0c5a04fa6fc20f7a6234d2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8200002
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100026}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: d7819b1f0e0c5a04fa6fc20f7a6234d2, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9500004
 Animator:
   serializedVersion: 2
@@ -499,17 +604,6 @@ MonoBehaviour:
   leftEdge: {fileID: 400016}
   rightEdge: {fileID: 400012}
   maglev: {fileID: 400020}
---- !u!114 &11400006
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a17aedfe02b0e4f9d31c307d62fefb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11400008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -521,14 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 146a5235c0bd9ac439f740468080c607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsDelayed: 2
-  delayElapsed: 0
-  checkDelayElapsed: 0
-  deactivateElapsed: 0
-  checkDeactivateElapsed: 0
-  doneDelay: 0
-  checkState: 0
-  checkDoneDelay: 0
+  activated: 0
   anim: {fileID: 9500004}
 --- !u!114 &11400010
 MonoBehaviour:
@@ -541,7 +628,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e7e553333743d499501155695ada7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  takeoff: 0
 --- !u!212 &21200004
 SpriteRenderer:
   m_ObjectHideFlags: 1

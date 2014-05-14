@@ -23,10 +23,13 @@ public class DummyBot : Enemy {
 	private Vector3 dest;
 	private float shootTime = 0f;
 
+	private AudioSource killSound;
+
 	// Use this for initialization
 	void Start () {
 		dest = transform.position;
 		delay.Start ();
+		killSound = gameObject.GetComponents<AudioSource> () [1];
 	}
 
 
@@ -38,6 +41,10 @@ public class DummyBot : Enemy {
 		{
 			//End attack animation and stop moving
 			anim.SetBool("Attack", false);
+			if(audio.isPlaying)
+			{
+				audio.Stop();
+			}
 			moving = false;
 
 			//Reset waittime
@@ -51,6 +58,10 @@ public class DummyBot : Enemy {
 		}
 
 		if(moving){
+			if(!audio.isPlaying)
+			{
+				audio.Play();
+			}
 
 			//Check attack cooldown while moving only
 			if(Time.time - shootTime > cooldown)
@@ -121,6 +132,7 @@ public class DummyBot : Enemy {
 			moving = false;
 			canMove = false;
 			delay.Stop();
+			killSound.Play();
 			Hurt (1);
 			anim.Play("Break");
 		}
