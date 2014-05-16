@@ -18,17 +18,20 @@ public class LevelSplash : MonoBehaviour {
 	{
 		GUI.backgroundColor = Color.clear;
 
+		int btnWidth = Screen.width / 5;
+		int btnHeight = Screen.width / 5;
+
 		if(nextBtn != null)
 		{
-			if(GUI.Button(new Rect(Screen.width - nextBtn.width, Screen.height/2 - nextBtn.height/2,
-			                       nextBtn.width, nextBtn.height), nextBtn))
+			if(GUI.Button(new Rect(Screen.width/3 - btnWidth/2, 3*Screen.height/4 - btnHeight/2,
+			                       btnWidth, btnHeight), nextBtn))
 			{
 				Application.LoadLevel(Application.loadedLevel + 1);
 			}
 		}
 
-		if(GUI.Button(new Rect(Screen.width - quitBtn.width, 3*Screen.height/4 - quitBtn.height/2,
-		                       quitBtn.width, quitBtn.height), quitBtn))
+		if(GUI.Button(new Rect(2 * Screen.width/3 - btnWidth/2, 3*Screen.height/4 - btnHeight/2,
+		                       btnWidth, btnHeight), quitBtn))
 		{
 			Application.LoadLevel("MainMenu");
 		}

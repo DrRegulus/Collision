@@ -16,15 +16,16 @@ public class Credits : MonoBehaviour {
 		string creds = "COLLISION\n\n\n";
 		creds += "LEAD PRODUCER\nZsade Fleming\n\n\n";
 		creds += "ARTWORK & STORY\nZsade Fleming\n\n\n";
-		creds += "ANIMATION & LEVEL DESIGN\nLogan Adams\n\n\n";
-		creds += "PROGRAMMERS\n";
-		creds += "Logan Adams\n";
-		creds += "Yohan Kim\n";
-		creds += "Tyler Larkin\n";
-		creds += "Brendan Plante\n";
-		creds += "Ryan Wnuk-Fink\n";
+		creds += "LEVEL DESIGN\nLogan Adams\n\n\n";
+
+		creds += "PROGRAMMING\n\n";
+		creds += "COMBAT DESIGN\nYohan Kim\n\n";
+		creds += "ENEMY AI\nTyler Larkin\n\n";
+		creds += "DIALOGUE\nBrendan Plante\n\n";
+		creds += "UI & MISCELLANEOUS\nLogan Adams\nRyan Wnuk-Fink\n\n";
 		creds += "\n\n\n";
-		creds += "MUSIC\n\n";
+
+		creds += "MUSIC & SOUND\n\n";
 		creds += "Opening Menu\n\"Word play\" by Wendy Mao\n\n";
 		creds += "Intro\n\"Rend\" by Ziyed Hedfi\n\n";
 		creds += "Comic 1\n\"Rend\" by Ziyed Hedfi\n\n";
@@ -32,8 +33,18 @@ public class Credits : MonoBehaviour {
 		creds += "Comic 2\n\"Rend\" by Ziyed Hedfi\n\n";
 		creds += "Level 2\n\"Walking\" by Ziyed Hedfi\n\n";
 		creds += "End Credits\n\"Word Play\" by Wendy Mao\n\n";
+
+		creds += "\"Electricity\"\nRecorded by Mike Koenig\nUsed under the Creative Commons Attribution 3.0 License\n\n";
+		creds += "\"Fizzle\"\nRecorded by Mike Koenig\nUsed under the Creative Commons Attribution 3.0 License\n\n";
+		creds += "\"Metal Debris Falling\"\nRecorded by Mike Koenig\nUsed under the Creative Commons Attribution 3.0 License\n\n";
+		creds += "\"Robot Arm Moving\"\nRecorded by Mike Koenig\nUsed under the Creative Commons Attribution 3.0 License\n\n";
+		creds += "\"Laser Cannon\"\nRecorded by Mike Koenig\nUsed under the Creative Commons Attribution 3.0 License\n\n";
+		creds += "\"Lever\"\nRecorded by Marianne Gagnon\nUsed under the Creative Commons Attribution 3.0 License\n\n";
+		creds += "\"Dying Robot\"\nPublic Domain\n\n";
+		creds += "\"Metal Rattling\"\nPublic Domain\n\n";
+
 		tc.text = creds;
-		tc.transform.position = new Vector3 (0.5f, -1, 0);
+		tc.transform.position = new Vector3 (0.5f, 0, 0);
 		crawling = true;
 	}
 	

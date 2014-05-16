@@ -141,9 +141,13 @@ public class AliverController : MonoBehaviour {
 					{
 						if(!anim.GetBool("Attack"))
 						{
-							loadTime = Time.time;
 							anim.SetBool("Attack", true);
-							audio.Play();
+							if(Time.time - loadTime > coolDown || loadTime == 0)
+							{
+								Shoot();
+								audio.Play();
+								loadTime = Time.time;
+							}
 						}
 					}
 
@@ -157,6 +161,7 @@ public class AliverController : MonoBehaviour {
 				}
 				else if(anim.GetBool("Attack") && Time.time - loadTime > coolDown){
 					Shoot ();
+					audio.Play();
 					loadTime = Time.time;
 				}
 
