@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\FixedRotator.cs" />
      <Compile Include="Assets\Scripts\FlyingRobot.cs" />
      <Compile Include="Assets\Scripts\GetBackground.cs" />
+     <Compile Include="Assets\Scripts\GetNeighbors.cs" />
      <Compile Include="Assets\Scripts\KillZone.cs" />
      <Compile Include="Assets\Scripts\LevelSplash.cs" />
      <Compile Include="Assets\Scripts\Machine.cs" />

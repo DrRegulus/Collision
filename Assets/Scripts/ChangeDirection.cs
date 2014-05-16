@@ -2,58 +2,53 @@
 using System.Collections;
 
 public class ChangeDirection : MonoBehaviour {
-	public float maxSpeed = 50f;
+
+	public float maxSpeed = 20f;
 	public Transform Boss;
-	private Transform coll; 
-	private float step;
-	private bool changed = false;
+	private Transform[] neighbors;
+	
+	public Transform dest;
+	private Transform nextDest;
+	public Vector2 currVel;
+	private Vector2 nextVel;
+
 	// Use this for initialization
-	public int direction;
 	void FixedUpdate() {
-		step = maxSpeed * Time.deltaTime;
-		if(coll != null){
-			if(!changed){
-			Boss.position = Vector3.MoveTowards(Boss.position, coll.position, step);
-			}
-		if(Boss.position == coll.position){
-		changed = true;
-		Rigidbody2D foo = Boss.rigidbody2D;
-		direction = Random.Range(1,5);
-		switch(direction){
-		case 1: // up
-			foo.velocity = new Vector2 (0, maxSpeed);
-			break;
-		case 2: // right
-			foo.velocity = new Vector2 (maxSpeed, 0);
-			break;
-		case 3: // down
-			foo.velocity = new Vector2 (0, -maxSpeed);
-			break;
-		case 4: // left
-			foo.velocity = new Vector2 (-maxSpeed, 0);
-			break;
-		default:
-			break;
-			}
+
+		if(currVel.y > 0 && transform.position.y > dest.position.y ||
+		   currVel.y < 0 && transform.position.y < dest.position.y ||
+		   currVel.x > 0 && transform.position.x > dest.position.x ||
+		   currVel.x < 0 && transform.position.x < dest.position.x)
+		{
+			currVel = nextVel;
+			dest = nextDest;
 		}
-		}
+
+		Boss.rigidbody2D.velocity = currVel;
 	}
-	void OnCollisionEnter2D(Collision2D col)
-	{
-		
-		//Take damage from projectile
-		if(col.gameObject.tag == "ChangeDir"){
-			coll = col.gameObject.transform;
-			changed = false;
-		}
-	}
+
 	void OnTriggerEnter2D(Collider2D col)
 	{
-
-	//Take damage from projectile
 		if(col.tag == "ChangeDir"){
-			coll = col.gameObject.transform;
-			changed = false;
+			neighbors = col.gameObject.GetComponent<GetNeighbors>().GetNeighborArray();
+			nextDest = neighbors[Random.Range(0, neighbors.Length)];
+
+			if(nextDest.position.y > dest.position.y)
+			{
+				nextVel = new Vector2(0, maxSpeed);
+			}
+			else if(nextDest.position.x > dest.position.x)
+			{
+				nextVel = new Vector2(maxSpeed, 0);
+			}
+			else if(nextDest.position.y < dest.position.y)
+			{
+				nextVel = new Vector2(0, -maxSpeed);
+			}
+			else if(nextDest.position.x < dest.position.x)
+			{
+				nextVel = new Vector2(-maxSpeed, 0);
+			}
 		}
 	}
 }

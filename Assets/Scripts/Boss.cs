@@ -3,7 +3,7 @@ using System.Collections;
 using System.Diagnostics;
 
 public class Boss : Enemy {
-	
+
 	public Animator anim;
 	public GameObject throwW;
 	
@@ -20,6 +20,7 @@ public class Boss : Enemy {
 	public Stopwatch delay = new Stopwatch();
 	private Vector3 dest;
 	private float shootTime = 0f;
+
 	// Use this for initialization
 	void Start () {
 		rigidbody2D.velocity = new Vector2 (-maxSpeed, 0);
