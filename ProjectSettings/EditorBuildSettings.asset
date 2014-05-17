@@ -8,17 +8,17 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Level.unity
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/mainMenu.unity
   - enabled: 1
     path: Assets/Scenes/Comic0.unity
   - enabled: 1
     path: Assets/Scenes/Comic1.unity
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/Scenes/level1.unity
   - enabled: 1
     path: Assets/Scenes/Level1.5.unity
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/Scenes/level2.unity
   - enabled: 1
     path: Assets/Scenes/Level3.unity
   - enabled: 1

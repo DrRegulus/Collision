@@ -11,7 +11,7 @@ public class Boss : Enemy {
 	public float waitTime = 0f;
 	public float maxWaitTime = 2f;
 	public float minWaitTime = 1f;
-	public float cooldown = 2f;
+	public float cooldown = 1f;
 	
 	public bool canMove = true;
 	public bool moving = true;
@@ -20,7 +20,7 @@ public class Boss : Enemy {
 	public Stopwatch delay = new Stopwatch();
 	private Vector3 dest;
 	private float shootTime = 0f;
-
+	public GameObject targetDir;
 	// Use this for initialization
 	void Start () {
 		rigidbody2D.velocity = new Vector2 (-maxSpeed, 0);
@@ -63,15 +63,14 @@ public class Boss : Enemy {
 			{
 				//End attack animation after cooldown
 			//	anim.SetBool("Attack", false);
-				
-				if( isFacing("Aliver") && hasVision("Aliver", 70) ){
+			//	if( isFacing("Aliver") && hasVision("Aliver", 70) ){
 					
 					//Shoot randomly
 					if(Random.Range(0, 4) > 0)
 					{
 						Shoot ();
 					}
-				}
+			//	}
 			}
 			
 			//Set velocity
@@ -82,7 +81,6 @@ public class Boss : Enemy {
 			//Wait condition
 			if(delay.ElapsedMilliseconds > (waitTime * 1000)){
 				moving = true;
-				
 				delay.Stop();
 			}
 			
@@ -94,8 +92,7 @@ public class Boss : Enemy {
 			//rigidbody2D.velocity = new Vector2 (-maxSpeed, 0);
 			moving = true;
 		}
-		
-		
+			
 		//Set animation variables
 		//anim.SetBool("FacingRight", moveRight);
 		//anim.SetBool("Moving", moving);
@@ -133,14 +130,7 @@ public class Boss : Enemy {
 					rigidbody2D.velocity = rigidbody2D.velocity  * -1;
 				}
 	}
-	void OnCollisionEnter2D(Collision2D col)
-	{
-		
-		if (col.gameObject.tag == "Boundary" || col.gameObject.tag == "LargePlatform" || 
-		    col.gameObject.tag == "MedPlatform" || col.gameObject.tag == "SmallPlatform" || col.gameObject.tag == "Ground") {
-			rigidbody2D.velocity = rigidbody2D.velocity  * -1;
-		}
-	}
+
 	
 	
 	/// <summary>
@@ -153,12 +143,12 @@ public class Boss : Enemy {
 		
 		shootTime = Time.time;
 		//anim.SetBool("Attack", true);
-		
+
 		Vector3 aim =  GameObject.Find("Aliver").transform.position - transform.position;
 		aim.z = 0;
 		aim.Normalize();
 		angle = Vector3.Angle( new Vector3(1,0,0), aim);
-		
+
 		//Set arm rotation to match projectile
 		if (moveRight)
 		{
@@ -173,11 +163,21 @@ public class Boss : Enemy {
 		
 		aim.z = 0;
 		aim.Normalize();
-		
-		GameObject proj = Instantiate (throwW, transform.position, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
-		
-		
-		proj.rigidbody2D.velocity = new Vector2(Mathf.Cos(angle * (Mathf.PI / 180)) * (180 / Mathf.PI), Mathf.Sin(angle * (Mathf.PI / 180)) * (180 / Mathf.PI) ).normalized * 24f;
+
+
+
+		Vector3 pos1 = transform.position;
+		pos1.y += 4;
+		Vector3 pos2 = transform.position;
+		Vector3 pos3 = transform.position;
+		pos3.y -= 4;
+		GameObject proj1 = Instantiate (throwW, pos1, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
+		GameObject proj2 = Instantiate (throwW, pos2, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
+		GameObject proj3 = Instantiate (throwW, pos3, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
+		Vector2 vel = new Vector2 (Mathf.Cos (angle * (Mathf.PI / 180)) * (180 / Mathf.PI), Mathf.Sin (angle * (Mathf.PI / 180)) * (180 / Mathf.PI));
+		proj1.rigidbody2D.velocity = vel.normalized * 25;
+		proj2.rigidbody2D.velocity = vel.normalized * 20;
+		proj3.rigidbody2D.velocity = vel.normalized * 20;
 		//proj.transform.Rotate(new Vector3(0, 0, 1), angle);
 		//proj.rigidbody2D.velocity = new Vector2 (dir,0) * 24f;
 	}
