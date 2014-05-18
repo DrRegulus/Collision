@@ -34,7 +34,7 @@ public class DummyBot : Enemy {
 
 
 	void FixedUpdate() {
-
+		
 		//Destination condition
 		if((moveRight && transform.position.x > dest.x) ||
 		   (!moveRight && transform.position.x < dest.x))
@@ -195,13 +195,14 @@ public class DummyBot : Enemy {
 		}
 		
 		int mask = ~(1 << LayerMask.NameToLayer("Enemies"));
+		//UnityEngine.Debug.DrawLine(transform.position, targ.transform.position - transform.position, range, mask);
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, targ.transform.position - transform.position, range, mask);
 		
-		if( hit == null ){
+		if( hit == null || hit.transform == null){
 			
 			return false;
 		}
-		
+
 		if ( hit.transform.name.Equals(target) ){
 			
 			return true;

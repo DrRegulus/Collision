@@ -149,37 +149,34 @@ public class Boss : Enemy {
 		aim.Normalize();
 		angle = Vector3.Angle( new Vector3(1,0,0), aim);
 
-		//Set arm rotation to match projectile
-		if (moveRight)
-		{
-			aim = Vector3.right;
-			dir = 1;
+		if(transform.position.y > GameObject.Find("Aliver").transform.position.y ){
+
+			angle = 360 - angle;
 		}
-		else
-		{
-			aim = Vector3.left;
-			dir = -1;
-		}
+
+		Vector3 tangent = Vector3.Cross( aim, new Vector3(0,0,1) );
 		
-		aim.z = 0;
-		aim.Normalize();
+		if( tangent.magnitude == 0 )
+		{
+			tangent = Vector3.Cross( aim, new Vector3(0,1,0) );
+		}
 
+		tangent.Normalize();
+		tangent *= 4;
 
-
-		Vector3 pos1 = transform.position;
-		pos1.y += 4;
+		Vector3 pos1 = transform.position + tangent;
 		Vector3 pos2 = transform.position;
-		Vector3 pos3 = transform.position;
-		pos3.y -= 4;
+		Vector3 pos3 = transform.position - tangent;
+
 		GameObject proj1 = Instantiate (throwW, pos1, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
+
+		UnityEngine.Debug.Log(angle);
 		GameObject proj2 = Instantiate (throwW, pos2, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
 		GameObject proj3 = Instantiate (throwW, pos3, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
 		Vector2 vel = new Vector2 (Mathf.Cos (angle * (Mathf.PI / 180)) * (180 / Mathf.PI), Mathf.Sin (angle * (Mathf.PI / 180)) * (180 / Mathf.PI));
-		proj1.rigidbody2D.velocity = vel.normalized * 25;
-		proj2.rigidbody2D.velocity = vel.normalized * 20;
+		proj1.rigidbody2D.velocity = vel.normalized * 20;
+		proj2.rigidbody2D.velocity = vel.normalized * 25;
 		proj3.rigidbody2D.velocity = vel.normalized * 20;
-		//proj.transform.Rotate(new Vector3(0, 0, 1), angle);
-		//proj.rigidbody2D.velocity = new Vector2 (dir,0) * 24f;
 	}
 	
 	bool hasVision(  string target, float range){
