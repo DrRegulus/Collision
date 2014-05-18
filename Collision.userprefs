@@ -1,7 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AliverController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Dialogue.xml">
     <Files>
+      <File FileName="Assets\Dialogue.xml" Line="1" Column="1" />
       <File FileName="Assets\Scripts\AliverController.cs" Line="105" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
