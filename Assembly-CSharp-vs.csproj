@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\ElectricRail.cs" />
      <Compile Include="Assets\Scripts\Elevator.cs" />
      <Compile Include="Assets\Scripts\ElevatorSwitch.cs" />
+     <Compile Include="Assets\Scripts\EndCinematic.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\EnemyProjectile.cs" />
      <Compile Include="Assets\Scripts\FixedRotator.cs" />
@@ -68,6 +69,7 @@
      <Compile Include="Assets\Scripts\GetBackground.cs" />
      <Compile Include="Assets\Scripts\GetNeighbors.cs" />
      <Compile Include="Assets\Scripts\KillZone.cs" />
+     <Compile Include="Assets\Scripts\LevelEnd.cs" />
      <Compile Include="Assets\Scripts\LevelSplash.cs" />
      <Compile Include="Assets\Scripts\Machine.cs" />
      <Compile Include="Assets\Scripts\Maglev.cs" />

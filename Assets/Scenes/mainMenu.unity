@@ -240,10 +240,10 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 775495c8f275fec4582d3760af951792, type: 3}
   - {fileID: 2800000, guid: 598191dec5cb0594ca21dbb024b713ce, type: 3}
   lvlBtns:
-  - {fileID: 2800000, guid: 0e263c6f544480f48a12ce0cf9c0d671, type: 3}
+  - {fileID: 2800000, guid: e411109ba38b76e4aa8cafce0ef84873, type: 3}
   - {fileID: 2800000, guid: 42ede865a816aa94084a690516b490ea, type: 3}
   - {fileID: 2800000, guid: 72783fd9c697f55418d7d917729d40f9, type: 3}
-  - {fileID: 2800000, guid: 72783fd9c697f55418d7d917729d40f9, type: 3}
+  - {fileID: 2800000, guid: 8a67a955f3cba654eacebe53d3c3b9b9, type: 3}
   - {fileID: 2800000, guid: 08c690387c6a0364c9e5c7ace799976e, type: 3}
 --- !u!1 &1763159491
 GameObject:

@@ -47,10 +47,10 @@ public class Menu : MonoBehaviour {
 			}
 
 			//Level3
-			/*if(GUI.Button(new Rect(7 * lvlIncs - lvlBtns[3].width/2, Screen.height - lvlBtns[3].height,
-			                       lvlBtns[3].width, lvlBtns[3].height), lvlBtns[3])) {
-				//Application.LoadLevel("Level3");
-			}*/
+			if(GUI.Button(new Rect(7 * lvlIncs - btnWidth/2, Screen.height - btnHeight,
+			                       btnWidth, btnHeight), lvlBtns[3])) {
+				Application.LoadLevel("Level3");
+			}
 
 			//Previous
 			if(GUI.Button(new Rect(9 * lvlIncs - btnWidth/2, Screen.height - btnHeight,

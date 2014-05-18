@@ -11,11 +11,13 @@
       <speech0>Fine work, Aliver. You learn quickly. It looks like we’re just about ready to go.</speech0>
       <speech1>Remember that anytime you feel like taking a break, you can open the pause menu by pressing "Esc".</speech1>
       <speech2>It looks like Miranda and Sullivan are ready to go. We'll be around if you need us!</speech2>
+      <speech3>Get going!!</speech3>
     </AtticusTutorial>
 	<SullivanTutorial>
     	<speech0>Hey Aliver! You want some more practice with that glove?</speech0>
     	<speech1>I've set up a training dummy over on your left. I lowered his power settings so he won't hurt you, but I wouldn't get too close to him.</speech1>
     	<speech2>You'll run into more security drones like that on your way to the airship, but they're a little more threatening.</speech2>
+        <speech3>Make sure you always have your guard up.</speech3>
     </SullivanTutorial>
     <MirandaLevel1>
     	<speech0>Time is of the essence, Aliver. You need to get back to work.</speech0>
@@ -36,10 +38,10 @@
     	<speech3>You should probably get back to the whole release-the-airship thing…</speech3>
     </SullivanLevel1>
     <MirandaLevel2>
-    	<speech0>Level2 Speech1</speech0>
-    	<speech1>Level2 Speech2</speech1>
-    	<speech2>Level2 Speech3</speech2>
-    	<speech3>Level2 Speech4</speech3>
+    	<speech0>Hey Aliver, this area seems to be structured somewhat like a maze, make sure you don't get lost!</speech0>
+    	<speech1>Atticus and Sullivan are up ahead, hurry and catch up to them</speech1>
+    	<speech2>I'll be right behind you.</speech2>
+    	<speech3>Theres no time to waste!</speech3>
     </MirandaLevel2>
     <AtticusLevel2>
     	<speech0>0</speech0>
@@ -53,5 +55,11 @@
     	<speech2>2</speech2>
     	<speech3>3</speech3>
     </SullivanLevel2>
+    <MirandaLevel3>
+    	<speech0>Aliver! the glove is no use against that creature!</speech0>
+    	<speech1>You're going to have to use bombs to defeat it!</speech1>
+    	<speech2>See that blue rift over there? Shoot that to drop bombs.</speech2>
+    	<speech3>Try shooting different parts of it to drop bombs in different locations, if you hit it with enough bombs, it's sure to fall!</speech3>
+    </MirandaLevel3>
     </dialogue>
 

@@ -8,7 +8,7 @@ public class Boss : Enemy {
 	public GameObject throwW;
 	
 	public float maxSpeed = 10f;
-	public float waitTime = 0f;
+	public float waitTime = 1f;
 	public float maxWaitTime = 2f;
 	public float minWaitTime = 1f;
 	public float cooldown = 1f;
@@ -20,57 +20,55 @@ public class Boss : Enemy {
 	public Stopwatch delay = new Stopwatch();
 	private Vector3 dest;
 	private float shootTime = 0f;
+	private bool turned = false;
 	public GameObject targetDir;
+
+
 	// Use this for initialization
 	void Start () {
 		rigidbody2D.velocity = new Vector2 (-maxSpeed, 0);
 		delay.Start ();
-		this.Lives = 5;
 	}
 	
-	
-	void FixedUpdate() {
-		/*
-		//Destination condition
-		if((moveRight && transform.position.x > dest.x) ||
-		   (!moveRight && transform.position.x < dest.x))
+	void Update()
+	{
+		if(!alive)
 		{
-			//End attack animation and stop moving
-			anim.SetBool("Attack", false);
-			moving = false;
-			//Reset waittime
-			delay.Reset();
-			delay.Start();
-			waitTime = Random.Range(minWaitTime, maxWaitTime);
-			
-			//Set new randomized destination
-		//	dest = new Vector3(Random.Range(left.position.x, right.position.x), dest.y);
-			moveRight = dest.x > transform.position.x;
+			PlayerPrefs.SetInt("Ending", 1);
+			Application.LoadLevel("Credits");
 		}
-		*/
-		//Reset waittime
-		delay.Reset();
-		delay.Start();
-		waitTime = Random.Range(minWaitTime, maxWaitTime);
-		
-		//Set new randomized destination
-		//	dest = new Vector3(Random.Range(left.position.x, right.position.x), dest.y);
-		//moveRight = dest.x > transform.position.x;
+	}
+
+	void FixedUpdate() {
+
+		//Change direction of sprite
+		if(!turned && rigidbody2D.velocity.x > 0)
+		{
+			transform.Rotate(0, 180, 0);
+			turned = true;
+		}
+		else if(turned && rigidbody2D.velocity.x <0)
+		{
+			transform.Rotate(0, -180, 0);
+			turned = false;
+		}
+
 		if(moving){
-			
+
+			if(Time.time - shootTime >= 1)
+			{
+				anim.SetBool("Attack", false);
+			}
+
 			//Check attack cooldown while moving only
 			if(Time.time - shootTime > cooldown)
 			{
-				//End attack animation after cooldown
-			//	anim.SetBool("Attack", false);
-			//	if( isFacing("Aliver") && hasVision("Aliver", 70) ){
-					
-					//Shoot randomly
-					if(Random.Range(0, 4) > 0)
-					{
-						Shoot ();
-					}
-			//	}
+				//Shoot randomly
+				if(Random.Range(0, 4) > 0)
+				{
+					anim.SetBool("Attack", true);
+					Shoot ();
+				}
 			}
 			
 			//Set velocity
@@ -85,17 +83,6 @@ public class Boss : Enemy {
 			}
 			
 		}
-		
-		//Neutralize velocity
-		if(!moving)
-		{
-			//rigidbody2D.velocity = new Vector2 (-maxSpeed, 0);
-			moving = true;
-		}
-			
-		//Set animation variables
-		//anim.SetBool("FacingRight", moveRight);
-		//anim.SetBool("Moving", moving);
 	}
 	
 	void OnTriggerEnter2D(Collider2D col)

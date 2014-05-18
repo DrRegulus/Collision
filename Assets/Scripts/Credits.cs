@@ -32,6 +32,8 @@ public class Credits : MonoBehaviour {
 		creds += "Level 1\n\"Air\" by Ziyed Hedfi\n\n";
 		creds += "Comic 2\n\"Rend\" by Ziyed Hedfi\n\n";
 		creds += "Level 2\n\"Walking\" by Ziyed Hedfi\n\n";
+		creds += "Comic 3\n\"Rend\" by Ziyed Hedfi\n\n";
+		creds += "Level 3\n\"Nacho Cheese\" by Ziyed Hedfi\n\n";
 		creds += "End Credits\n\"Word Play\" by Wendy Mao\n\n";
 
 		creds += "\"Electricity\"\nRecorded by Mike Koenig\nUsed under the Creative Commons Attribution 3.0 License\n\n";
@@ -44,7 +46,7 @@ public class Credits : MonoBehaviour {
 		creds += "\"Metal Rattling\"\nPublic Domain\n\n";
 
 		tc.text = creds;
-		tc.transform.position = new Vector3 (0.5f, 0, 0);
+		tc.transform.position = new Vector3 (0.5f, -.5f, 0);
 		crawling = true;
 	}
 	

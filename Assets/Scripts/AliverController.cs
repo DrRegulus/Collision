@@ -102,7 +102,7 @@ public class AliverController : MonoBehaviour {
 		{
 			Camera.main.transform.position += new Vector3(UnityEngine.Random.Range(-.1f, .1f), UnityEngine.Random.Range(-.1f, .1f), 0);
 			rigidbody2D.velocity = parVel;
-			shieldInstance.rigidbody2D.velocity = parVel;
+			//shieldInstance.rigidbody2D.velocity = parVel;
 		}
 
 		if(!frozen)
@@ -206,8 +206,8 @@ public class AliverController : MonoBehaviour {
 		GUI.backgroundColor = Color.clear;
 		for (int i = 0; i < lives; i++) 
 		{
-			GUI.Box(new Rect(i * lifeSprite.texture.width, Screen.height - lifeSprite.texture.height,
-			                 lifeSprite.texture.width, lifeSprite.texture.height), new GUIContent(lifeSprite.texture));
+			GUI.Box(new Rect(i * Screen.width/20, Screen.height - Screen.height/10,
+			                 Screen.width/20, Screen.height/10), new GUIContent(lifeSprite.texture));
 		}
 	}
 
@@ -330,7 +330,16 @@ public class AliverController : MonoBehaviour {
 	/// </summary>
 	public void GameOver()
 	{
-		PlayerPrefs.SetInt("Lives", 3);
-		Application.LoadLevel ("GameOver");
+		if(Application.loadedLevelName == "Level3")
+		{
+			PlayerPrefs.SetInt("Ending", -1);
+			PlayerPrefs.SetInt("Lives", 3);
+			Application.LoadLevel("Credits");
+		}
+		else
+		{
+			PlayerPrefs.SetInt("Lives", 3);
+			Application.LoadLevel ("GameOver");
+		}
 	}
 }

@@ -13,7 +13,7 @@ using System.Collections;
 
 
 public class DialogueCollider : MonoBehaviour {
-
+	
 	public GameObject thePrefab;
 	private GameObject instance;
 	//public GameObject player; 
@@ -22,13 +22,14 @@ public class DialogueCollider : MonoBehaviour {
 	private int currentSpeech = 0;
 	public bool activated = false;
 	public bool talkedTo = false;
-
+	
 	void Update()
 	{
+		//Debug.Log ("hello");
 		if(activated && Input.GetKeyUp(KeyCode.E) && talkedTo == false)
 		{
 			currentSpeech++;
-
+			
 			if(currentSpeech == speechNumbers){
 				Destroy (instance);
 				currentSpeech = 0;
@@ -37,37 +38,43 @@ public class DialogueCollider : MonoBehaviour {
 				talkedTo = true;
 			}
 			else{
+				Debug.Log (currentSpeech);
 				instance.SendMessage ("TextDisplay", currentSpeech);
 			}
 		}
 		else if (instance == null && talkedTo == true){
-
+			
 		}
 		else if(talkedTo == true && Input.GetKeyUp (KeyCode.E)){
 			currentSpeech ++;
-			int speechToSend = (int)Random.value % 3;
-			if(currentSpeech == 1){
+			//instance.SendMessage("TextDisplay", currentSpeech);
+			//Debug.Log ("ombgdsf");
+			//int speechToSend = 2;
+			//Debug.Log (speechToSend);
+			if(currentSpeech != 111){
 				currentSpeech = 0;
+				//Debug.Log (speechToSend);
+				//instance.SendMessage ("TextDisplay", speechToSend);
 				Destroy (instance);
 			}
-			else{
-				print ("butts");
-				print (speechToSend);
+			/*else{
+				Debug.Log ("butts");
+				Debug.Log (speechToSend);
 				instance.SendMessage ("TextDisplay", speechToSend);
-			}
-
+			}*/
+			
 		}
-
-
+		
+		
 		/*else{
 			instance.SendMessage("TextDisplay", currentSpeech);
 			//instance.SendMessage ("TextDisplay", talkedTo);
 			print ("cool");
 		}*/
 	}
-
-
-
+	
+	
+	
 	void OnTriggerEnter2D (Collider2D col)
 	{
 		if(col.tag == "Player")
@@ -96,19 +103,26 @@ public class DialogueCollider : MonoBehaviour {
 				instance = Instantiate (thePrefab, temp, temp2) as GameObject;
 				instance.transform.parent = transform;
 				instance.SendMessage ("TheStart", gameObject.name);
+				//Debug.Log (currentSpeech);
+				if(talkedTo == true){
+					currentSpeech = Random.Range (0, 4);
+					Debug.Log (currentSpeech);
+				}
 				instance.SendMessage("TextDisplay", currentSpeech);
 				activated = true;
-
+				
 			}
 		}
 	}
-
+	
 	void OnTriggerExit2D (Collider2D col)
 	{
 		if(col.tag == "Player")
 		{
 			//print ("Exit");
 			if (activated) {
+				
+				//print ("dead");
 				Destroy(instance);
 				activated = false;
 			}

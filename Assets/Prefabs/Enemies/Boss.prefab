@@ -12,6 +12,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 61: {fileID: 6100000}
   - 50: {fileID: 5000000}
+  - 95: {fileID: 9500000}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -43,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 94.9870682, y: -64.5295563, z: 1}
+  m_LocalPosition: {x: 62.9665642, y: -74.4328003, z: 1}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -96,6 +97,20 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: .939999998, y: 2.46000004}
   m_Center: {x: 0, y: 0}
+--- !u!95 &9500000
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 60714784510dc8247bec2cfb9aa46ceb, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,18 +122,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b2bc746c8d26240ade9cd79cd73000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  lives: 7
   alive: 1
-  anim: {fileID: 0}
+  anim: {fileID: 9500000}
   throwW: {fileID: 100000, guid: ab2ca8b47819f4a419d901df7f34fa50, type: 2}
   maxSpeed: 20
-  waitTime: 0
+  waitTime: 1
   maxWaitTime: 2
   minWaitTime: 1
   cooldown: 5
   canMove: 1
   moving: 1
   moveRight: 1
+  targetDir: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,7 +149,7 @@ MonoBehaviour:
   maxSpeed: 15
   Boss: {fileID: 400000}
   dest: {fileID: 0}
-  currVel: {x: -15, y: 0}
+  currVel: {x: 0, y: 15}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

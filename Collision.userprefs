@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Boss.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AliverController.cs">
     <Files>
-      <File FileName="Assets\Scripts\DummyBot.cs" Line="205" Column="1" />
-      <File FileName="Assets\Scripts\Boss.cs" Line="174" Column="62" />
+      <File FileName="Assets\Scripts\AliverController.cs" Line="105" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
