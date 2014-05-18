@@ -38,7 +38,7 @@ public class DialogueCollider : MonoBehaviour {
 				talkedTo = true;
 			}
 			else{
-				Debug.Log (currentSpeech);
+				//Debug.Log (currentSpeech);
 				instance.SendMessage ("TextDisplay", currentSpeech);
 			}
 		}
@@ -106,7 +106,7 @@ public class DialogueCollider : MonoBehaviour {
 				//Debug.Log (currentSpeech);
 				if(talkedTo == true){
 					currentSpeech = Random.Range (0, 4);
-					Debug.Log (currentSpeech);
+					//Debug.Log (currentSpeech);
 				}
 				instance.SendMessage("TextDisplay", currentSpeech);
 				activated = true;

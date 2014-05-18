@@ -107,7 +107,7 @@ public class Boss : Enemy {
 						canMove = false;
 						delay.Stop ();
 						Hurt (1);
-						//anim.Play ("Break");
+						anim.Play ("Hurt");
 				} else if (col.tag == "Shield") {
 						moving = false;
 						dest = transform.position;
@@ -157,7 +157,7 @@ public class Boss : Enemy {
 
 		GameObject proj1 = Instantiate (throwW, pos1, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
 
-		UnityEngine.Debug.Log(angle);
+		//UnityEngine.Debug.Log(angle);
 		GameObject proj2 = Instantiate (throwW, pos2, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
 		GameObject proj3 = Instantiate (throwW, pos3, Quaternion.Euler (new Vector3 (0, 0, angle))) as GameObject;
 		Vector2 vel = new Vector2 (Mathf.Cos (angle * (Mathf.PI / 180)) * (180 / Mathf.PI), Mathf.Sin (angle * (Mathf.PI / 180)) * (180 / Mathf.PI));
