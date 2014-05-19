@@ -14,54 +14,45 @@ public class Bomb : ThrowableWeapon {
 	}
 
 	void OnCollisionEnter2D (Collision2D col) 
-	{//	if(col.tag != "ChangeDir"){
-		if(col.gameObject.tag != "Projectile" && col.gameObject.tag != "DropBomb"){
-		
-			particleSystem.Play();
-		//	rigidbody2D.velocity = new Vector2(0, 0);
-		//	anim.SetBool ("Collided", true);
-		
-		Destroy (gameObject, 0.1f);
-		
-		// If it hits an enemy...
-			if(col.gameObject.tag == "Enemy")
-		{
-			// ... find the Enemy script and call the Hurt function.
-			col.gameObject.GetComponent<Enemy>().Hurt(damage);
+	{
+		if(col.gameObject.tag == "Projectile"){
 			
-		}
+			particleSystem.Play();
+			Destroy (gameObject, 0.1f);
+			
+			
+			// If it hits an enemy...
+			if(col.gameObject.tag == "Enemy")
+			{
+				// ... find the Enemy script and call the Hurt function.
+				col.gameObject.GetComponent<Enemy>().Hurt(damage);
+				
+			}
 			else if(col.gameObject.tag == "Player"){
-			col.gameObject.GetComponent<AliverController>().LoseLives(damage);
-			//		}
+				col.gameObject.GetComponent<AliverController>().LoseLives(damage);
+			}
 		}
-		}
-		}
+	}
+
 	void OnTriggerEnter2D (Collider2D col) 
 	{
-		if(col.tag != "Projectile" && col.tag != "DropBomb"){
+		if(col.gameObject.tag == "Projectile"){
 
-	//	if(col.tag != "ChangeDir"){
 			particleSystem.Play();
-		//	rigidbody2D.velocity = new Vector2(0, 0);
-		//	anim.SetBool ("Collided", true);
-
+			
 			Destroy (gameObject, 0.1f);
-
-
+			
+			
 			// If it hits an enemy...
 			if(col.tag == "Enemy")
 			{
 				// ... find the Enemy script and call the Hurt function.
 				col.gameObject.GetComponent<Enemy>().Hurt(damage);
-
+				
 			}
 			else if(col.tag == "Player"){
 				col.gameObject.GetComponent<AliverController>().LoseLives(damage);
-	//		}
-			}}
-	}
-	
-	void Update(){
-		//rigidbody2D.AddTorque(Random.Range(-10,10));
+			}
+		}
 	}
 }

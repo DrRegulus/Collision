@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 137.026917, y: 34.1997604, z: 0}
+  m_LocalPosition: {x: -35.8699684, y: 5.29499817, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.5, y: -.649999976, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -70,7 +70,7 @@ Rigidbody2D:
   m_AngularDrag: .0500000007
   m_GravityScale: 0
   m_FixedAngle: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -94,7 +94,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Radius: 4
+  m_Radius: 2
   m_Center: {x: 0, y: 0}
 --- !u!95 &9500000
 Animator:
@@ -124,10 +124,12 @@ MonoBehaviour:
   lives: 1
   alive: 1
   anim: {fileID: 0}
-  patrolPoints: []
-  throwW: {fileID: 0}
+  patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  throwW: {fileID: 100000, guid: ab2ca8b47819f4a419d901df7f34fa50, type: 2}
   maxSpeed: 12
-  cooldown: 1
+  cooldown: 5
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

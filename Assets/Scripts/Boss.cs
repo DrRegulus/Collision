@@ -16,7 +16,7 @@ public class Boss : Enemy {
 	public bool canMove = true;
 	public bool moving = true;
 	public bool moveRight = true;
-	
+	private Vector3 aim;
 	public Stopwatch delay = new Stopwatch();
 	private Vector3 dest;
 	private float shootTime = 0f;
@@ -54,24 +54,16 @@ public class Boss : Enemy {
 		}
 
 		if(moving){
-
-			if(Time.time - shootTime >= 1)
-			{
-				anim.SetBool("Attack", false);
-			}
-
 			//Check attack cooldown while moving only
 			if(Time.time - shootTime > cooldown)
 			{
 				//Shoot randomly
 				if(Random.Range(0, 4) > 0)
 				{
-					anim.SetBool("Attack", true);
+					anim.Play ("Attack");
 					Shoot ();
 				}
 			}
-			
-			//Set velocity
 
 		}
 		else if(canMove){
@@ -115,6 +107,8 @@ public class Boss : Enemy {
 						delay.Start ();
 				} else if (col.tag == "Boundary" || col.tag == "Ground") {
 					rigidbody2D.velocity = rigidbody2D.velocity  * -1;
+				} else if (col.tag == "ChangeDirection") {
+					aim = col.gameObject.GetComponent<ChangeDirection> ().nextVel;
 				}
 	}
 
@@ -129,7 +123,6 @@ public class Boss : Enemy {
 		float dir = 0;
 		
 		shootTime = Time.time;
-		//anim.SetBool("Attack", true);
 
 		Vector3 aim =  GameObject.Find("Aliver").transform.position - transform.position;
 		aim.z = 0;

@@ -10,7 +10,7 @@ public class ChangeDirection : MonoBehaviour {
 	public Transform dest;
 	private Transform nextDest;
 	public Vector2 currVel;
-	private Vector2 nextVel;
+	public Vector2 nextVel;
 
 	// Use this for initialization
 	void FixedUpdate() {
