@@ -94,7 +94,7 @@ public class Boss : Enemy {
 				}
 		
 		//Take damage from projectile
-		else if (col.tag == "Projectile") {
+		else if (col.tag == "Bomb" && col.gameObject.GetComponent<Bomb>().armed) {
 						moving = false;
 						canMove = false;
 						delay.Stop ();

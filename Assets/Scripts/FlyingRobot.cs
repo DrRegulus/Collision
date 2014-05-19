@@ -20,6 +20,7 @@ public class FlyingRobot : Enemy {
 	private float shootTime = 0f;
 	private float lastSeenTime = 0f; //The time the robot last could engage Aliver.
 	private float suspicionDuration = 5f; //How long to keep being suspicious after Aliver escapes the range.
+	private bool turned = false;
 	
 	//The circlecollider for combat radius used to be 4;
 	
@@ -37,67 +38,82 @@ public class FlyingRobot : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
-		//dlog ("I'm a flying robot who updated!");
-		if(inCombat)
+		if(alive)
 		{
-			//rigidbody2D.velocity = new Vector2(0, 0);
-			dlog("I am in combat. Is Aliver close?: "+isCloseToAliver);
-			
-			
-			
-			dlog (Time.time +" current/shoot "+shootTime);
-			if( (Time.time - shootTime) > cooldown)
+			//Change direction of sprite
+			if(!turned && dest.x > transform.position.x)
 			{
-				Shoot ();
+				transform.Rotate(0, 180, 0);
+				turned = true;
 			}
-			
-			
-			
-			if(!isCloseToAliver)
+			else if(turned && dest.x < transform.position.x)
 			{
+				transform.Rotate(0, -180, 0);
+				turned = false;
+			}
+
+			//dlog ("I'm a flying robot who updated!");
+			if(inCombat)
+			{
+				//rigidbody2D.velocity = new Vector2(0, 0);
+				dlog("I am in combat. Is Aliver close?: "+isCloseToAliver);
 				
 				
-				if(!playerPos.Equals(null))
+				
+				dlog (Time.time +" current/shoot "+shootTime);
+				if( (Time.time - shootTime) > cooldown)
 				{
-					headTowards(playerPos.position,4);
+					Shoot ();
 				}
 				
-				//Disengage with Aliver
-				if(Time.time - lastSeenTime > suspicionDuration)
+				
+				
+				if(!isCloseToAliver)
 				{
-					playerPos = null;
-					inCombat = false;
+					
+					
+					if(!playerPos.Equals(null))
+					{
+						headTowards(playerPos.position,4);
+					}
+					
+					//Disengage with Aliver
+					if(Time.time - lastSeenTime > suspicionDuration)
+					{
+						playerPos = null;
+						inCombat = false;
+					}
 				}
-			}
-			//I am close.
-			else
-			{
-				rigidbody2D.velocity = new Vector2(0, 0);
-			}
-			
-			//Shoot at aliver here
-		}
-		else
-		{
-			if(!Arrived ())
-			{
-				calculateDirection();
+				//I am close.
+				else
+				{
+					rigidbody2D.velocity = new Vector2(0, 0);
+				}
 				
-				dlog("I am moving at a speed! maxSpeed is "+maxSpeed);
-				//rigidbody2D.velocity = new Vector2(xDir * maxSpeed, yDir * maxSpeed);
-				//rigidbody2D.velocity = Vector2.MoveTowards(transform.position,dest,1);
-				headTowards(dest);
-				//dlog("I'm going this fast "+rigidbody2D.velocity.magnitude);
+				//Shoot at aliver here
 			}
 			else
 			{
-				if(patrolPoints.Length>1)
-					patrolIdx = (patrolIdx + 1) % patrolPoints.Length;
+				if(!Arrived ())
+				{
+					calculateDirection();
+					
+					dlog("I am moving at a speed! maxSpeed is "+maxSpeed);
+					//rigidbody2D.velocity = new Vector2(xDir * maxSpeed, yDir * maxSpeed);
+					//rigidbody2D.velocity = Vector2.MoveTowards(transform.position,dest,1);
+					headTowards(dest);
+					//dlog("I'm going this fast "+rigidbody2D.velocity.magnitude);
+				}
+				else
+				{
+					if(patrolPoints.Length>1)
+						patrolIdx = (patrolIdx + 1) % patrolPoints.Length;
+					
+					calculateDirection();
+				}
 				
-				calculateDirection();
+				
 			}
-			
-			
 		}
 	}
 	
@@ -175,6 +191,14 @@ public class FlyingRobot : Enemy {
 			inCombat = true;
 			isCloseToAliver = true;
 			playerPos = col.transform;
+		}
+		else if(col.tag == "Projectile" && alive)
+		{
+			Hurt (1);
+			anim.Play("Break");
+			rigidbody2D.gravityScale = 1;
+			rigidbody2D.fixedAngle = false;
+			rigidbody2D.velocity = new Vector2(0, 0);
 		}
 	}
 	

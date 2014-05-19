@@ -5,6 +5,8 @@ public class Bomb : ThrowableWeapon {
 	
 	public int damage = 1;
 	public float liveTime = 5;
+	public bool armed = false;
+
 	void Awake()
 	{
 		this.Speed = 0f; //set the speed of weapon
@@ -16,7 +18,7 @@ public class Bomb : ThrowableWeapon {
 	void OnCollisionEnter2D (Collision2D col) 
 	{
 		if(col.gameObject.tag == "Projectile"){
-			
+			armed = true;
 			particleSystem.Play();
 			Destroy (gameObject, 0.1f);
 			
@@ -37,7 +39,7 @@ public class Bomb : ThrowableWeapon {
 	void OnTriggerEnter2D (Collider2D col) 
 	{
 		if(col.gameObject.tag == "Projectile"){
-
+			armed = true;
 			particleSystem.Play();
 			
 			Destroy (gameObject, 0.1f);
